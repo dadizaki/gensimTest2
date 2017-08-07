@@ -1,0 +1,322 @@
+Rely on http://rdp-s01.corp.ebay.com/mediawiki/index.php/IDI_RADD_Files#IDI_CAM_CC_BIN_HMAC_NONDCC
+Rely on http://rdp-s01.corp.ebay.com/mediawiki/index.php/IDI_RADD_Files#IDI_CAM2011_CCIP_CNTRY
+Rely on http://rdp-s01.corp.ebay.com/mediawiki/index.php/IDI_RADD_Files#IDI_CAM_SELLER_NONDCC
+all usd amount
+Rely on http://rdp-s01.corp.ebay.com/mediawiki/index.php/IDI_RADD_Files#IDI_CAM_MERCH_PROFILING
+issuer deny usd amount
+count:IsBad=1 TxnBsId at  by key BillCnty|ShpCnty
+count:IsCcBad=0 TxnBsId at IsYoung=1 by key fn_os
+sum:IsCcBad=0 AmtUsd at IsYoung=1 by key fn_supercookie
+count:IsCcBad=1 TxnBsId at IsWAX=1 by key CcBinHmac
+count:IsBad=1 TxnBsId at IsYoung=1 by key CcBinHmac
+count:IsCcBad=1 TxnBsId at IsYoung=1 by key CcBinHmac
+count SnrAccId at IsEbay=1 by key fn_brow_name
+count:IsBad=0 SnrAccId at  by key fn_brow_hash
+sum:IsBad=0 AmtUsd at  by key dy_unique_device_id
+sum:IsCcBad=0 AmtUsd at  by key fn_supercookie
+count:IsBad=0 TxnBsId at  by key fn_height|fn_width
+sum:IsBad=0 AmtUsd at  by key fn_height|fn_width
+"Teradata table location on Leopard
+pp_risk_ops_views.amt_RADD_table
+Biz Owner Contact
+Reza KhosravaniIt is a weekly job C_PP_IDI_POS_RSK_RATING."
+summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: AmtUsd, target function: max, profile key: FsoId
+summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 7, target field: AmtUsd, target function: max, profile key: FsoId
+summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: AmtUsd, target function: max, profile key: FsoId
+summarization: sum, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 7, target field: AmtUsd, target function: max, profile key: FsoId
+summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: AmtUsd, target function: min, profile key: FsoId
+summarization: count, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: TxnId, target function: min, profile key: FsoId
+summarization: count, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: TxnId, target function: min, profile key: FsoId
+summarization: sum, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: AmtUsd, target function: min, profile key: FsoId
+summarization: sum, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: AmtUsd, target function: min, profile key: FsoId
+summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: AmtUsd, target function: mean, profile key: FsoId
+summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 7, target field: AmtUsd, target function: mean, profile key: FsoId
+summarization: count, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: TxnId, target function: mean, profile key: FsoId
+summarization: count, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 7, target field: TxnId, target function: mean, profile key: FsoId
+summarization: sum, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: AmtUsd, target function: mean, profile key: FsoId
+summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: AmtUsd, target function: stdev, profile key: FsoId
+summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: AmtUsd, target function: stdev, profile key: FsoId
+summarization: count, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: TxnId, target function: max, profile key: SnrPCnty,SnrIpCnty
+summarization: count, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 7, target field: TxnId, target function: min, profile key: SnrPCnty,SnrIpCnty
+summarization: count, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: TxnId, target function: min, profile key: SnrPCnty,SnrIpCnty
+summarization: sum, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: AmtUsd, target function: min, profile key: SnrPCnty,SnrIpCnty
+summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: AmtUsd, target function: mean, profile key: SnrPCnty,SnrIpCnty
+summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 7, target field: AmtUsd, target function: mean, profile key: SnrPCnty,SnrIpCnty
+summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: AmtUsd, target function: mean, profile key: SnrPCnty,SnrIpCnty
+summarization: sum, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: AmtUsd, target function: mean, profile key: SnrPCnty,SnrIpCnty
+summarization: sum, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: AmtUsd, target function: mean, profile key: SnrPCnty,SnrIpCnty
+summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: AmtUsd, target function: stdev, profile key: SnrPCnty,SnrIpCnty
+summarization: count, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: TxnId, target function: stdev, profile key: SnrPCnty,SnrIpCnty
+summarization: count, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: TxnId, target function: stdev, profile key: SnrPCnty,SnrIpCnty
+summarization: sum, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 7, target field: AmtUsd, target function: stdev, profile key: SnrPCnty,SnrIpCnty
+summarization: sum, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: AmtUsd, target function: stdev, profile key: SnrPCnty,SnrIpCnty
+summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: AmtUsd, target function: max, profile key: SnrPCnty,SnrIpTz
+summarization: count, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: TxnId, target function: max, profile key: SnrPCnty,SnrIpTz
+summarization: sum, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: AmtUsd, target function: max, profile key: SnrPCnty,SnrIpTz
+$ bad rate
+# bad rate
+Deprecated all ebay related variables
+count:IsBad=0 TxnBsId at IsCc=1 by key fn_supercookie
+count:IsBad=0 SnrAccId at  by key fn_supercookie
+N/A
+"Deprecated all ebay related variables.
+
+This variable's name is duplicate with another variable: http://variable-catalogue-3193.ccg21.dev.paypalcorp.com:3000/variables/arm_email_MP_10d_txn_dk"
+hahaha. Deprecated all ebay related variables
+Deprecated all ebay related variables. Deprecated all ebay related variables
+Deprecated all ebay related variables  .This variable's name is duplicate with another variable: http://variable-catalogue-3193.ccg21.dev.paypalcorp.com:3000/variables/arm_email_MP_days_snc_sus_acct
+Deprecated all ebay related variables  .This variable's name is duplicate with another variable: http://variable-catalogue-3193.ccg21.dev.paypalcorp.com:3000/variables/arm_email_MP_dof
+sum:IsCcBad=0 AmtUsd at  by key fn_height|fn_width
+sum:IsBad=0 AmtUsd at  by key fn_supercookie
+count SnrAccId at IsYoung=1 by key fn_supercookie
+count:IsCcBad=0 TxnBsId at IsYoung=1 by key fn_supercookie
+count:IsBad=0 TxnBsId at IsWAX=1 by key fn_supercookie
+sum:IsBad=0 AmtUsd at IsEbay=1 by key fn_supercookie
+sum:IsBad=0 AmtUsd at IsYoung=1 by key fn_supercookie
+sum AmtUsd at IsProx=1 by key BillCnty|ShpCnty
+max(CP1wRtAtoBadTxn, CP1wRtCcBadTxn)
+max(CP1wRtDolAtoBadTxn, CP1wRtDolCcBadTxn)
+max(CP20wRtAtoBadAcc, CP20wRtCcBadAcc)
+max(CP20wRtAtoBadTxn, CP20wRtCcBadTxn)
+max(CP20wRtDolAtoBadTxn, CP20wRtDolCcBadTxn)
+max(CP4wRtAtoBadAcc, CP4wRtCcBadAcc)
+max(CP4wRtAtoBadTxn, CP4wRtCcBadTxn)
+max(CP4wRtDolAtoBadTxn, CP4wRtDolCcBadTxn)
+max(max_cp4wRtAtoCcBadAcc, max_ipr4wRtAtoCcBadAcc, max_em4wRtAtoCcBadAcc, max_ip4wRtAtoCcBadAcc, max_vid4wRtAtoCcBadAcc);
+max(IPR20wRtAtoBadTxn, IPR20wRtCcBadTxn)
+max(IPR4wRtAtoBadTxn, IPR4wRtCcBadTxn)
+Deprecated all ebay related variables  .This variable's name is duplicate with another variable: http://variable-catalogue-3193.ccg21.dev.paypalcorp.com:3000/variables/uelv_min_ebay_since_bought_360all
+Deprecated all ebay related variables  .This variable's name is duplicate with another variable: http://variable-catalogue-3193.ccg21.dev.paypalcorp.com:3000/variables/uelv_n_ebay_lnkd_360all
+standard deviation
+trans rate in the top bin
+This variable's name is duplicate with another variable: http://variable-catalogue-3193.ccg21.dev.paypalcorp.com:3000/variables/days_snc_last_achtxn
+Deprecated all ebay related variables  .This variable's name is duplicate with another variable: http://variable-catalogue-3193.ccg21.dev.paypalcorp.com:3000/variables/min_ebay_since_bought_360all
+Deprecated all ebay related variables  .This variable's name is duplicate with another variable: http://variable-catalogue-3193.ccg21.dev.paypalcorp.com:3000/variables/n_ebay_lnkd_360all
+This variable's name is duplicate with another variable: http://variable-catalogue-3193.ccg21.dev.paypalcorp.com:3000/variables/s_ach_failed_ratio_new
+Deprecated because of MEP migration, new version still need to be implemented in one week.
+IF sum(sa_m,  0) > 0 AND sum(cidr_m, fso_m, vid_m,cp_m,0)>0 AND sum(sum_big_cp_all, 0) = 0 AND sum(sa_timesincefirst_used,0)>30 AND sum(sa_pmts,0) >25 AND sum(sa_accts,0) <2 THEN    sum_used_sa_all = 1;  ELSE   sum_used_sa_all = 0
+count:IsCcBad=1 TxnBsId at  by key BillCnty|ShpCnty
+count:IsCcBad=1 TxnBsId at IsXb=1 by key BillCnty|ShpCnty
+count SnrAccId at IsEbay=1 by key fn_supercookie
+count:IsBad=0 TxnBsId at IsEbay=1 by key fn_supercookie
+count:IsBad=0 TxnBsId at  by key fn_supercookie
+count:IsCcBad=0 SnrAccId at  by key fn_supercookie
+count:IsCcBad=0 TxnBsId at  by key fn_supercookie
+count:IsBad=1 TxnBsId at IsWAX=1 by key BillCnty|ShpCnty
+sum:IsBad=1 AmtUsd at IsWAX=1 by key BillCnty|ShpCnty
+count:IsCcBad=1 TxnBsId at IsWAX=1 by key BillCnty|ShpCnty
+count:IsBad=1 TxnBsId at IsXb=1 by key BillCnty|ShpCnty
+sum:IsBad=1 AmtUsd at IsXb=1 by key BillCnty|ShpCnty
+sum:IsBad=1 AmtUsd at  by key RvrAccId
+sum AmtUsd at IsCamElg=1 by key dy_app_guid
+sum AmtUsd at IsEbay=1 by key dy_app_guid
+count:IsBad=0 TxnBsId at  by key fn_brow_hash
+count SnrAccId at IsCc=1 by key fn_brow_name
+count TxnBsId at IsCc=1 by key fn_brow_name
+sum AmtUsd at IsEbay=1 by key fn_brow_name
+count SnrAccId at IsCc=1 by key fn_supercookie
+sum:IsBad=0 AmtUsd at IsCc=1 by key fn_supercookie
+RADD name:IDI_EBAYEGVAR_V1,RADD field:EBAY_EG_MAX_10D_TPV_18M
+RADD name:IDI_EBAYEGVAR_V1,RADD field:EBAY_EG_MAX_30D_TPV_12M
+RADD name:IDI_EBAYEGVAR_V1,RADD field:EBAY_EG_ACCT_RECEIVED_TPV_10D_40D
+RADD name:IDI_EBAYEGVAR_V1,RADD field:EBAY_EG_ACCT_RCVD_LFTM_DAILY_TPV_3D_LAG
+RADD name:IDI_EBAYEGVAR_V1,RADD field:EBAY_EG_LFTM_AVG_ASP
+RADD name:IDI_EBAYEGVAR_V1,RADD field:EBAY_EG_ACCT_RECEIVED_TPV_30D_60D
+Ratio of GRW_l10d_lft_tpv/GRW_m1_lft_tpv
+Ratio of GRW_l10d_lft_tpv/GRW_l40d_l10d_lft_tpv
+count TxnBsId at  by key BillCnty|ShpCnty
+count:IsBad=1 TxnBsId at IsDg=1 by key BillCnty|ShpCnty
+count:IsCcBad=1 TxnBsId at IsDg=1 by key BillCnty|ShpCnty
+sum:IsCcBad=1 AmtUsd at IsDg=1 by key BillCnty|ShpCnty
+count TxnBsId at IsEbay=1 by key BillCnty|ShpCnty
+count SnrAccId at IsEbay=1|IsM=1 by key BillCnty|ShpCnty
+count TxnBsId at IsEbay=1|IsM=1 by key BillCnty|ShpCnty
+count:IsBad=1 TxnBsId at IsEbay=1|IsM=1 by key BillCnty|ShpCnty
+sum:IsBad=1 AmtUsd at IsEbay=1|IsM=1 by key BillCnty|ShpCnty
+count:IsCcBad=1 TxnBsId at IsEbay=1|IsM=1 by key BillCnty|ShpCnty
+count:IsBad=1 TxnBsId at IsEbay=1 by key BillCnty|ShpCnty
+sum:IsBad=1 AmtUsd at IsEbay=1 by key BillCnty|ShpCnty
+count:IsCcBad=1 TxnBsId at IsEbay=1 by key BillCnty|ShpCnty
+sum:IsCcBad=1 AmtUsd at IsEbay=1 by key BillCnty|ShpCnty
+count:IsBad=1 TxnBsId at IsInitial=1 by key BillCnty|ShpCnty
+sum:IsBad=1 AmtUsd at IsInitial=1 by key BillCnty|ShpCnty
+count:IsCcBad=1 TxnBsId at IsInitial=1 by key BillCnty|ShpCnty
+count:IsBad=1 TxnBsId at IsM=1 by key BillCnty|ShpCnty
+sum:IsBad=1 AmtUsd at IsM=1 by key BillCnty|ShpCnty
+count:IsCcBad=1 TxnBsId at IsM=1 by key BillCnty|ShpCnty
+count:IsBad=1 TxnBsId at IsProx=1 by key BillCnty|ShpCnty
+count:IsCcBad=1 TxnBsId at IsProx=1 by key BillCnty|ShpCnty
+count SnrAccId at IsProx=1|IsWAX=1 by key BillCnty|ShpCnty
+sum AmtUsd at IsProx=1|IsWAX=1 by key BillCnty|ShpCnty
+sum:IsBad=1 AmtUsd at  by key BillCnty|ShpCnty
+sum:IsCcBad=1 AmtUsd at  by key BillCnty|ShpCnty
+count:IsCcBad=1 TxnBsId at IsSendMoney=1 by key BillCnty|ShpCnty
+0.8* tpv_season_peak+0.2* tpv_season_sumpk
+Colum score from IDI_NRT_PREDICTION_SCORE
+Column score from IDI_NRT_PREDICTION_SCORE
+spear variables for ARMTP16
+hmac for account history
+count:IsBad=1 TxnBsId at IsYoung=1 by key BillCnty|ShpCnty
+sum:IsCcBad=1 AmtUsd at IsYoung=1 by key BillCnty|ShpCnty
+count:IsBad=1 TxnBsId at IsEbay=1 by key CcBinHmac
+count:IsCcBad=1 TxnBsId at IsEbay=1 by key CcBinHmac
+sum:IsBad=1 AmtUsd at IsInitial=1 by key CcBinHmac
+sum:IsCcBad=1 AmtUsd at IsInitial=1 by key CcBinHmac
+count:IsBad=1 TxnBsId at IsM=1 by key CcBinHmac
+sum:IsBad=1 AmtUsd at  by key CcBinHmac
+count:IsCcBad=1 TxnBsId at  by key CcBinHmac
+sum:IsCcBad=1 AmtUsd at  by key CcBinHmac
+count:IsBad=1 TxnBsId at IsWAX=1 by key CcBinHmac
+sum:IsBad=1 AmtUsd at IsWAX=1 by key CcBinHmac
+sum:IsCcBad=1 AmtUsd at IsWAX=1 by key CcBinHmac
+count:IsBad=1 TxnBsId at IsXb=1 by key CcBinHmac
+count:IsCcBad=1 TxnBsId at IsXb=1 by key CcBinHmac
+sum:IsCcBad=1 AmtUsd at IsEbay=1 by key IpCnty
+count:IsCcBad=1 TxnBsId at IsInitial=1 by key IpCnty
+count:IsCcBad=1 TxnBsId at  by key IpCnty
+sum:IsCcBad=1 AmtUsd at  by key IpCnty
+count:IsCcBad=1 TxnBsId at IsXb=1 by key IpCnty
+sum:IsCcBad=1 AmtUsd at IsXb=1 by key IpCnty
+count SnrAccId at IsEbay=1|IsM=1 by key RvrPCnty|SnrPCnty
+count:IsBad=1 TxnBsId at IsInitial=1 by key RvrPCnty|SnrPCnty
+count:IsCcBad=1 TxnBsId at IsInitial=1 by key RvrPCnty|SnrPCnty
+sum:IsCcBad=1 AmtUsd at IsInitial=1 by key RvrPCnty|SnrPCnty
+count:IsCcBad=1 TxnBsId at IsM=1 by key RvrPCnty|SnrPCnty
+sum:IsCcBad=1 AmtUsd at IsM=1 by key RvrPCnty|SnrPCnty
+count:IsCcBad=1 TxnBsId at  by key RvrPCnty|SnrPCnty
+sum:IsCcBad=1 AmtUsd at  by key RvrPCnty|SnrPCnty
+count:IsBad=1 TxnBsId at IsWAX=1 by key RvrPCnty|SnrPCnty
+count:IsCcBad=1 TxnBsId at IsWAX=1 by key RvrPCnty|SnrPCnty
+sum:IsCcBad=1 AmtUsd at IsYoung=1 by key RvrPCnty|SnrPCnty
+sum:IsCcBad=1 AmtUsd at IsInitial=1 by key RvrAccId
+count:IsBad=1 TxnBsId at IsM=1 by key RvrAccId
+count:IsCcBad=1 TxnBsId at IsM=1 by key RvrAccId
+count:IsCcBad=1 TxnBsId at  by key RvrAccId
+count:IsCcBad=1 TxnBsId at IsWAX=1 by key RvrAccId
+count:IsBad=1 TxnBsId at IsXb=1 by key RvrAccId
+sum:IsBad=1 AmtUsd at IsXb=1 by key RvrAccId
+count:IsCcBad=1 TxnBsId at IsXb=1 by key RvrAccId
+sum:IsCcBad=1 AmtUsd at IsXb=1 by key RvrAccId
+count TxnBsId at IsCamElg=1 by key dy_app_guid
+count:IsBad=0 TxnBsId at IsCamElg=1 by key dy_app_guid
+sum:IsBad=0 AmtUsd at IsCamElg=1 by key dy_app_guid
+count:IsCcBad=0 TxnBsId at IsCamElg=1 by key dy_app_guid
+sum:IsCcBad=0 AmtUsd at IsCamElg=1 by key dy_app_guid
+count:IsBad=0 TxnBsId at IsCc=1 by key dy_app_guid
+sum:IsBad=0 AmtUsd at IsCc=1 by key dy_app_guid
+sum:IsCcBad=0 AmtUsd at IsCc=1 by key dy_app_guid
+sum AmtUsd at IsCc=1 by key dy_app_guid
+count TxnBsId at IsEbay=1 by key dy_app_guid
+count:IsBad=0 TxnBsId at IsEbay=1 by key dy_app_guid
+sum:IsBad=0 AmtUsd at IsEbay=1 by key dy_app_guid
+count:IsCcBad=0 TxnBsId at IsEbay=1 by key dy_app_guid
+sum:IsCcBad=0 AmtUsd at IsEbay=1 by key dy_app_guid
+count:IsBad=0 TxnBsId at  by key dy_app_guid
+sum:IsBad=0 AmtUsd at  by key dy_app_guid
+count:IsCcBad=0 TxnBsId at  by key dy_app_guid
+sum:IsCcBad=0 AmtUsd at  by key dy_app_guid
+sum AmtUsd at  by key dy_app_guid
+count:IsBad=0 TxnBsId at IsWAX=1 by key dy_app_guid
+sum:IsBad=0 AmtUsd at IsWAX=1 by key dy_app_guid
+count:IsBad=0 TxnBsId at IsYoung=1 by key dy_app_guid
+sum AmtUsd at IsYoung=1 by key dy_app_guid
+sum:IsBad=0 AmtUsd at IsCc=1 by key dy_customer_id
+sum AmtUsd at IsCc=1 by key dy_customer_id
+count TxnBsId at IsEbay=1 by key dy_customer_id
+sum AmtUsd at IsEbay=1 by key dy_customer_id
+sum:IsBad=0 AmtUsd at  by key dy_customer_id
+count:IsCcBad=0 TxnBsId at  by key dy_customer_id
+sum AmtUsd at  by key dy_customer_id
+sum:IsBad=0 AmtUsd at IsWAX=1 by key dy_customer_id
+count:IsBad=0 TxnBsId at IsCamElg=1 by key dy_unique_device_id
+sum:IsBad=0 AmtUsd at IsCamElg=1 by key dy_unique_device_id
+count:IsCcBad=0 TxnBsId at IsCamElg=1 by key dy_unique_device_id
+sum:IsCcBad=0 AmtUsd at IsCamElg=1 by key dy_unique_device_id
+sum AmtUsd at IsCamElg=1 by key dy_unique_device_id
+sum:IsBad=0 AmtUsd at IsCc=1 by key dy_unique_device_id
+count:IsCcBad=0 TxnBsId at IsCc=1 by key dy_unique_device_id
+sum:IsCcBad=0 AmtUsd at IsCc=1 by key dy_unique_device_id
+sum:IsCcBad=0 AmtUsd at IsEbay=1 by key dy_unique_device_id
+sum AmtUsd at IsEbay=1 by key dy_unique_device_id
+count:IsBad=0 TxnBsId at  by key dy_unique_device_id
+count:IsCcBad=0 TxnBsId at  by key dy_unique_device_id
+sum:IsCcBad=0 AmtUsd at  by key dy_unique_device_id
+count:IsCcBad=0 TxnBsId at IsYoung=1 by key dy_unique_device_id
+sum:IsCcBad=0 AmtUsd at IsYoung=1 by key dy_unique_device_id
+sum AmtUsd at IsYoung=1 by key dy_unique_device_id
+sum:IsBad=0 AmtUsd at  by key fn_brow_hash
+count:IsCcBad=0 TxnBsId at IsCamElg=1 by key fn_brow_name
+count:IsBad=0 SnrAccId at IsCamElg=1 by key fn_height|fn_width
+sum:IsCcBad=0 AmtUsd at IsCamElg=1 by key fn_height|fn_width
+count:IsBad=0 SnrAccId at IsCc=1 by key fn_height|fn_width
+count:IsBad=0 TxnBsId at IsCc=1 by key fn_height|fn_width
+sum:IsBad=0 AmtUsd at IsCc=1 by key fn_height|fn_width
+count:IsCcBad=0 SnrAccId at IsCc=1 by key fn_height|fn_width
+count:IsCcBad=0 TxnBsId at IsCc=1 by key fn_height|fn_width
+sum:IsCcBad=0 AmtUsd at IsCc=1 by key fn_height|fn_width
+count:IsCcBad=0 TxnBsId at IsEbay=1 by key fn_height|fn_width
+sum:IsCcBad=0 AmtUsd at IsEbay=1 by key fn_height|fn_width
+count:IsCcBad=0 SnrAccId at  by key fn_height|fn_width
+count:IsCcBad=0 TxnBsId at  by key fn_height|fn_width
+count:IsCcBad=0 SnrAccId at IsWAX=1 by key fn_height|fn_width
+sum:IsCcBad=0 AmtUsd at IsWAX=1 by key fn_height|fn_width
+count:IsBad=0 SnrAccId at IsYoung=1 by key fn_height|fn_width
+count:IsCcBad=0 SnrAccId at IsYoung=1 by key fn_height|fn_width
+count:IsBad=0 TxnBsId at IsCc=1 by key fn_os
+count:IsBad=0 TxnBsId at IsWAX=1 by key fn_os
+sum:IsBad=0 AmtUsd at IsWAX=1 by key fn_os
+count SnrAccId at IsCamElg=1 by key fn_supercookie
+count TxnBsId at IsCamElg=1 by key fn_supercookie
+count:IsBad=0 SnrAccId at IsCamElg=1 by key fn_supercookie
+count:IsBad=0 TxnBsId at IsCamElg=1 by key fn_supercookie
+sum:IsBad=0 AmtUsd at IsCamElg=1 by key fn_supercookie
+count:IsCcBad=0 SnrAccId at IsCamElg=1 by key fn_supercookie
+count:IsCcBad=0 TxnBsId at IsCamElg=1 by key fn_supercookie
+sum:IsCcBad=0 AmtUsd at IsCamElg=1 by key fn_supercookie
+sum AmtUsd at IsCamElg=1 by key fn_supercookie
+count TxnBsId at IsCc=1 by key fn_supercookie
+count:IsBad=0 SnrAccId at IsCc=1 by key fn_supercookie
+count:IsCcBad=0 SnrAccId at IsCc=1 by key fn_supercookie
+count:IsCcBad=0 TxnBsId at IsCc=1 by key fn_supercookie
+sum:IsCcBad=0 AmtUsd at IsCc=1 by key fn_supercookie
+sum AmtUsd at IsCc=1 by key fn_supercookie
+count TxnBsId at  by key fn_supercookie
+count TxnBsId at IsEbay=1 by key fn_supercookie
+count:IsBad=0 SnrAccId at IsEbay=1 by key fn_supercookie
+count:IsCcBad=0 TxnBsId at IsEbay=1 by key fn_supercookie
+sum AmtUsd at IsEbay=1 by key fn_supercookie
+sum AmtUsd at  by key fn_supercookie
+count SnrAccId at IsWAX=1 by key fn_supercookie
+count TxnBsId at IsWAX=1 by key fn_supercookie
+count:IsBad=0 SnrAccId at IsWAX=1 by key fn_supercookie
+sum:IsBad=0 AmtUsd at IsWAX=1 by key fn_supercookie
+sum:IsCcBad=0 AmtUsd at IsWAX=1 by key fn_supercookie
+sum AmtUsd at IsWAX=1 by key fn_supercookie
+count TxnBsId at IsYoung=1 by key fn_supercookie
+count:IsBad=0 TxnBsId at IsYoung=1 by key fn_supercookie
+count:IsCcBad=0 SnrAccId at IsYoung=1 by key fn_supercookie
+sum AmtUsd at IsYoung=1 by key fn_supercookie
+If min_ebay_dof NE 0, then compute  (pp_dof /min_ebay_dof).If min_ebay_dof = 0, then return 99999
+If mean_ebay_dof NE 0, then compute  (pp_dof /mean_ebay_dof).If mean_ebay_dof = 0, then return 99999
+count TxnBsId at IsWAX=1 by key BillCnty|ShpCnty
+count SnrAccId at IsWAX=1 by key BillCnty|ShpCnty
+count TxnBsId at IsM=1 by key BillCnty|ShpCnty
+count TxnBsId at IsProx=1 by key BillCnty|ShpCnty
+count SnrAccId at IsProx=1 by key BillCnty|ShpCnty
+count:IsBad=1 TxnBsId at IsM=1 by key CcBinCnty
+count:IsBad=1 TxnBsId at  by key CcBinCnty
+count:IsBad=1 TxnBsId at IsYoung=1 by key CcBinCnty
+count:IsBad=1 TxnBsId at IsInitial=1 by key CcBinHmac
+count:IsCcBad=1 TxnBsId at IsInitial=1 by key CcBinHmac
+count:IsCcBad=1 TxnBsId at IsM=1 by key CcBinHmac
+count:IsBad=1 TxnBsId at  by key CcBinHmac
+count:IsCcBad=1 TxnBsId at IsDg=1 by key IpCnty
+count:IsCcBad=1 TxnBsId at IsEbay=1 by key IpCnty
+count SnrAccId at IsP2p=1 by key IpCnty
+count TxnBsId at IsWAX=1 by key IpCnty
+count:IsBad=1 TxnBsId at IsInitial=1 by key RvrAccId
+sum:IsBad=1 AmtUsd at IsInitial=1 by key RvrAccId
+count:IsCcBad=1 TxnBsId at IsInitial=1 by key RvrAccId
+count:IsBad=1 TxnBsId at  by key RvrAccId
+sum:IsCcBad=1 AmtUsd at  by key RvrAccId
+count:IsCcBad=1 TxnBsId at IsYoung=1 by key RvrAccId

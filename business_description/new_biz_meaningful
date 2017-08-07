@@ -1,0 +1,1191 @@
+describes the ratio of eBay usage and compares to S&R usage
+Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+Std of 30day glosscnt eg's interval in the history
+risk rating by email domain and buyer country, ratio of the current transaction amount and the average good transaction amount
+risk rating by seller country and seller industry and buyer country and counterparty, transaction level natural log (bad amount rate)
+7d gloss eg's gross loss amount coverage in the history
+30d tpvcnt eg's gross loss amount coverage in the history
+$ percentage of good transactions
+# percentage of good transactions
+unauthorized trans count growth between 3rd and 1st month
+ratio of num sent denied ACH to sent succ ACH past 1 month
+sum DC sent successful since negative bal
+max sent denial debit card last 12 months
+sum DC sent successful since DC denial
+sum DC sent successful since any denial
+Axciom demographic gender code
+Axciom demographic age group
+Axciom demographic occupation code
+num gaming tx past 3 months
+num gaming tx past 3-12 months
+num finance tx past 3 months
+num groupono tx past 3 months
+num non-profit tx past 3 months
+number of gambling tx past 3 months
+Hot swap to PRIME V2.6 with a new version that includes performance improvements and an analytical fix on April 3rd
+Has bad vid in charge back transactions.
+7d tpvcnt eg's gross loss count coverage in the history
+30d gloss eg's tpv count coverage in the history
+30day tpvcnt eg's gross loss amount in the history
+7d gloss eg's tpv count coverage in the history
+invoice average discount percentage within 90 days
+describes the ratio of eBay usage for the seller and the ASP
+If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the mean day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+If max_ebay_dof NE 0, then compute  (pp_dof /max_ebay_dof).If max_ebay_dof = 0, then return 99999
+Mean of 30day glosscnt eg's interval in the history
+30day gloss eg's gross loss count in the history
+invoice average discount percentage within 7 days
+invoice average listing quantity count within 7 days
+whether the invoice has logo url within 90 days
+invoice average due days within 30 days
+invoice average listing position count within 90 days
+7day tpvcnt eg's gross loss count in the history
+invoice average listing quantity count within 90 days
+invoice average name length within 90 days
+invoice  listing position sum within 7 days
+ratio of invoice average item count within 30days to 90 days
+invoice  listing quantity sum within 30 days
+invoice  average tax amount within 90 days
+invoice  average unit price within 90 days
+invoice average listing quantity count within 30 days
+7day tpvcnt eg's gross loss amount in the history
+Calculates the average cc dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1. For computing average, we replace -1 with 0.
+7day gloss eg's gross loss amount in the history
+30day gloss eg's tpv count in the history
+30day gloss eg's gross loss amount in the history
+visitor id profile from previous 1 week of dollar of cross border CC bad transaction rate
+visitor id profile from previous 4 weeks of dollar of ATO bad transaction rate
+Current transaction amount divided by VID 20 weeks average Cc Unauth transaction amount
+Current transaction amount divided by VID 4 weeks average Cc Unauth transaction amount
+number of ATO transactions
+VID 4 weeks: the absolute value of the difference between the transaction amount and the average approved dollar amount divided by the standard deviation
+refund with a case count within 90 days
+risk rating by email domain and buyer country, transaction level bad amount rate
+risk rating by email domain and buyer country, transaction level natural log (bad amount rate)
+risk rating by email domain and buyer country, transaction level bad rate
+risk rating by email domain and buyer country, transaction level natural log (bad rate)
+number of good transactions
+amount of good transactions
+$ ato rate in domestic transactions
+$ percentage of good domestic transactions
+$ percentage of indeterminate domestic transactions
+# ato rate in domestic transactions
+# percentage of good domestic transactions
+# percentage of indeterminate domestic transactions
+number of indeterminate transactions
+amount of indeterminate transactions
+number of failed logins in the past 4 weeks
+number of failed logins in the past 7 days vs. in the past 4 weeks
+number of logins in the past 4 weeks
+number of logins in the past 7 days
+number of logins in the past 7 days vs. in the past 4 weeks
+number of phones removed in the past 4 weeks
+number of passwords changed in the past 4 weeks
+number of passwords changed in the past 7 days vs. in the past 4 weeks
+risk rating by email domain and buyer country, ratio of the current transaction amount and the average bad transaction amount
+risk rating by seller country and seller industry and buyer country and counterparty, ratio of the current transaction amount and the average bad transaction amount
+risk rating by seller country and seller industry and buyer country and counterparty, ratio of the current transaction amount and the average good transaction amount
+risk rating by seller country and seller industry and buyer country and counterparty, account level bad rate
+risk rating by seller country and seller industry and buyer country and counterparty, account level natural log (bad rate)
+risk rating by seller country and seller industry and buyer country and counterparty, the average bad transaction amount
+risk rating by seller country and seller industry and buyer country and counterparty, the average good transaction amount
+$ percentage of indeterminate transactions
+# percentage of indeterminate transactions
+risk rating by seller country and seller industry and buyer country and counterparty, transaction level bad amount rate
+risk rating by seller country and seller industry and buyer country and counterparty, transaction level bad rate
+risk rating by seller country and seller industry and buyer country and counterparty, transaction level natural log (bad rate)
+$ ato rate in cross-boarder transactions
+$ percentage of good cross-boarder transactions
+$ percentage of indeterminate cross-boarder transactions
+# ato rate in cross-boarder transactions
+# percentage of good cross-boarder transactions
+# percentage of indeterminate cross-boarder transactions
+asp when cc indetermined (is_bad > 0 and is_bad not in (3,4)) on all transactions
+asp when non-chargeback on all transactions
+asp when non-restricted on all transactions
+asp when restricted (is_bad = 4) on all transactions
+asp when restricted (is_bad = 4) on cc transactions
+account average lifetime balance (balance * days)
+account maximum lifetime balance (balance * days)
+account minimum lifetime balance (balance * days)
+average over standard deviation of account lifetime balance (balance * days)
+account total lifetime balance (balance * days)
+standard deviation of account lifetime balance (balance * days)
+average balance in the past 3 days versus average balance in the past 30 to 120 days
+average balance in the past 7 days versus average balance in the past 30 to 120 days
+maximum balance in the past 3 days versus maximum balance in the past 30 to 120 days
+maximum balance in the past 7 days versus maximum balance in the past 30 to 120 days
+minimum balance in the past 3 days versus minimum balance in the past 30 to 120 days
+minimum balance in the past 7 days versus minimum balance in the past 30 to 120 days
+standard deviation balance in the past 3 days versus standard deviation balance in the past 30 to 120 days
+standard deviation balance in the past 7 days versus standard deviation balance in the past 30 to 120 days
+refund count within 30 days
+percentage of  refund with a case count within 7 days
+send money email payment received amount in 30 days
+ratio of send money email payment received count in 7 days to 30 days
+unauthorized usd amount growth between 3rd and 1st month
+The bad rate for txn's cidr. Bad_dollar_amount/total_dollar_amount
+The number of times this cidr is used by this account
+If txn's cidr has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+Counterparty 1 week average of dollar-level ATO bad rate
+counterparty profile from previous 20 weeks ending 4 weeks ago of ATO bad account rate
+counterparty profile from previous 20 weeks ending 4 weeks ago of ATO bad transaction rate
+counterparty profile from previous 20 weeks ending 4 weeks ago of CC bad account rate
+Counterparty 20 weeks average of transactions-level bad rate
+counterparty profile from previous 20 weeks ending 4 weeks ago of dollar of ATO bad transaction rate
+counterparty profile from previous 20 weeks ending 4 weeks ago of dollar of cross border CC bad transaction rate
+Counterparty 20 weeks average of account-level ATO bad rate, log-transformed. Deprecated because of MEP migration, new version still need to be implemented in one week.
+Counterparty 20 weeks average of account-level CC bad rate, log-transformed. Deprecated because of MEP migration, new version still need to be implemented in one week.
+Counterparty 20 weeks average of dollar-level cross-border CC bad rate, log transformed. Deprecated because of MEP migration, new version still need to be implemented in one week.
+Counterparty 4 weeks average of account-level ATO bad rate
+counterparty profile from previous 4 weeks of ATO bad transaction rate
+Counterparty 4 weeks average of account-level CC bad rate
+counterparty profile from previous 4 weeks of declined transaction rate
+Counterparty 4 week average of dollar-level ATO bad rate
+Counterparty 4 weeks average of dollar-level bad rate
+Counterparty 4 weeks average of dollar-level CC bad rate
+Counterparty 4 weeks average of transactions-level decline rate, log-transformed
+Counterparty 4 weeks average of dollar-level bad rate, log transformed
+number of accts that have used this counter party before
+The bad rate for txn's counter party. Bad_dollar_amount/total_dollar_amount
+Categorical version of cp_zscr_1w_appr_pertxn: s0 (less than 1SD), s1 (between 1SD and 2SD), s2 (between 2SD and 3SD)
+Categorical version of cp_zscr_20w_appr_pertxn: s0 (less than 1SD), s1 (between 1SD and 2SD), s2 (between 2SD and 3SD)
+Categorical version of cp_zscr_4w_appr_pertxn: s0 (less than 1SD), s1 (between 1SD and 2SD), s2 (between 2SD and 3SD)
+If txn's cp has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+Current transaction amount divided by CP 1 week average approved transaction amount
+Current transaction amount divided by CP 1 week average ATO transaction amount
+Current transaction amount divided by CP 1 week average Cc Unauth transaction amount
+Current transaction amount divided by CP 20 weeks average all bad transaction amount
+Current transaction amount divided by CP 20 weeks average ATO transaction amount
+Current transaction amount divided by CP 4 weeks average ATO transaction amount
+Current transaction amount divided by CP 4 weeks average CC Unauth transaction amount
+CP 4 weeks: the absolute value of the difference between the transaction amount and the average approved dollar amount divided by the standard deviation
+Current transaction amount divided by edomain 1 week average approved transaction amount
+Rely on http://rdp-s01.corp.ebay.com/mediawiki/index.php/IDI_RADD_Files#IDI_CAM_EDOMAIN_NONDCC
+ratio of 30 days' refund with a case amount percentage to 90 days'
+ratio of 7 days' refund with a case amount to 30 days'
+Flag of whether the transaction is the first non-P2P transaction of the receiver.
+ratio of 7 days' refund with a case count to 30 days'
+ratio of 30 days' refund with a case count percentage to 90 days'
+If txn's fso has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+Does the account have mobile p2p payment in the past year
+Basically all customers in the RADD should have mobile transactions before.
+Does the account have p2p payment in the past year
+Has bad vid in big merchant transactions.
+Has bad vid in other reasons.
+Determines if the VID of the current transaction is bad. Note this v2 one the default value is 0.
+in border cc restricted usd bad rate
+in border cc bad rate
+IP profile from previous 1 week of dollar of ATO bad transaction rate
+IP 20 weeks average of dollar-level ATO bad rate
+IP profile from previous 4 weeks of cross border CC bad account rate
+IP profile from previous 4 weeks of cross border CC bad transaction rate
+IP profile from previous 4 weeks of dollar of ATO bad transaction rate
+IP 4 weeks average of dollar-level bad rate
+IP 4 weeks average of dollar-level cross-border CC bad rate
+IP 4 weeks average of dollar-level bad rate, log-transformed. Deprecated because of MEP migration, new version still need to be implemented in one week.
+The bad rate for txn's ip. Bad_dollar_amount/total_dollar_amount
+If txn's ip has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+Current transaction amount divided by IP 20 weeks average CC Unauth transaction amount
+Current transaction amount divided by IP 4 weeks average approved transaction amount
+IP range 1 week average of transaction-level ATO bad rate
+IP range 20 weeks average of account-level ATO bad rate
+IP range profile from previous 20 weeks ending 4 weeks ago of dollar of ATO bad transaction rate
+IP range 20 weeks average of dollar-level ATO bad rate, log transformed. Deprecated because of MEP migration, new version still need to be implemented in one week.
+IP range profile from previous 4 weeks of ATO bad transaction rate
+IP range profile from previous 4 weeks of dollar of CC bad transaction rate
+Categorical version of ipr_zscr_20w_appr_pertxn: s0 (less than 1SD), s1 (between 1SD and 2SD), s2 (between 2SD and 3SD)
+Categorical version of ipr_zscr_4w_appr_pertxn: s0 (less than 1SD), s1 (between 1SD and 2SD), s2 (between 2SD and 3SD)
+Current transaction amount divided by IP range 1 week average CC Unauth transaction amount
+Current transaction amount divided by IP range 20 weeks average approved transaction amount
+Current transaction amount divided by IP range 4 weeks average ATO transaction amount
+Current transaction amount divided by IP range 4 weeks average Cc Unauth transaction amount
+ IPR 20 weeks: the absolute value of the difference between the transaction amount and the average approved dollar amount divided by the standard deviation
+ IPR 4 weeks: the absolute value of the difference between the transaction amount and the average approved dollar amount divided by the standard deviation
+Most commonly used shipping address_id on the acct in last 30-180 days
+Second most commonly used shipping address_id on the acct in last 30-180 days
+Third most commonly used shipping address_id on the acct in last 30-180 days
+the current shipping address_id is within the top 3 shipping address_IDes in the past 30-180 days and the usage of the shipping addres_ids is above 50% in the past 30-180 days
+Percent usage of most commonly used shipping address_id on the acct in last 30-180 days
+Percent usage of second most commonly used shipping address_id on the acct in last 30-180 days
+Percent usage of third most commonly used shipping address_id on the acct in last 30-180 days
+current payment amount / average payment amount in the past 30-180 days
+current payment amount / maximum payment amount in the past 30-180 days
+Max payment amount over past 30-180 days
+Number of new IPS used in the past 2 days / number of new IPS used in past 30-60 days
+Percent usage of  second most commonly used IP_timezone on the acct in last 30-180 days
+number of accts that have used this shipping address before
+If txn's sa has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+number of pmts received by this shipping address
+cc usd bad rate over all trans including non-cc
+cc bad rate over all trans including non-cc
+cc bad rate over all trans including non-cc for new accounts
+Sender 1 week average of dollar-level decline rate
+Sender 20 weeks average of transaction-level ATO bad rate
+sender profile from previous 4 weeks of ATO bad transaction rate
+Categorical version of snr_zscr_20w_appr_pertxn: s0 (less than 1SD), s1 (between 1SD and 2SD), s2 (between 2SD and 3SD)
+Categorical version of snr_zscr_4w_appr_pertxn: s0 (less than 1SD), s1 (between 1SD and 2SD), s2 (between 2SD and 3SD)
+Current transaction amount divided by sender 20 weeks average ATO transaction amount
+Current transaction amount divided by sender 20 weeks average Cc Unauth transaction amount
+Current transaction amount divided by sender 4 weeks average Cc Unauth transaction amount
+Sender 20 weeks: the absolute value of the difference between the transaction amount and the average approved dollar amount divided by the standard deviation
+Sender 4 weeks: the absolute value of the difference between the transaction amount and the average approved dollar amount divided by the standard deviation
+VID 20 weeks average of transaction-level ATO bad rate
+VID 4 week average of dollar-level cross-border CC bad rate
+vt usd amount percent growth between 3rd and 1st month
+Number of months since the seller’s first sale
+refund count within 7 days
+refund amount within 7 days
+refund amount within 30 days
+refund amount within 90 days
+refund with a case count within 7 days
+refund with a case count within 30 days
+refund with a case amount within 7 days
+send money email payment received amount in 90 days
+send money email payment received count in 30 days
+send money email payment received count in 7 days
+send money email payment received amount in 7 days
+ratio of send money email payment received count in 30 days to 90 days
+ratio of send money email payment received amount in 7  days to 30 days
+ratio of send money email payment received amount in 30 days to 90 days
+count SnrAccId at  by key fn_supercookie
+Number of months since the seller’s last sale
+Number of months that the seller has tpv
+refund count within 90 days
+percentage of  refund with a case amount within 30 days
+percentage of  refund with a case amount within 90 days
+ratio of 7 days' refund count to 30 days'
+ratio of 7 days' refund amount to 30 days'
+ratio of 30 days' refund amount to 90 days'
+ratio of 30 days' refund with a case count to 90 days'
+ratio of 30 days' refund with a case amount to 90 days'
+ratio of 7 days' refund with a case count percentage to 30 days'
+send money email payment received count in 90 days
+7day gloss eg's gross loss count in the history
+7d gloss eg's gross loss count coverage in the history
+30day glosscnt eg's tpv coverage in the history
+Ratio of 7 day over 15 day average quantities sold per listing
+Ratio of Quantity Listed in past 30 days / past (31-90) days
+Past 10 days on eBay ASP received
+Ratio of 7 day over 15 day daily quantities sold
+Ratio of Quantity Listed in past 30 days / past 90 days
+Past 30 days on eBay Max USD Txn received
+Ratio of 3 day over 15 day average closed GMV per listing
+Ratio of Quantity Listed in past 7 days / past (8-90) days
+Past (31-60) days on eBay Max USD Txn received
+Ratio of 3 day over 15 day average quantities sold per listing
+Average of Risk Rating of various leaf category listed in past 30 days
+Past 10 days on eBay Max USD Txn received
+Ratio of 7 day over 15 day average closed GMV per listing
+Average of Risk Rating of various leaf category listed in past 3 days
+Past (11-40) days on eBay Max USD Txn received
+Max sold ASP for past 7 to 15 days
+Average of Risk Rating of various leaf category listed in past 7 days
+Past 50 days on eBay Max USD Txn received
+Max sold ASP for past 30 days
+Average of Risk Rating of various leaf category listed in past (2-90) days
+Ratio of Past 30/(31-60) on eBay Max USD Txn received
+Max sold ASP for past 90 days
+Average of Risk Rating of various leaf category listed in past 90 days
+Ratio of Past 10/(11-40) on eBay Max USD Txn received
+Daily average closed GMV for past 30-90 days
+Average of Risk Rating of various leaf category listed in past (31-90) days
+Ratio of Past 10/(50) on eBay Max USD Txn received
+Max sold ASP for past 15 days
+Average of Risk Rating of various leaf category listed in past (4-90) days
+Max Lifetime TPV in past (31-60) days
+Average quantities sold per listing for past 7 days
+Average of Risk Rating of various leaf category listed in past (8-90) days
+Max Lifetime TPV in past 10 days
+Average quantities sold per listing for past 3 days
+Average Weighted leaf Risk Rating (RR * GMV) of listings in past 30 days
+Max Lifetime TPV in past (11-40) days
+Average quantities sold per listing for past 15 days
+Average Weighted leaf Risk Rating (RR * GMV) of listings in past 3 days
+Ratio of 7 day over 15 day average auction payment days per listing
+Average Weighted leaf Risk Rating (RR * GMV) of listings in past 7 days
+Ratio of 30 day over 90 day daily average closed GMV
+Average Weighted leaf Risk Rating (RR * GMV) of listings in past (2-90) days
+Months since on record in ALID (Max 24)
+Average auction payment days per listing for past 7 to 15 days
+Average Weighted leaf Risk Rating (RR * GMV) of listings in past 90 days
+Total TPV in past 24 months (Before current month)
+Daily average closed GMV for past 7-15 days
+Average Weighted leaf Risk Rating (RR * GMV) of listings in past (4-90) days
+Total Txn in past 24 months (Before current month)
+Max sold asp for past 7 days
+Average Weighted leaf Risk Rating (RR * GMV) of listings in past (31-90) days
+Std of past 24 months on eBay TPV (Before current month)
+Ratio of 3 day over 7 day average quantities sold per listing
+Average Weighted leaf Risk Rating (RR * GMV) of listings in past (8-90) days
+Std of past 24 months on eBay Txn (Before current month)
+Average quantities sold per listing in the past 30 days
+Average ASP of Listings in past 30 days
+Monthly avg of past 24 months on eBay TPV (Before current month)
+Ratio of 3 day over 15 day average auction payment days per listing
+Average ASP of Listings in past 3 days
+Monthly avg of past 24 months on eBay Txn (Before current month)
+Ratio of 30 day over 90 day average quantities per listing
+Average ASP of Listings in past (2-90) days
+Avg Selling Price in past 24 months
+Ratio of 3 day over 7 day daily quantities sold
+Average ASP of Listings in past 7 days
+Max Monthly TPV in past 24 months on eBay Txn (Before current month)
+Average quantities per listing for the past 90 days
+Average ASP of Listings in past (4-90) days
+Max Monthly Txn in past 24 months on eBay Txn (Before current month)
+Std of Monthly average ASP in 12 calendar months
+Ratio of 3 day over 15 day daily average closed listings
+Average GMV of Listings in past 7 days
+Difference between Max and Min Monthly Average TPV for each of 12 calendar months
+Ratio of 7 day over 15 day daily average closed listings
+Average Number of Listings per day in past 30 days
+Difference between Max and Min Monthly Average ASP for each of 12 calendar months
+Average quantities sold per listing for past 1 to 3 days
+Average Number of Listings per day in past (2-90) days
+Avg Monthly TPV  in past 2 years for current calendar Month
+Ratio of 1 day over 7 day avg quantities per listing?
+Average Number of Listings per day in past 90 days
+Avg Monthly ASP  in past 2 years for current calendar Month
+Ratio of 1 day over 7 day daily average closed GMV
+Average Number of Listings per day in past (31-90) days
+Ratio of Past 30 day TPV/Max Monthly TPV in past 24 months
+Ratio of 1 day over 7 day daily quantities sold
+Average Number of Listings per day in past (4-90) days
+Ratio of Past 30 day ASP/Max Monthly ASP in past 24 months
+Avg auction payment days for past 90 days
+Average Number of Listings per day in past (8-90) days
+Ratio of Past 30 day TPV/Avg Monthly TPV in past 24 months
+Ratio of 3 day over 7 day avg gmv per listing
+Max ASP Listed in past 7 days
+Max sold asp for the past 1 – 3 days?
+Max Leaf Risk Rating in past 7 days
+Past 50 days on eBay TPV received
+Avg auction payment days for past 15 days
+Max Leaf Risk Rating in past (2-90) days
+Past 7 days on eBay TPV received
+Ratio of 7 day vs 15 day max sold asp
+Max Leaf Risk Rating in past 90 days
+Past (8-37) days on eBay TPV received
+Ratio of 1 day over 7 day average closed GMV per listing
+Max Leaf Risk Rating in past (4-90) days
+Ratio of Past 30/(31-60) on eBay TPV received
+Closed listings for the past 90 days
+Max Leaf Risk Rating in past (8-90) days
+Ratio of Past 10/(11-40) on eBay TPV received
+Ratio of 1 day over 7 day avg auction payment days
+Max Qty Listed in past 30 days
+Ratio of Past 10/(50) on eBay TPV received
+Ratio of 30 day over 90 day avg auction payment days
+Max Qty Listed in past 7 days
+Ratio of Past 7/(8-37) on eBay TPV received
+Avg auction payment days for past 7 days
+Max Qty Listed in past (2-90) days
+Standard Deviation of daily on eBay TPV received in past 60 days
+Ratio of 30 day over 90 day max sold asp
+Max Qty Listed in past 90 days
+Standard Deviation of daily on eBay TPV received in past 30 days
+Ratio of 3 day over 7 day avg closed listings
+Past 30 days on eBay Txn received
+Ratio of 30 day over 90 day avg closed listings
+Max Qty Listed in past (8-90) days
+Past (31-60) days on eBay Txn received
+Ratio of 1 day over 7 day avg closed listings
+Min ASP Listed in past 30 days
+Past 10 days on eBay Txn received
+Ratio of 3 day over 7 day max sold asp
+Min ASP Listed in past (2-90) days
+Past (11-40) days on eBay Txn received
+daily average closed GMV for past 15 days?
+Min ASP Listed in past 90 days
+Past 50 days on eBay Txn received
+Avg closed listings for the past 30 days
+Min ASP Listed in past (31-90) days
+Past 7 days on eBay Txn received
+Max sold asp for the past 1 day?
+Min ASP Listed in past (4-90) days
+Past (8-37) days on eBay Txn received
+Min ASP Listed in past (8-90) days
+Ratio of Past 30/(31-60) on eBay Txn received
+Ratio of 1day over 7 day max sold asp
+Num of Listings with multi quantity in past (8-90) days
+Ratio of Past 10/(11-40) on eBay Txn received
+Avg closed listings for the past 90 days
+Sum of Weighted RR in past 30 days
+Ratio of Past 10/(50) on eBay Txn received
+Avg closed listings for the past 15 days
+Sum of Weighted RR in past (8-90) days
+Ratio of Past 7/(8-37) on eBay Txn received
+Avg auction payment days for past 3 days
+Num of Listings in past 30 days
+Standard Deviation of daily on eBay Txn received in past 60 days
+Ratio of 1 day over 3 day avg quantities per listing
+Num of Listings in past (2-90) days
+Standard Deviation of daily on eBay Txn received in past 30 days
+Ratio of 1 day over 3 day max sold asp
+Num of Listings in past 90 days
+Past 30 days on eBay ASP received
+Ratio of 1 day over 3 day avg auction payment days
+Num of Listings in past (31-90) days
+daily average closed GMV for past 7 days?
+Sum of Quantity Listed in past (4-90) days
+Average closed GMV per listing for past 90 days?
+Sum of Quantity Listed in past (8-90) days
+Average closed GMV per listing for past 15 days?
+Sum of Quantity Listed in past (31-90) days
+Average closed GMV per listing for past 30 days?
+Average Auction Days Interval of Listings in New Leaf categories entered in past 30 days
+Average closed GMV per listing for past 7 days?
+Average Auction Days Interval of Listings in New Leaf categories entered in past 3 days
+Ratio of 1 day over 3 day quantities sold
+Average Auction Days Interval of Listings in New Leaf categories entered in past 7 days
+Avg auction payment days for past 1 day
+Average GMV of New Leaf Categories entered in past 30 days
+Ratio of 1 day over 3 day daily average closed GMV
+Average GMV of New Leaf Categories entered in past 3 days
+Average closed GMV per listing for past 3 days?
+Average GMV of New Leaf Categories entered in past 7 days
+Ratio of 1 day over 3 day average closed GMV per listing
+Average Risk Rating of New Leaf categories entered in past 30 days
+Average scheduled auction intervals (in days) per listing for the past 15 day
+Decay 320 of Max asp for the past 90 days with positive seller fdbk scores
+Average Risk Rating of New Leaf categories entered in past 3 days
+Average scheduled auction intervals (in days) per listing for the past 7 day
+Sum of the sold price with positive seller fdbk scores for the past 90 days
+Average Risk Rating of New Leaf categories entered in past 7 days
+Average scheduled auction intervals (in days) per listing for the past 3 day
+Max asp with positive score given by seller as buyer for the past 90 days
+Max ASP of listings in New leaf categories entered in past 30 days
+Ratio of 30 day vs 90 day average scheduled auction intervals per listing
+Decay 320 of last 90 days positive fdbk scores received by seller
+Max Qty Listed in New leaf categories in past 30 days
+Ratio of 7 day vs 15 day average scheduled auction intervals per listing
+Number of fdbk received by seller for item below $100 for the past 90 days
+Max Qty Listed in New leaf categories in past 7 days
+Ratio of 3 day vs 15 day average scheduled auction intervals per listing
+Decay 320 of min asp with positive score received by seller for past 90 days
+Max Risk Rating of New leaf Categories in past 30 days
+Ratio of 3 day vs 7 day average scheduled auction intervals per listing
+Number of fdbks given within 5 days of txn for the seller as buyer for the past 90 days
+Max Risk Rating of New leaf Categories in past 3 days
+Daily average of listed Gross Merchandise Value $ for the past 90 days
+Max asp with positive score received by seller for the past 90 days
+Quantity Per listing in new leaf categories in past 30 days
+Max listed Average Sale Price for the past 15 days
+Number of fdbk given by seller as buyer for item below $100 for the past 90 days
+Quantity Per listing in new leaf categories in past 3 days
+Ratio of 30 day vs 90 day average listed quantity per listing
+Total number of fdbk given by seller as buyer for the past 90 days
+Quantity Per listing in new leaf categories in past 7 days
+Ratio of 7 day vs 15 day daily average of listed Gross Merchandise Value $
+Number of positive fdbk score given by seller as buyer for the past 90 days
+Qutanty listed in new leaf categories in past 30 days
+Ratio of 30 day vs 90 day daily average of listed Gross Merchandise Value $
+Sum of fdbk received interval days for item below $100 for the past 90 days for the seller
+Qutanty listed in new leaf categories in past 3 days
+Ratio of 3 day vs 15 day daily average of listed Gross Merchandise Value $
+Sum of fdbk received interval days for item above $100 for the past 90 days for the seller
+Qutanty listed in new leaf categories in past 7 days
+Ratio of 3 day vs 15 day max listed Average Sale Price
+Number of positive fdbk score received by seller for the past 90 days
+Average ASP in new leaf categories / Total Average ASP in past 30 days
+Ratio of 3 day vs 7 day daily average of listed Gross Merchandise Value $
+Number of fdbk given within 2 days of txn for the seller as buyer for the past 90 days
+Average ASP in new leaf categories / Total Average ASP in past 3 days
+Ratio of 7 day vs 15 day average listed quantities per listing
+Number of fdbks given within 1 days of txn for the seller as buyer for the past 90 days
+Average ASP in new leaf categories / Total Average ASP in past 7 days
+Ratio of 30 day vs 90 day max listed quantities
+Number of fdbk given by seller as buyer for item above $100 for the past 90 days
+Average Auction Days interval in new leaf categories / Total avg auct days in past 1 days
+Ratio of 7 day vs 15 day daily average listed quantity
+Number of positive fdbk received by seller with item above $100 for the past 90 days
+Average Auction Days interval in new leaf categories / Total avg auct days in past 30 days
+Ratio of 30 day vs 90 day daily average listed quantity
+Number of fdbk received by seller with item above $100 for the past 90 days
+Average Auction Days interval in new leaf categories / Total avg auct days in past 3 days
+Ratio of 3 day vs 15 day daily average listed quantity
+Ratio of decay 320 of positive fdbk over total fdbk for the past 90 days
+Average Auction Days interval in new leaf categories / Total avg auct days in past 7 days
+Ratio of 7 day vs 15 day max listed average sale price
+Ratio of decay 320 of non-positive fdbk over total fdbk for the past 90 days
+Avg GMV in new leaf categories / Total avg GMV in past 30 days
+Ratio of 30 day vs 90 day max listed average sale price
+Ratio of decay 320 of max asp with positive fdbk over non-positive fdbk
+Avg GMV in new leaf categories / Total avg GMV in past 7 days
+Ratio of 7 day vs 15 day number of listings per day
+Number of fdbk given more than 5 days of txns for the seller as buyer for the past 90 days
+Avg Risk Rating per leaf in new leaf categories / Total Average Risk Rating per leaf in past 30 days
+Ratio of 3 day vs 15 day max listed quantities
+Number of fdbk given for item below 10 dollar by the seller as buyer for the past 90 days
+Avg Risk Rating per leaf in new leaf categories / Total Average Risk Rating per leaf in past 3 days
+Ratio of 3 day vs 15 day number of listings per day
+Max asp with non-positive fdbk received by seller for the past 90 days
+Number of new leaf category listed in past 30 days / Total in 30 days
+# of photos the seller added in the past 90 days
+Num fdbk received for item below 10 dollar by the seller for the past 90 days
+Number of new leaf category listed in past 30 days / (31-90) days
+Ratio of 30 day vs 90 day number of watch people
+Sum of the sold price with non-positive seller fdbk scores for the past 90 days
+Number of new leaf category listed in past 30 days / 90 days
+spear risk rating variable for POS16_ATO
+# of people watch in the past 7 to 15 days
+Number of non-positive seller fdbk scores for the past 90 days
+Quantity listed in new leaf / Total Quantity Listed in past 30 days
+Ratio of 7 day over 15 day number of watch people
+Sum of fdbk received interval days for item below $10 for the past 90 days for the seller
+Quantity listed in new leaf / Total Quantity Listed in past 3 days
+# of photos the seller added in the past 7 to 15 days
+Decay 320 of max asp with non-positive scores for the seller for the past 90 days
+Quantity listed in new leaf / Total Quantity Listed in past 7 days
+Ratio of 7 day over 15 day number of photos
+Ratio of max asp with non-positive over positive fdbk score for the seller for the past 90 days
+Number of new leaf category listed in past 30 days
+Ratio of 3 day over 15 day daily average closed GMV
+Min asp with positive fdbk score for the seller for the past 90 days
+Number of new leaf category listed in past 3 days
+Ratio of 30 day over 90 day average closed GMV per listing
+Decay 320 of non-positive fdbk score for the seller for the past 90 days
+Number of new leaf category listed in past 7 days
+Ratio of 7 day over 15 day daily average closed GMV
+Ratio of min asp with non-positive over positive fdbk score for the seller for the past 90 days
+Number of unique leaf category listed in past 30 days
+Ratio of 3 day over 15 day daily quantities sold
+Ratio of sum price for non-positive score over total sum for the seller for the past 90 days
+Number of unique leaf category listed in past 7 days
+Ratio of sum price for positive score over total sum for the seller for the past 90 days
+Number of unique leaf category listed in past (2-90) days
+Ratio of Avg Auction Days for listings in past 30 days / past 90 days
+Number of unique leaf category listed in past 90 days
+Ratio of Avg Auction Days for listings in past 7 days / past (8-90) days
+Number of unique leaf category listed in past (31-90) days
+Ratio of Num of Listings in past 30 days / past (31-90) days
+Number of unique leaf category listed in past (4-90) days
+Ratio of Num of Listings in past 30 days / past 90 days
+Number of unique leaf category listed in past (8-90) days
+Ratio of Num of Listings in past 7 days / past (8-90) days
+Number of unique leaf category listed in past 30 / (31-90) days
+Ratio of Num of listings which are multi qty in past 30 days / past (31-90) days
+Number of unique leaf category listed in past 30 / (90) days
+Number of unique leaf category listed in past 3 / (4-90) days
+Number of unique leaf category listed in past 7 / (8-90) days
+Number of unique lvl4 category listed in past 30 days
+Number of unique lvl4 category listed in past 90 days
+Number of unique lvl7 category listed in past 30 days
+Number of unique lvl7 category listed in past 7 days
+Number of unique lvl7 category listed in past 90 days
+Quantity Per Listing in past 30 days
+Quantity Per Listing in past (2-90) days
+Quantity Per Listing in past 90 days
+Quantity Per Listing in past (4-90) days
+Standard deviation of per leaf ASP Growth rate in past 7 days in leaves with growth greater than 1
+Standard deviation of per leaf GMV Growth rate in past 7 days in leaves with growth greater than 1
+Sum of per leaf ASP Growth rate in past 7 days in leaves with growth greater than 1
+Sum of per leaf ASP Growth rate in past 7 days in leaves with growth greater than 2
+Maximum of Total number of withdrawal in 60 days made by seller in the last 180 days
+Maximum of Total amount of withdrawal in 60 days made by seller in the last 180 days
+Maximum of Total number of withdrawal in 30 days made by seller in the last 180 days
+Maximum of Total amount of withdrawal in 30 days made by seller in the last 180 days
+Maximum of Total number of withdrawal in 20 days made by seller in the last 180 days
+Maximum of Total amount of withdrawal in 20 days made by seller in the last 180 days
+Maximum of Total number of withdrawal in 10 days made by seller in the last 180 days
+Maximum of Total amount of withdrawal in 10 days made by seller in the last 180 days
+Maximum of Total number of withdrawal in 5 days made by seller in the last 180 days
+Maximum of Total amount of withdrawal in 5 days made by seller in the last 180 days
+Maximum of Total number of withdrawal in 2 days made by seller in the last 180 days
+Maximum of Total amount of withdrawal in 2 days made by seller in the last 180 days
+Minimum of time difference between two withdrawals calculated in hour in the last 500 withdrawals in the last 180 days. If two withdrawals are happened in the same day this value is 0.
+Minimum of time difference between two withdrawals calculated in hour in 30 days in the last 180 days. If two withdrawals are happened in the same day this value is 0.
+Minimum of time difference between two withdrawals calculated in hour in 20 days in the last 180 days. If two withdrawals are happened in the same day this value is 0.
+Minimum of time difference between two withdrawals calculated in hour in 10 days in the last 180 days. If two withdrawals are happened in the same day this value is 0.
+Minimum of time difference between two withdrawals calculated in hour in 5 days in the last 180 days. If two withdrawals are happened in the same day this value is 0.
+Minimum of time difference between two withdrawals calculated in hour in 2 days in the last 180 days. If two withdrawals are happened in the same day this value is 0.
+Total number of withdrawals in the last 60 days
+Total amount of withdrawals in the last 60 days
+Total number of withdrawals in the last 30 days
+Total amount of withdrawals in the last 30 days
+Total number of withdrawals in the last 20 days
+Total amount of withdrawals in the last 20 days
+Total number of withdrawals in the last 10 days
+Total amount of withdrawals in the last 10 days
+Total number of withdrawals in the last 5 days
+Total amount of withdrawals in the last 5 days
+Total number of withdrawals in the last 2 days
+Total amount of withdrawals in the last 2 days
+Total number of withdrawals in the last 60 days divided by the maximum of Total number of withdrawal in 60 days made by seller in the last 180 days
+Total amount of withdrawals in the last 60 days divided by the maximum of Total amount of withdrawal in 60 days made by seller in the last 180 days
+Total number of withdrawals in the last 30 days divided by the maximum of Total number of withdrawal in 30 days made by seller in the last 180 days
+Total amount of withdrawals in the last 30 days divided by the maximum of Total amount of withdrawal in 30 days made by seller in the last 180 days
+Total number of withdrawals in the last 10 days divided by the maximum of Total number of withdrawal in 10 days made by seller in the last 180 days
+Total amount of withdrawals in the last 10 days divided by the maximum of Total amount of withdrawal in 10 days made by seller in the last 180 days
+Total number of withdrawals in the last 5 days divided by the maximum of Total number of withdrawal in 5 days made by seller in the last 180 days
+Total amount of withdrawals in the last 5 days divided by the maximum of Total amount of withdrawal in 5 days made by seller in the last 180 days
+Total number of withdrawals in the last 2 days divided by the maximum of Total number of withdrawal in 2 days made by seller in the last 180 days
+Total amount of withdrawals in the last 2 days divided by the maximum of Total amount of withdrawal in 2 days made by seller in the last 180 days
+Minimum of time difference between two withdrawals calculated in hour in 10 days divided by the minimum of time difference between two withdrawals calculated in hour in 20 days.
+Minimum of time difference between two withdrawals calculated in hour in 10 days divided by the minimum of time difference between two withdrawals calculated in hour in 30 days.
+Minimum of time difference between two withdrawals calculated in hour in 2 days divided by the minimum of time difference between two withdrawals calculated in hour in 5 days.
+Minimum of time difference between two withdrawals calculated in hour in 2 days divided by the minimum of time difference between two withdrawals calculated in hour in 20 days.
+Minimum of time difference between two withdrawals calculated in hour in 2 days divided by the minimum of time difference between two withdrawals calculated in hour in 30 days.
+Minimum of time difference between two withdrawals calculated in hour in 5 days divided by the minimum of time difference between two withdrawals calculated in hour in 10 days.
+Minimum of time difference between two withdrawals calculated in hour in 5 days divided by the minimum of time difference between two withdrawals calculated in hour in 20 days.
+Minimum of time difference between two withdrawals calculated in hour in 5 days divided by the minimum of time difference between two withdrawals calculated in hour in 30 days.
+Min Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 90 days
+Min Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 7 days
+Min Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past (8-90) days
+Min Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 30 days
+Min Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past (31-90) days
+Min Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 90 days
+Std Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 7 days
+Std Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 30 days
+Std Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 90 days
+Std Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 7 days
+Std Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 30 days
+Std Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 90 days
+Sender entity id
+Subsegment name of the sender account for SMB-LM portfolio, such as: “inxp”, “xp_flat”, “special”, “etsy”;
+Higher-level grouping of subsegments, such as: “active_xp” or “no_merch_tpv”
+Highest-level grouping of subsegments: “non_smb”, “valid_smb”, “other”;
+Receiver entity id
+the event date when APP_GUID was first used by this customer, in PST timeZone
+days difference between transaction and APP_GUID used date, calculate in PST timeZone
+days difference between APP_GUID first used and account created date, calculated in PST timeZone
+Collusion risk rating by withdrawal target bank routing number on transaction count within 120 days
+Collusion risk rating by withdrawal target bank routing number on  transaction amount within 120 days
+Collusion risk rating by withdrawal target bank routing number on account count within 120 days
+ATO risk rating by withdrawal target bank routing number on transaction count within 120 days
+"CAM risk rating by withdrawal target bank routing number on decline transaction count within 120 days
+"
+ATO risk rating by withdrawal target bank routing number on transaction amount within 120 days
+Collusion risk rating by withdrawal target bank routing number on account amount within 120 days
+CAM risk rating by withdrawal target bank routing number on transaction amount within 120 days
+Risk rating by withdrawal target bank routing number on account amount within 120 days
+Risk rating by withdrawal target bank routing number on account count within 120 days
+CAM risk rating by withdrawal target bank routing number on transaction count within 120 days
+CAM risk rating by withdrawal target bank routing number on decline transaction amount within 120 days
+Number of Unique Snd cntry - Buyer Cntry txns in past 1 day
+Number of Unique Snd cntry - Buyer Cntry txns in past (2-90) day
+Number of Unique Snd cntry - Buyer Cntry txns in past 3 day
+Number of Unique Snd cntry - Buyer Cntry txns in past (4-90) day
+Number of Unique Snd cntry - Buyer Cntry txns in past 7 day
+Number of Unique Snd cntry - Buyer Cntry txns in past (8-90) day
+Number of Unique Snd cntry - Buyer Cntry txns in past 30 day
+Number of Unique Snd cntry - Buyer Cntry txns in past (31-90) day
+Number of Unique Snd cntry - Buyer Cntry txns in past 90 day
+Avg Bad Act RR for Sndr cntry- Byr Cntry txns in past 1 days
+Avg Bad Act RR for Sndr cntry- Byr Cntry txns in past (2-90) days
+Avg Bad Act RR for Sndr cntry- Byr Cntry txns in past 3 days
+Avg Bad Act RR for Sndr cntry- Byr Cntry txns in past (4-90) days
+Avg Bad Act RR for Sndr cntry- Byr Cntry txns in past 7 days
+Avg Bad Act RR for Sndr cntry- Byr Cntry txns in past (8-90) days
+Avg Bad Act RR for Sndr cntry- Byr Cntry txns in past 30 days
+Avg Bad Act RR for Sndr cntry- Byr Cntry txns in past (31-90) days
+Avg Bad Act RR for Sndr cntry- Byr Cntry txns in past 90 days
+Avg Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 1 days
+Avg Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past (2-90) days
+Avg Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 3 days
+Avg Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past (4-90) days
+Avg Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 7 days
+Avg Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past (8-90) days
+Avg Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 30 days
+Avg Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past (31-90) days
+Avg Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 90 days
+Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 1 days
+Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past (2-90) days
+Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 3 days
+Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past (4-90) days
+Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 7 days
+Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past (8-90) days
+Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 30 days
+Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past (31-90) days
+Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 90 days
+Max Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 1 days
+Max Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past (2-90) days
+Max Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 3 days
+Max Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past (4-90) days
+Max Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 7 days
+Max Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past (8-90) days
+Max Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 30 days
+Max Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past (31-90) days
+Max Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 90 days
+Min Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 7 days
+Min Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past (8-90) days
+Min Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 30 days
+Min Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past (31-90) days
+Sum of seasonality index of seller
+refund with a case amount within 30 days
+refund with a case amount within 90 days
+percentage of  refund with a case count within 90 days
+ratio of 7 days' refund with a case amount percentageto 30 days'
+Min of 30day tpvcnt eg's duration in the history
+Max of 30day tpvcnt eg's duration in the history
+ratio of invoice sum within 7 days to 30 days
+Tpv count coverage in asp eg period in the history
+Max of 7day tpvcnt eg's duration in the history
+Min of 7day tpvcnt eg's duration in the history
+sum of pet supply tx past 3 months
+sum of airline tx past 3-12 months
+num computer hw tx past 3 months
+num of artsncrafts tx past 3 months
+sum of gambling tx past 3 months
+number of gambling tx past 3-12 months
+sum of gaming tx past 3 months
+Ratio of Number of bank and linked active debit card over total number of debit cards
+Average of daily balance in the last one months
+Days since last ACH reutrns due to account invalid reason
+Days since last ACH reutrns due to NSF reason
+Ratio of Number of bank and linked inactive debit card over total number of debit cards
+Maximum ACH returns in a day in the last 12 months due to NSF reason
+Maximum Negative balance in the last 12 months
+Maximum daily sent denied ACH TXN in the last 12 months
+Minimum ACH returns in a day in the last 12 months due to NSF reason
+Sum of amount of non-returned ACH TXN happened more than 3 months ago
+Number of cellphone related TXN in the last 3 months (﻿ 'ARS.cellphones' )
+Number of cellphone related TXN in the last 12 months excluding the last 3 months (﻿ 'ARS.cellphones' )
+Number of claimed TXN by sender in the last one month
+Number of days account in negative balance in the last 12 months
+Number of days account in negative balance in the last 3 months
+Number of ACH returns for the linked accounts decay 90
+Number of gaming related TXN in the last 12 months excluding the last 3 months (﻿ ﻿'ARS.gaming)
+Number of gambling related TXN in the last 3 months
+Number of houseware related TXN in the last 3 months (﻿ 'ARS.houseware' )
+Number of jewelry related TXN in the last 12 months excluding the last 3 months (﻿ 'ARS.jewelry' )
+Number of linked and locked accounts in the last 24 months
+Number of accounts remained lock in the last 24 months
+Number of nutrition supply related TXN in the last 12 months excluding the last 3 months (﻿ '﻿ARS.nutritional-supp' )
+Number of ﻿pet-supplies related TXN in the last 12 months excluding the last 3 months (﻿ '﻿ARS.﻿pet-supplies' )
+Number of ﻿printing related TXN in the last 12 months excluding the last 3 months (﻿ '﻿ARS.﻿printing' )
+Number of ﻿sports-equip related TXN in the last 12 months excluding the last 3 months (﻿ 'ARS.﻿sports-equip' )
+Number of successful sent TXN in the last 12 months
+Number of successful sent TXN in the last 12 months excluding the last 1 month
+Number of DC sent successful in the last 1  month
+Number of Mobile sent successful in the last 12 months excluding the last 1 months
+Number of ﻿toys related TXN in the last 12 months excluding the last 3 months (﻿ 'ARS.﻿toys' )
+﻿Ratio of Amount All sent denied over All successful sent in the past 12 months
+﻿Ratio of Amount All successful ACH over All successful sent in the past 12 months
+﻿Ratio of Amount All successful in the past 1 month over All successful sent in the past 12 months
+﻿Ratio of amount of  successful DC  over All successful TXN in the past 1 month
+﻿Ratio of Amount All successful Mobile in the past 12 month over All successful sent in the past 12 months
+Number of charged back by the reciever over all the suucceful received by the reciever in the last 1 month
+Number of returned ACH TXN
+Sum of amount of returned ACH TXN
+Sum of number of returned tries for ACH TXN
+Percentage of if the credit card transactions for the linked accounts
+Percentage of failed authorized TXN for the credit card linked
+Sum of amount of ACH returns in the last 12 months due to invalid account
+Sum of Amount of computer hardware related TXN in the last 12 months excluding the last 3 months (﻿ ﻿'ARS.computer-hardware' )
+Sum of negative balance in the last 12 months with 90 decays
+Sum of Amount of houseware related TXN in the last 12 months excluding the last 3 months (﻿ 'ARS.houseware' )
+Sum of Amount of nonprofit related TXN in the last 12 months excluding the last 3 months (﻿ 'ARS.non-profit' )
+Sum of Amount of nutrition supply related TXN in the last 12 months excluding the last 3 months (﻿ '﻿ARS.nutritional-supp' )
+Sum of Amount of ﻿pet-supplies related TXN in the last 12 months excluding the last 3 months (﻿ '﻿ARS.﻿pet-supplies' )
+Sum of amount of sent denied in the last 12 months with decay 90
+Sum of amount of sent denied for DC TXN in the last 12 months with decay 90
+Sum of Amount of ﻿sports-equip related TXN in the last 12 months excluding the last 3 months (﻿ 'ARS.﻿sports-equip' )
+﻿Sum of Amount of all successful sent in the past 12 months
+﻿Sum of Amount of all successful sent in the past 15 days from ALID
+﻿Sum of Amount of all successful sent in the past 15 days
+Bad rate for app_guid during last 120 days
+Sum $ Initial Ach return from bank account
+SD of daily tpv for app_guid during the last 7 days
+Bad rate for bssid during last 180 days
+max $ Initial Ach return from bank account
+Bad rate for machine id during last 120 days
+SD of daily tpv for machineid during the last 30 days
+days since Initial Ach return from bank account
+Bad rate for FN browser hash during last 180 days
+number of Bnkhmc for the supercookie during last 7 days
+Bad rate for FN supercookie during last 180 days
+sum net loss due to NSF from bank account
+sum net loss due to Fraud from bank account
+sum net loss due to Oth from bank account
+snum net loss from bank account
+num net loss due to Fraud from bank account
+num net loss due to Oth from bank account
+ratio of num sent denied tx to sent succ tx in past 3m
+ratio of $ successful Ach sent to $ all success sent tx past 15-90 days
+ratio of num sent denied tx to sent succ tx in past 1m
+5-day decay on num sent denied ACH tx past 12 months
+5-day decay on num sent denied tx past 12 months
+days since sent denied any tx
+ratio of percentage of ACH funded tx past 15 days to past 12 months
+day since ACH Return due to NSF
+reverse 90-day decay on $ send denied tx past 12 months
+reverse 90-day decay on $ send denied ach tx past 12 months
+reverse 90-day decay on $ send denied debit card tx past 12 months
+ratio of $ successful Ach sent to $ all success sent tx past 12 months last 15 days excluded
+day since ACH Return due to account invalid
+num days in negative balance in past 3 months
+num days in negative balance in past 12 months
+ratio of $ sent succ tx past 1 month to 12 months
+ratio of percentage of ACH funded tx past 3 months to past 12 months
+5-day decay on num ACH returns past 12 months
+rencent balance
+ratio of percentage of ACH funded tx past 15-30 days to past 12 months
+ratio of $ successful DC sent to $ all success sent tx past 3 months
+ration of $ received past 1 month to 12 months
+num sent denied past 3 months
+num sent denied Ach past 12 months
+ratio of $ successful DC sent to $ all success sent tx past 12 months
+number of succ ach tx since last sent denied
+ratio of $ successful Ach sent to $ all success sent tx past 15 days
+ration of average daily balance past 1 month to 12 months
+sum sent succ ACH since last sent denied DC
+30-day decay on num ACH denials past 12 months
+num sent denied Ach past 1 month
+30-day decay on num ACH returns past 12 months
+ratio of $ successful DC sent to $ all success sent tx past 1 month
+30-day decay on any sent denied past 12 months
+ratio of num sent denied CC to sent succ CC past 1 month
+reverse decay on $ ach return
+num sent denied DC past 3 months
+num sent denied past 1 month
+num sent denied Ach past 3 months
+$ percentage of mobile transactions past 12 months
+negative balance 90 day decay
+$ percentage of p2p transactions past 12 months
+ratio of $ sent denied to sent successful CC in past 3months
+5-day decay on num sent denied DC tx past 12 months
+number of sent succ ach tx past 3 months last 15 days excluded
+ratio of $ sent denied to sent successful CC in past 1months
+90-day decay on any sent denied past 12 months
+5-day decay on num sent denied CC tx past 12 months
+num withdrawals past 1 month
+number of sent succ  tx past 12 months last 15 days excluded
+ratio of percentage of DC funded tx past 3 months to past 12 months
+num days in positive balance in past 3 months
+30-day decay on num  CC denials past 12 months
+negative balance 5 day decay
+num sent denied DC past 12 months
+90-day decay on num ACH denials past 12 months
+number of sent succ DC past 12 months
+ration of average daily balance past 3 months to 12 months
+ratio of $ successful Ach sent to $ all success sent tx past 15-30 days
+min sent denied ACH last 12 months
+reverse decay on $ sent denied CC past 12 months
+sum sent succ ACH past 15 days
+ratio of num sent denied DC to sent succ DC past 3 months
+num days in negative balance in past 1 month
+sum negative balance past 3 months
+ratio of $ sent denied to sent successful DC in past 1months
+num sent denied CC past 1 month
+Average daily balance past 12 months
+$ ratio of offebay received transactions past 12 months
+number of sent succ DC tx since neg balance
+number of sent succ ach tx past 12 months last 15 days excluded
+sum sent succ ACH past 12 months last 15 days excluded
+ratio of percentage of DC funded tx past 1 months to past 12 months
+number of sent succ ach tx past 3 months
+$ percentage of discover CC transactions past 12 months
+ratio of $ successful CC sent to $ all success sent tx past 12 months
+30-day decay on num  DC denials past 12 months
+sum sent succ any tx past 3 months
+num sent denied past 12 months
+sum negative balance past 12 months
+ratio of num sent denied CC to sent succ CC past 3 months
+num days in positive balance in past 1 month
+min ach return unauth last 12 months
+number of sent succ tx last 15 days
+90-day decay on num  CC denials past 12 months
+num sent denied CC past 3 months
+number of sent succ ach tx past 1 month
+ration of $ received past 3 months to 12 months
+min ach return NSF last 12 months
+ratio of $ successful CC sent to $ all success sent tx past 1 month
+number of negative balances past 3 months
+sum off ebay received tx past 1 months
+claim rate of received transactions past 12 months
+sum ach return due to NSF past 1 months
+neg balance 30 day decay
+num days in positive balance in past 12 months
+sum sent denied CC past 3 months
+sum sent succ DC past 1 month
+number of sent succ DC tx since ACH ret
+number of sent succ CC tx since ACH ret
+$ ratio of p2p received tx to all received tx past 12 months
+number of sent succ DC tx since DC denial
+max ach return NSF last 12 months
+sum sent succ ACH since last sent denied
+sum sent succ ACH since last ach return
+number of sent succ ach tx last 15 days
+number of sent succ ach tx past 30 days last 15 days excluded
+number of sent succ tx past 30 days last 15 days excluded
+Average daily balance past 1 month
+ratio of offebay received transactions past 1 months
+sum sent succ any tx past 15-90 days
+sum sent succ ACH past 15-90 days
+number of negative balances past 12 months
+ratio of offebay received transactions past 12 months
+num sent denied CC past 12 months
+number of negative balances past 1 month
+num ACH Return due to NSF past 3 months
+num ACH Return due to NSF past 12 months
+sum sent succ ACH since last sent denied CC
+ratio of percentage of CC funded tx past 3 months to past 12 months
+Average daily balance past 3 months
+num ACH Return due to account invalid past 12 months
+sum sent succ ACH since last negative balance
+number of p2p sent succ past 12 months
+claim rate of received transactions past 1 months
+sum positive balance past 1 month
+sum sent succ CC since sent denied CC
+sum sent succ CC past 1 month
+number of succ ach tx since last negative balance
+Axciom demographic marital status code
+Axciom demographic house owned status code
+Axciom demographic length of residence code
+Axciom demographic children present in house
+Axciom demographic income range code
+Signup Acquisition Channel
+Describe the last 90 days' received txn cnt diversity on sender. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account hasn’t received money yet.
+Describe the last 90 days' received txn amt diversity on sender. The low value means such as 0 only receive money from 1 senders. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+Describe the last 30 days' received txn cnt diversity on sender. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+Describe the last 30 days' received txn amt diversity on sender. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+Describe the last 14 days' received txn cnt diversity on sender. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account hasn’t received money yet.
+Describe the last 14 days' received txn amt diversity on sender. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account hasn’t received money yet.
+Describe the last 7 days' received txn cnt diversity on sender. The low value means such as 0 only receive money from 1 senders. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+Describe the last 7 days' received txn amt diversity on sender. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+Describe the last 90 days' received txn cnt diversity on receiver. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+Describe the last 90 days' received txn amt diversity on receiver. The low value means such as 0 only receive money from 1 senders. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+Describe the last 30 days' received txn cnt diversity on receiver. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+Describe the last 30 days' received txn amt diversity on receiver. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+Describe the last 14 days' received txn cnt diversity on receiver. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+Describe the last 14 days' received txn amt diversity on receiver. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+Describe the last 7 days' received txn cnt diversity on receiver. The low value means such as 0 only receive money from 1 senders. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+Describe the last 7 days' received txn amt diversity on receiver. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+Modeling team agreed that this spear variables will be NULL forever, to keep ARM17 score stable
+returns the sender's latest workplace id
+returns the receiver's latest workplace id
+Average transaction hour for the CC used in the TXN in the last 180 days
+Total number of TXN  for the CC used in the TXN in the last 180 days
+Is this CC has been used mostly at nights or days?
+Sum of hours of all the TXNs for this sender in the last 180 days
+Hour difference between current TXN and average hour
+Is this TXN is in align with the common behavior of the CC or not
+The previous TXN for this CC in the last 180 days
+ the first TXN with this CC in the last 180 days
+The previous TXN for this sndr and CC in the last 180 days
+The first TXN with this sndr and CC in the last 180 days
+The previous TXN for this sndr in the last 180 days
+The first TXN with this sndr in the last 180 days
+Number of days difference between the current date and the previous TXN for this CC in the last 180 days
+Number of days difference between the current date and the first TXN with this CC in the last 180 days
+Number of days difference between the current date and the previous TXN for this sndr and CC in the last 180 days
+Number of days difference between the current date and the first TXN with this sndr and CC in the last 180 days
+Days difference between the current date and the previous TXN for this sndr in the last 180 days
+Days difference between the current date and the first TXN with this sndr in the last 180 days
+The section 4 of dot format of last transaction
+The section 3 of dot format of last transaction
+The section 2 of dot format of last transaction
+The section 1 of dot format of last transaction
+Last CC TXN timestamp
+Weighted square distance between the TXN IP and the immediate last transaction has been seen for this CC divided by the difference of the TS
+Total number of credit cards on file for the POS customer
+Total number of groupon transactions in the last year excluding the last three month
+Sum of daily withdraws in the last three months
+Number of debit cards on file for the customers
+Difference between number of all debits and linked debits
+Total number of gaming transactions in the last three month
+Total number of cellphon transactions in the last three month
+Difference between number of all debits and active linked credit cards
+Difference between number of all debits and inactive linked credit cards
+Age of oldest credit card on the file of linked account with the sndr_id
+Total number of restricted accounts linked the sndr_id in the last 24 months
+Total number of sent denied transaction in the last 12 months for the sndr_id with decay 90
+Ratio of (ratio successful sent by CC over all funding methods  in the last one month) and (ratio successful sent by CC over all funding methods  in the last one year)
+Presence of any approved transaction from the sender in this ip2 or not from 180 days ago to yesterday
+Presence of any approved transaction from the sender in this ip3 or not from 180 days ago to yesterday
+Presence of any approved transaction from the sender in this ip2 or not from 180 days ago to last month
+Presence of any approved transaction from the sender in this ip3 or not from 180 days ago to last month
+Number of new ip2 has been seen for this customer in the last 180 days
+Number of new ip3 has been seen for this customer in the last 180 days
+Number of new ip4 has been seen for this customer in the last 180 days
+Consumer type for receiver
+Dimension Consumer Type for Receiver
+request money email payment received count in 90 days
+request money email payment received amount in 90 days
+request money email payment received count in 30 days
+request money email payment received amount in 30 days
+request money email payment received count in 7 days
+request money email payment received amount in 7 days
+ratio of request money email payment received count in 7  days to 30 days
+ratio of request money email payment received amount in 7 days to 30 days
+all email payment received count in 90 days
+all email payment received amount in 90 days
+all email payment received count in 30 days
+all email payment received amount in 30 days
+all email payment received count in 7 days
+all email payment received amount in 7 days
+ratio of all email payment received count in 7  days to 30 days
+ratio of all email payment received count in 30 days to 90 days
+ratio of all email payment received amount in 7  days to 30 days
+ratio of all email payment received amount in 30 days to 90 days
+percentage of email payment received count in 7 days
+percentage of email payment received count in 30 days
+percentage of email payment received count in 90 days
+percentage of email payment received amount  in 7 days
+percentage of email payment received amount  in 30 days
+percentage of email payment received amount  in 90 days
+ratio of all email payment received count percentage in 7 days to 30 days
+ratio of all email payment received count percentage in 30 days to 90 days
+ratio of all email payment received amount  percentage in 7 days to 30 days
+ratio of all email payment received amount  percentage in 30 days to 90 days
+30day glosscnt eg's tpv count in the history
+7d glosscnt eg's tpv count coverage in the history
+30d glosscnt eg's tpv count coverage in the history
+7day glosscnt eg's gross loss amount in the history
+30day glosscnt eg's gross loss amount in the history
+7d glosscnt eg's gross loss amount coverage in the history
+30d glosscnt eg's gross loss amount coverage in the history
+7d glosscnt eg's gross loss count coverage in the history
+30d glosscnt eg's gross loss count coverage in the history
+Tpv amount in asp eg period in the history
+Tpv amount coverage in asp eg period in the history
+Tpv count in asp eg period in the history
+Gross loss amount in asp eg period in the history
+Calculates the maximum cc unit-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total unit-wgt= 0 then default value is -1.
+Gross loss amount coverage in asp eg period in the history
+Gross loss count in asp eg period in the history
+Gross loss count coverage in asp eg period in the history
+30d tpvcnt eg's tpv count coverage in the history
+30d tpv eg's gross loss count coverage in the history
+Tpv amount in 7day glosscnt eg period in the history
+30d gloss eg's gross loss count coverage in the history
+Tpv amount in 30day glosscnt eg period in the history
+7day glosscnt eg's tpv count in the history
+30day tpvcnt eg's tpv coverage in the history
+Number of ebay accounts linked to the sender-id
+Tpv amount in 30day gloss eg period in the history
+7day gloss eg's tpv coverage in the history
+invoice count daily average within 7 days
+invoice count sum within 7 days
+invoice count daily average within 90 days
+invoice count sum within 90 days
+invoice count sum within 30 days
+7d tpvcnt eg's tpv count coverage in the history
+Calculates the average ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1. For computing average, we replace -1 with 0.
+invoice count daily average within 30 days
+7d tpv eg's gross loss count coverage in the history
+Calculates the average cc dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1. For computing average, we replace -1 with 0.
+7d tpv eg's gross loss amount coverage in the history
+If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+30day tpvcnt eg's tpv count in the history
+30d tpv eg's gross loss amount coverage in the history
+7day tpvcnt eg's tpv count in the history
+7day tpvcnt eg's tpv coverage in the history
+Tpv amount in 7day tpvcnt eg period in the history
+Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+30day tpv eg's gross loss amount in the history
+7day tpv eg's gross loss amount in the history
+7d tpv eg's tpv count coverage in the history
+7day tpv eg's gross loss count in the history
+30day tpv eg's tpv count in the history
+30d tpv eg's tpv count coverage in the history
+7day tpv eg's tpv count in the history
+30day tpv eg's tpv coverage in the history
+Max of 30day glosscnt eg's interval in the history
+Min of 30day glosscnt eg's interval in the history
+Std of 30day gloss eg's interval in the history
+Mean of 30day gloss eg's interval in the history
+Max of 30day gloss eg's interval in the history
+Min of 30day gloss eg's interval in the history
+7day tpv eg's tpv coverage in the history
+Sum of gross loss count in 180day history
+Sum of gross loss amount in 180day history
+Min of 7day glosscnt eg's interval in the history
+Std of 7day gloss eg's interval in the history
+Mean of 7day gloss eg's interval in the history
+Sum of tpv count in 180day history
+Sum of tpv amount in 180day history
+Tpv amount in 30day tpv eg period in the history
+Tpv amount in 7day tpv eg period in the history
+Max of 30day tpvcnt eg's interval in the history
+Min of 30day tpvcnt eg's interval in the history
+Std of 30day tpv eg's interval in the history
+Mean of 30day tpv eg's interval in the history
+Max of 30day tpv eg's interval in the history
+Min of 30day tpv eg's interval in the history
+Std of 7day glosscnt eg's interval in the history
+Mean of 7day glosscnt eg's interval in the history
+Max of 7day glosscnt eg's interval in the history
+Min of 7day gloss eg's interval in the history
+Std of 7day tpvcnt eg's interval in the history
+Max of 7day gloss eg's interval in the history
+Mean of 7day tpvcnt eg's interval in the history
+Max of 7day tpvcnt eg's interval in the history
+Mean of 7day tpvcnt eg's duration in the history
+Min of 7day tpvcnt eg's interval in the history
+Std of 7day tpv eg's interval in the history
+Std of 30day glosscnt eg's duration in the history
+Mean of 30day glosscnt eg's duration in the history
+Min of 7day tpv eg's interval in the history
+Mean of 7day tpv eg's interval in the history
+Max of 7day tpv eg's interval in the history
+Flag of whether the account is on 30day glosscnt eg
+Dof since last 30day glosscnt eg ended
+30day glosscnt eg count in the history(180d)
+Flag of whether the account is on 7day gloss eg
+Dof since last 7day gloss eg ended
+Tpv amount in 7day gloss eg period in the history
+Tpv amount in 30day tpvcnt eg period in the history
+30day tpv eg's gross loss count in the history
+Mean of 7day gloss eg's duration in the history
+Mean of 30day tpvcnt eg's interval in the history
+Min of 30day glosscnt eg's duration in the history
+Max of 30day gloss eg's duration in the history
+30day gloss eg count in the history(180d)
+Flag of whether the account is on 30day tpvcnt eg
+Max of 30day glosscnt eg's duration in the history
+Mean of 30day gloss eg's duration in the history
+Flag of whether the account is on 30day gloss eg
+Dof since last 30day tpvcnt eg ended
+Dof since last 30day gloss eg ended
+30day tpvcnt eg count in the history(180d)
+Std of 30day tpvcnt eg's duration in the history
+Mean of 30day tpvcnt eg's duration in the history
+Std of 30day tpv eg's duration in the history
+Flag of whether the account is on 30day tpv eg
+Dof since last 30day tpv eg ended
+ratio of invoice average due days within 7 days to 30 days
+ratio of invoice amount within 30days to 90 days
+ratio of invoice amount within 7 days to 30 days
+ratio of invoice average invoice count within 30days to 90 days
+ratio of invoice average invoice count within 7 days to 30 days
+Std of 7day glosscnt eg's duration in the history
+ratio of invoice average item count within 7 days to 30 days
+ratio of invoice item sum within 30days to 90 days
+ratio of invoice item sum within 7 days to 30 days
+invoice average description length within 7 days
+invoice average description length within 30 days
+invoice average description length within 90 days
+invoice  average tax amount within 7 days
+invoice  average tax amount within 30 days
+invoice  average unit price within 7 days
+invoice  average unit price within 30 days
+invoice average name length within 7 days
+invoice average name length within 30 days
+whether the invoice has logo url within 7 days
+invoice average terms length within 30 days
+whether the invoice has logo url within 30 days
+invoice average notes length within 7 days
+invoice average notes length within 30 days
+invoice average terms length within 7 days
+invoice average amout within 7 days
+Calculates the maximum ato unit-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total unit-wgt= 0 then default value is -1.
+Calculates the average ato unit-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total unit-wgt= 0 then default value is -1. For computing average, we replace -1 with 0.
+invoice average ship amout within 7 days
+invoice average amout within 90 days
+invoice  listing position sum within 90 days
+invoice average discount amout within 30 days
+invoice average amout within 30 days
+invoice average due days within 90 days
+invoice average due days within 7 days
+invoice average ship amout within 90 days
+invoice  listing position sum within 30 days
+invoice average discount amout within 7 days
+7day tpvcnt eg count in the history(180d)
+invoice average ship amout within 30 days
+ratio of request money email payment received count in 30 days to 90 days
+ratio of request money email payment received amount in 30 days to 90 days
+invoice item daily average within 7 days
+describes general gross loss frequency and specifically for S&R

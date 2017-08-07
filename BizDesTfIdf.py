@@ -301,6 +301,7 @@ for str in testset:
         print("Score : %d" %0)
     else:
         print("Input : %s" % str)
+        print("t : ", t)
         count = 0
         sum = 0
         for item in t:
