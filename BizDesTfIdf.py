@@ -239,7 +239,7 @@ raw_corpus = [
 ]
 
 # Create a set of frequent words and add stopwords
-stoplist = set('for a an of the and to in'.split(' '))
+stoplist = set('for a an of the and to in test'.split(' '))
 # Lowercase each document, split it by white space and filter out stopwords
 texts = [[word for word in document.lower().split() if word not in stoplist]
          for document in raw_corpus]
