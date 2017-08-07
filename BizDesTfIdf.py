@@ -240,7 +240,7 @@ raw_corpus = [
 
 # Create a set of frequent words and add stopwords
 stoplist = set('for a an of the and to in test from this that'.split(' '))
-# Lowercase each document, split it by white space and filter out stopwords
+# Lowercase each document, split it by white space and filter resource stopwords
 texts = [[word for word in document.lower().split() if word not in stoplist]
          for document in raw_corpus]
 

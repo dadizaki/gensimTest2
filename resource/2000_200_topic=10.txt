@@ -1,0 +1,1458 @@
+
+origin: withdrawal limit value for each account
+first: Subsegment name of the sender account for SMB-LM portfolio, such as: “inxp”, “xp_flat”, “special”, “etsy”;
+similarity: 0.9445
+second: If txn's fso has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+similarity: 0.9275
+
+origin: Variable for iACH Top Casual EMEA Strategy
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: ACH EMEA Top Casual RADD for our new strategy
+first: rencent balance
+similarity: 0.9218
+second: sum negative balance past 3 months
+similarity: 0.8812
+
+origin: Create issuer decline for ACH EMEA Top and Casual population
+first: sum DC sent successful since negative bal
+similarity: 0.9833
+second: sum DC sent successful since any denial
+similarity: 0.9811
+
+origin: To define High Risk ACH population
+first: spear risk rating variable for POS16_ATO
+similarity: 0.8777
+second: Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 1 days
+similarity: 0.8535
+
+origin: Levergae Yodlee information to decline high risk population and at the same time enable lower risky population
+first: Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 1 days
+similarity: 0.6922
+second: spear risk rating variable for POS16_ATO
+similarity: 0.6833
+
+origin: CC excessive rejection
+first: $ ato rate in cross-boarder transactions
+similarity: 0.9623
+second: $ ato rate in domestic transactions
+similarity: 0.9623
+
+origin: Cust_id and Address zip pairs from last 3 months good history txns
+first: Number of months that the seller has tpv
+similarity: 0.9160
+second: max ach return NSF last 12 months
+similarity: 0.8721
+
+origin: Accounts with good PPDG purchasing history
+first: Mean of 30day tpv eg's interval in the history
+similarity: 0.9699
+second: Mean of 30day gloss eg's interval in the history
+similarity: 0.9698
+
+origin: This RADD is used in Automated Loss Prevention System (ALPS) project and aimed to mitigate flash fraud consumer loss automatically. This RADD will store segments and their solutions.
+first: Flag of whether the account is on 30day tpv eg
+similarity: 0.9339
+second: Flag of whether the account is on 30day tpvcnt eg
+similarity: 0.9112
+
+origin: Publish one off conn_type
+first: # ato rate in cross-boarder transactions
+similarity: 0.8965
+second: # ato rate in domestic transactions
+similarity: 0.8965
+
+origin: APAC RTN aggregation based on 1 year's historical data
+first: Rely on http://rdp-s01.corp.ebay.com/mediawiki/index.php/IDI_RADD_Files#IDI_CAM_EDOMAIN_NONDCC
+similarity: 0.8991
+second: asp when cc indetermined (is_bad > 0 and is_bad not in (3,4)) on all transactions
+similarity: 0.8854
+
+origin: Generate list contains all account which entering SMB segment within 180 days
+first: whether the invoice has logo url within 90 days
+similarity: 0.9527
+second: whether the invoice has logo url within 30 days
+similarity: 0.9446
+
+origin: This RADD will calculate the exposure for all APAC LM/SMB merchants which will be used on casescoring CP for leads scoring.
+first: asp when restricted (is_bad = 4) on all transactions
+similarity: 0.9438
+second: asp when non-chargeback on all transactions
+similarity: 0.9417
+
+origin: IDI Account level RADD for ARM2017 model.
+first: Subsegment name of the sender account for SMB-LM portfolio, such as: “inxp”, “xp_flat”, “special”, “etsy”;
+similarity: 0.9421
+second: If txn's ip has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+similarity: 0.9215
+
+origin: Bank Account Level variables used in ARM17. The keys are bank account number hmac, routing number, bank country
+first: The number of times this cidr is used by this account
+similarity: 0.9345
+second: Total number of credit cards on file for the POS customer
+similarity: 0.8629
+
+origin: Calculate seller's average and standard deviation transactions amount for all CS segment, based on previous 3 month activity. exclude sellers who didn't participate in any transaction or their standard deviation is 0
+first: Current transaction amount divided by IP range 1 week average CC Unauth transaction amount
+similarity: 0.9076
+second: Current transaction amount divided by CP 1 week average Cc Unauth transaction amount
+similarity: 0.9059
+
+origin: A RADD containing all senders who have had between 400 and 1000 txns in the last year.
+first: Last CC TXN timestamp
+similarity: 0.7413
+second: Number of claimed TXN by sender in the last one month
+similarity: 0.7374
+
+origin: This RADD contains senders and their counterparties, who have frequent and safe transactions with each other in history(past 6 months).
+first: rencent balance
+similarity: 0.7755
+second: Total TPV in past 24 months (Before current month)
+similarity: 0.7565
+
+origin: Creates daily table of candidate accounts who may receive automated mitigating actions.
+first: Subsegment name of the sender account for SMB-LM portfolio, such as: “inxp”, “xp_flat”, “special”, “etsy”;
+similarity: 0.9452
+second: Age of oldest credit card on the file of linked account with the sndr_id
+similarity: 0.8668
+
+origin: The RADD is used for flash fraud automation project and the owner is Customized Fraud Solution team.
+first: If max_ebay_dof NE 0, then compute  (pp_dof /max_ebay_dof).If max_ebay_dof = 0, then return 99999
+similarity: 0.9826
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9810
+
+origin: To create phone black list containing all leaky phones identified by CRM bad phone logics
+first: risk rating by seller country and seller industry and buyer country and counterparty, transaction level natural log (bad amount rate)
+similarity: 0.9451
+second: risk rating by email domain and buyer country, transaction level natural log (bad amount rate)
+similarity: 0.9402
+
+origin: A list of bad zip codes in the casual and top segments.
+first: The bad rate for txn's cidr. Bad_dollar_amount/total_dollar_amount
+similarity: 0.9526
+second: The bad rate for txn's ip. Bad_dollar_amount/total_dollar_amount
+similarity: 0.9526
+
+origin: A list of bad zip codes used for block action (WAX PrOX)
+first: The bad rate for txn's counter party. Bad_dollar_amount/total_dollar_amount
+similarity: 0.9652
+second: The bad rate for txn's cidr. Bad_dollar_amount/total_dollar_amount
+similarity: 0.9649
+
+origin: A Radd to lookup primary bank information using account as key
+first: Subsegment name of the sender account for SMB-LM portfolio, such as: “inxp”, “xp_flat”, “special”, “etsy”;
+similarity: 0.9853
+second: Age of oldest credit card on the file of linked account with the sndr_id
+similarity: 0.8936
+
+origin: RADD contains list of merchants whose binding txns were of 2500 local currency This should provide a coverage of ~60% of all bindings !
+first: Max Nloss Risk Rating for Sndr cntry- Byr Cntry txns in past 90 days
+similarity: 0.7649
+second: Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 90 days
+similarity: 0.7643
+
+origin: a list of BINS for 3DS initiation
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: This radd shows the count of distinct sender accounts for each browser hash at trasaction
+first: Gross loss count in asp eg period in the history
+similarity: 0.9229
+second: Tpv count in asp eg period in the history
+similarity: 0.9203
+
+origin: buyer abuse linking account
+first: Subsegment name of the sender account for SMB-LM portfolio, such as: “inxp”, “xp_flat”, “special”, “etsy”;
+similarity: 0.8856
+second: If txn's ip has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+similarity: 0.8687
+
+origin: CAM2013_RR is a process that is generated in PayPal SAS machine.The SAS process result is inserted into tables in  pp_tables_risk. This Fast-R process creates the RADD.
+first: If max_ebay_dof NE 0, then compute  (pp_dof /max_ebay_dof).If max_ebay_dof = 0, then return 99999
+similarity: 0.9896
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9835
+
+origin: This the request to load case id level shipment data
+first: ratio of 30 days' refund amount to 90 days'
+similarity: 0.8665
+second: ratio of 30 days' refund with a case amount to 90 days'
+similarity: 0.8575
+
+origin: We're generating a string that explains why a transaction does not involve a Stolen Financial or an Account Take Over. This information will be used to dispute Unauthorized chargebacks.
+first: IP profile from previous 1 week of dollar of ATO bad transaction rate
+similarity: 0.9108
+second: Flag of whether the transaction is the first non-P2P transaction of the receiver.
+similarity: 0.9067
+
+origin: The uploaded code needs to be run daily and the final table CB_OPT_COMPASS_RADD will serve as input for the RADD file.Primary keys for the RADD are ATKC_CASE_ID and PAYMENT_TRANSID
+first: If txn's fso has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+similarity: 0.8397
+second: If txn's sa has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+similarity: 0.8397
+
+origin: idi_cfas_seller_radd
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: idi_cfas_seller_ti_radd
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: Consumer Consistency on High ASP solution average model score online RADD
+first: account average lifetime balance (balance * days)
+similarity: 0.9095
+second: average over standard deviation of account lifetime balance (balance * days)
+similarity: 0.9054
+
+origin: Save offline calculated Trust Address list for online usage
+first: Minimum of time difference between two withdrawals calculated in hour in 5 days divided by the minimum of time difference between two withdrawals calculated in hour in 10 days.
+similarity: 0.9762
+second: Minimum of time difference between two withdrawals calculated in hour in 2 days divided by the minimum of time difference between two withdrawals calculated in hour in 5 days.
+similarity: 0.9759
+
+origin: Create a new radd to upload some offline generated rollups and airline merchants information
+first: Average ASP in new leaf categories / Total Average ASP in past 3 days
+similarity: 0.8296
+second: Quantity listed in new leaf / Total Quantity Listed in past 3 days
+similarity: 0.8199
+
+origin: this is to create crowdfunding RADD
+first: If max_ebay_dof NE 0, then compute  (pp_dof /max_ebay_dof).If max_ebay_dof = 0, then return 99999
+similarity: 0.9815
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9770
+
+origin: RADD file to store bank account number hmac of active + confirmed + no return within last 30 days
+first: number of Bnkhmc for the supercookie during last 7 days
+similarity: 0.9869
+second: Percent usage of  second most commonly used IP_timezone on the acct in last 30-180 days
+similarity: 0.9808
+
+origin: consumer attributes v2 RADD with new components
+first: Average ASP in new leaf categories / Total Average ASP in past 3 days
+similarity: 0.8836
+second: Average ASP in new leaf categories / Total Average ASP in past 30 days
+similarity: 0.8668
+
+origin: Detect CC Bin attack and build surgical solution accordingly.
+first: $ ato rate in cross-boarder transactions
+similarity: 0.9623
+second: $ ato rate in domestic transactions
+similarity: 0.9623
+
+origin: RADD for casual seller BSM strategy
+first: Sum of seasonality index of seller
+similarity: 0.8934
+second: Maximum of Total amount of withdrawal in 60 days made by seller in the last 180 days
+similarity: 0.8693
+
+origin: max TPV in the last 1.2 year is a time frame of 10 days, for all CS accounts
+first: Dof since last 30day tpvcnt eg ended
+similarity: 0.8377
+second: Dof since last 30day gloss eg ended
+similarity: 0.8377
+
+origin: Radd that is used for the new CS ebay strategy and contains data about claims, sub_segmentation and previous TPV.
+first: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9692
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the mean day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9653
+
+origin: RADD for the casual seller OOH strategy
+first: Sum of seasonality index of seller
+similarity: 0.8934
+second: Maximum of Total amount of withdrawal in 60 days made by seller in the last 180 days
+similarity: 0.8693
+
+origin: thresholds RADD for the casual seller OOH strategy
+first: Sum of seasonality index of seller
+similarity: 0.8934
+second: Maximum of Total amount of withdrawal in 60 days made by seller in the last 180 days
+similarity: 0.8693
+
+origin: P value for Casual Sellers QP engine.
+first: Subsegment name of the sender account for SMB-LM portfolio, such as: “inxp”, “xp_flat”, “special”, “etsy”;
+similarity: 0.9554
+second: If txn's fso has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+similarity: 0.8689
+
+origin: Segmentation for Casual Sellers QP.
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: The daily batch looks for binding events between PayPal accounts and 3rd party apps using PayPal to process payments using 'future payments' flow.  the table  pp_scratch_ars.ea_binding_events_2014_15 contains historic binding events and should be used once to prepopulate the RADD before the daily batch starts the incremental update process.
+first: Percentage of if the credit card transactions for the linked accounts
+similarity: 0.8904
+second: Calculates the average cc dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1. For computing average, we replace -1 with 0.
+similarity: 0.8825
+
+origin: Create one radd for SME and LM queueing solutions
+first: # ato rate in cross-boarder transactions
+similarity: 0.8965
+second: # ato rate in domestic transactions
+similarity: 0.8965
+
+origin: daily exchange rate to be used as part of eBay listing RISK components
+first: Has bad vid in other reasons.
+similarity: 0.8427
+second: Has bad vid in big merchant transactions.
+similarity: 0.8425
+
+origin: list of attacked BINs for DCC txns
+first: spear risk rating variable for POS16_ATO
+similarity: 0.9271
+second: Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past (2-90) days
+similarity: 0.8991
+
+origin: Querying tracking data with minimal latency, looking for suspicious indicators. For pending transactions we will keep a daily check until they are shipped and show only the latest results.
+first: Calculates the average cc dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1. For computing average, we replace -1 with 0.
+similarity: 0.8801
+second: Calculates the average ato unit-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total unit-wgt= 0 then default value is -1. For computing average, we replace -1 with 0.
+similarity: 0.8791
+
+origin: The RADD contains  assets that were used in fraudulent activity, and need to be black listed to prevent further abuse of the flow
+first: Average ASP in new leaf categories / Total Average ASP in past 3 days
+similarity: 0.8812
+second: Average ASP in new leaf categories / Total Average ASP in past 7 days
+similarity: 0.8507
+
+origin: A calculation of eBay risk score per leaf as applies to EMEA SMEs only.
+first: Avg Risk Rating per leaf in new leaf categories / Total Average Risk Rating per leaf in past 3 days
+similarity: 0.8878
+second: Avg Risk Rating per leaf in new leaf categories / Total Average Risk Rating per leaf in past 30 days
+similarity: 0.8567
+
+origin: ASP, ATTACK and ALID data ratios, amounts and counts.
+first: Basically all customers in the RADD should have mobile transactions before.
+similarity: 0.9482
+second: $ percentage of good domestic transactions
+similarity: 0.9309
+
+origin: eBay variables that has spike pattern for listing, transaction, feedback etc.
+first: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the mean day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9806
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9770
+
+origin: 6 RADD Variables are calculated for EG Growth Criteria. They are from the definitions for EG given by various SRM teams
+first: Weighted square distance between the TXN IP and the immediate last transaction has been seen for this CC divided by the difference of the TS
+similarity: 0.8286
+second: Minimum of time difference between two withdrawals calculated in hour in 20 days in the last 180 days. If two withdrawals are happened in the same day this value is 0.
+similarity: 0.8176
+
+origin: Final eBay RADD variables for ebay MM model 2016 daily build  which joins listing, txns, fdbk variables.
+first: Calculates the average cc dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1. For computing average, we replace -1 with 0.
+similarity: 0.9068
+second: Calculates the average cc dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1. For computing average, we replace -1 with 0.
+similarity: 0.9063
+
+origin: All cases where eBay already adjudicated. Making sure that seller wont get debited twice.
+first: Average transaction hour for the CC used in the TXN in the last 180 days
+similarity: 0.8127
+second: Sum of seasonality index of seller
+similarity: 0.7825
+
+origin: This radd is used to generate the eBay NA LM and SMB merchant bad history.
+first: Is this CC has been used mostly at nights or days?
+similarity: 0.8912
+second: Calculates the average ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1. For computing average, we replace -1 with 0.
+similarity: 0.8885
+
+origin: Aggregation of ecommerce platforms and other partners
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: Creating Growth Rate variables w.r.t TPV, ASP and Txn count recently and past 24 months for eBay Sellers
+first: Monthly avg of past 24 months on eBay TPV (Before current month)
+similarity: 0.9862
+second: Std of past 24 months on eBay TPV (Before current month)
+similarity: 0.9817
+
+origin: Creating Sender Country - Receiver Country Pair Risk Ratings variables
+first: spear risk rating variable for POS16_ATO
+similarity: 0.9496
+second: risk rating by email domain and buyer country, transaction level bad rate
+similarity: 0.9298
+
+origin: Creating Vertical Change(VC) features for eBay EG Model Vertical Change Features tries to capture a shift in selling domain by an eBay Seller The eBay Leaf category is the most granular domain of the listing selected by the seller.
+first: The number of times this cidr is used by this account
+similarity: 0.8544
+second: Determines if the VID of the current transaction is bad. Note this v2 one the default value is 0.
+similarity: 0.8298
+
+origin: Capture patterns of withdrawal by ebay sellers
+first: the event date when APP_GUID was first used by this customer, in PST timeZone
+similarity: 0.9525
+second: The number of times this cidr is used by this account
+similarity: 0.8854
+
+origin: Dummy RADD, will be changed later on with the complete final logic. This  RADD contains aggregated seller side data used to determine EG activity.
+first: sum net loss due to Fraud from bank account
+similarity: 0.8086
+second: sum net loss due to Oth from bank account
+similarity: 0.8086
+
+origin: Holds the last max 12 months nTPV and average 3 months nTPV which is used by the EMEA SMB & LM Onboarding Team to                 decide on whether to increase a buisness account's Release Amount increase automatically at ExitLimit checkpoint on                  Pluto.
+first: Sum of amount of non-returned ACH TXN happened more than 3 months ago
+similarity: 0.9703
+second: Sum of amount of ACH returns in the last 12 months due to invalid account
+similarity: 0.9463
+
+origin: EMEA SRM's Daily RADD holding data for Queue Prioritization (QP) and other solutions.
+first: Ratio of 3 day over 7 day average quantities sold per listing
+similarity: 0.9888
+second: Ratio of 7 day over 15 day daily average closed GMV
+similarity: 0.9886
+
+origin: EMEA SMB & LM subsegmentation RADD, would be used to enable good merchants and place heavier actions on bad subsegments.
+first: in border cc restricted usd bad rate
+similarity: 0.8103
+second: The bad rate for txn's cidr. Bad_dollar_amount/total_dollar_amount
+similarity: 0.8093
+
+origin: Stores population of UK/DE merchants who had an increase in TPV and ASP, will be caught by rule when exiting to gambling
+first: count SnrAccId at  by key fn_supercookie
+similarity: 0.9095
+second: Sum of gross loss amount in 180day history
+similarity: 0.8476
+
+origin: This RADD will be used in a package of attributes which aim to detect EG behavior in order to reduce seller loss.
+first: Maximum of Total amount of withdrawal in 20 days made by seller in the last 180 days
+similarity: 0.8269
+second: Maximum of Total amount of withdrawal in 60 days made by seller in the last 180 days
+similarity: 0.8265
+
+origin: This process focus on searching the PayPal accounts who has multiple  debit cards opened on the same address.
+first: Age of oldest credit card on the file of linked account with the sndr_id
+similarity: 0.9820
+second: Is this TXN is in align with the common behavior of the CC or not
+similarity: 0.9422
+
+origin: Core/CCC Consumer Credit attribute - PP financial status pack
+first: Number of Unique Snd cntry - Buyer Cntry txns in past (4-90) day
+similarity: 0.9040
+second: Number of Unique Snd cntry - Buyer Cntry txns in past (2-90) day
+similarity: 0.9040
+
+origin: This is the source of tran site which is not available anywhere in LIVE
+first: If max_ebay_dof NE 0, then compute  (pp_dof /max_ebay_dof).If max_ebay_dof = 0, then return 99999
+similarity: 0.9813
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9773
+
+origin: Store SF QP solution P part value.
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: A RADD to hold the binning of RDP detection attributes
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: Growing Exposure attribute for PAD and iACH EMEA population
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: RADD for ars attribute incons_high_cnt
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: This RADD contains a list of all Fraudnet resolutions that were observed in the account's historic good transactions
+first: Basically all customers in the RADD should have mobile transactions before.
+similarity: 0.9905
+second: $ percentage of good cross-boarder transactions
+similarity: 0.9684
+
+origin: this radd will collect data regarding fraudnet timezone user's good history. collecting all its used timezones, how many times it used each and when was the last time.
+first: Last CC TXN timestamp
+similarity: 0.9733
+second: Number of claimed TXN by sender in the last one month
+similarity: 0.9593
+
+origin: this radd holds the historic data of flags combinations used in each pp transaction
+first: Sender entity id
+similarity: 0.9914
+second: Current transaction amount divided by IP range 4 weeks average ATO transaction amount
+similarity: 0.9837
+
+origin: Statistic data of the USD amount sent successfully by an account for the last year. The key is PP account, and the values are: tx_cnt, avg_usd, median_usd, std_usd, max_usd and min_usd.
+first: The section 2 of dot format of last transaction
+similarity: 0.9505
+second: The section 1 of dot format of last transaction
+similarity: 0.9459
+
+origin: Map between rcvr \ rcvr_cntry to the average fess taken from his transactions in the last 50 days.
+first: Weighted square distance between the TXN IP and the immediate last transaction has been seen for this CC divided by the difference of the TS
+similarity: 0.8597
+second: Difference between number of all debits and active linked credit cards
+similarity: 0.8397
+
+origin: Map between sndr \ sndr_cntry to the average currency exchange fess taken from his transactions in the last 180 days.
+first: Weighted square distance between the TXN IP and the immediate last transaction has been seen for this CC divided by the difference of the TS
+similarity: 0.8349
+second: Difference between number of all debits and inactive linked credit cards
+similarity: 0.8343
+
+origin: A RADD contatining data from ebay. The key is the ebay username, and the values are: creation time stamp (in unix), registered email and full name.
+first: account minimum lifetime balance (balance * days)
+similarity: 0.9459
+second: Hour difference between current TXN and average hour
+similarity: 0.8271
+
+origin: This RADD will be used as part of RESET V2 project, its purpose is to identify fraudlent transactions within the trusted segment
+first: account maximum lifetime balance (balance * days)
+similarity: 0.8617
+second: standard deviation of account lifetime balance (balance * days)
+similarity: 0.8331
+
+origin: This RADD holds all the last 4 month's supercookies with at least one bad transaction
+first: The section 4 of dot format of last transaction
+similarity: 0.9740
+second: The section 1 of dot format of last transaction
+similarity: 0.9425
+
+origin: This RADD shows the bad rates of each FraudNet resolution for the nearest 30 days. The bad rates include ATO bad rates, SF bad rate and any bad rate (both count and dollar for each). In addition each row in the RADD (resolution) will hold the general bad rates for convenience and comparison purposes.
+first: The bad rate for txn's cidr. Bad_dollar_amount/total_dollar_amount
+similarity: 0.9477
+second: The bad rate for txn's ip. Bad_dollar_amount/total_dollar_amount
+similarity: 0.9477
+
+origin: See this: https://grs-core.fsc.local/grs-core-portal-home/analytical-platform/ip_geo/
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: generate mobile ip of the last 300 days from ULDS and Dyson table to support Peeking 3.0 logic
+first:  the first TXN with this CC in the last 180 days
+similarity: 0.9840
+second: Percent usage of most commonly used shipping address_id on the acct in last 30-180 days
+similarity: 0.9835
+
+origin: Map between rcvr to the average fess taken from his transactions in the last 50 days.
+first: Weighted square distance between the TXN IP and the immediate last transaction has been seen for this CC divided by the difference of the TS
+similarity: 0.8597
+second: Difference between number of all debits and active linked credit cards
+similarity: 0.8397
+
+origin: Map between seller to his mcc_code and and txn_categ_code
+first: Minimum of time difference between two withdrawals calculated in hour in 2 days divided by the minimum of time difference between two withdrawals calculated in hour in 20 days.
+similarity: 0.8876
+second: Minimum of time difference between two withdrawals calculated in hour in 5 days divided by the minimum of time difference between two withdrawals calculated in hour in 20 days.
+similarity: 0.8876
+
+origin: Map between sndr to the average currency exchange fess taken from his transactions in the past.
+first: Hour difference between current TXN and average hour
+similarity: 0.7480
+second: cc bad rate over all trans including non-cc for new accounts
+similarity: 0.7165
+
+origin: This RADD computes the ATO bad rate for every combination of transaction flags and types,
+first: sender profile from previous 4 weeks of ATO bad transaction rate
+similarity: 0.9853
+second: visitor id profile from previous 4 weeks of dollar of ATO bad transaction rate
+similarity: 0.9845
+
+origin: filling a radd with merchant id's that rules in the high asp project use.
+first: Hot swap to PRIME V2.6 with a new version that includes performance improvements and an analytical fix on April 3rd
+similarity: 0.8770
+second: Age of oldest credit card on the file of linked account with the sndr_id
+similarity: 0.7756
+
+origin: HIgh ASP whitelisting RADD for Tokenization.
+first: Describe the last 90 days' received txn cnt diversity on sender. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account hasn’t received money yet.
+similarity: 0.8509
+second: Describe the last 30 days' received txn cnt diversity on receiver. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+similarity: 0.8481
+
+origin: This RADD will contain bank account level aggregation data for all recent iACH users.
+first: asp when cc indetermined (is_bad > 0 and is_bad not in (3,4)) on all transactions
+similarity: 0.8544
+second: asp when restricted (is_bad = 4) on cc transactions
+similarity: 0.8232
+
+origin: This RADD will contain user level aggregation data for all recent iACH users.
+first: Basically all customers in the RADD should have mobile transactions before.
+similarity: 0.9455
+second: # percentage of good cross-boarder transactions
+similarity: 0.9355
+
+origin: Ranking RTNs used by Casual and Top consumers by size and "riskiness" (customers' NSF BPS).
+first: the event date when APP_GUID was first used by this customer, in PST timeZone
+similarity: 0.9946
+second: Weighted square distance between the TXN IP and the immediate last transaction has been seen for this CC divided by the difference of the TS
+similarity: 0.8981
+
+origin: SQL to get the customers who have been tagged under the bad bank segment.
+first: The bad rate for txn's counter party. Bad_dollar_amount/total_dollar_amount
+similarity: 0.9572
+second: The bad rate for txn's cidr. Bad_dollar_amount/total_dollar_amount
+similarity: 0.9568
+
+origin: a radd to identify all merchants who are IPR hold enabled
+first: Basically all customers in the RADD should have mobile transactions before.
+similarity: 0.8832
+second: $ percentage of good domestic transactions
+similarity: 0.8659
+
+origin: create a RADD for setting alf of kickstarter_mam_alf, for the special risk treatment
+first: spear risk rating variable for POS16_ATO
+similarity: 1.0000
+second: Min Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past (8-90) days
+similarity: 0.9065
+
+origin: Identifies kickstarter MAM accounts so that they can be whitelisted from risk models and rules.
+first: spear risk rating variable for POS16_ATO
+similarity: 0.9343
+second: Has bad vid in other reasons.
+similarity: 0.8545
+
+origin: This one is to calculate the last 10 days on ebay tpv for NA SMB and LM accounts
+first: Days since last ACH reutrns due to account invalid reason
+similarity: 0.9091
+second: Percent usage of most commonly used shipping address_id on the acct in last 30-180 days
+similarity: 0.8760
+
+origin: This RADD record all the Large Enterprise accounts' IDs, which will be used in ATO queue management, including enqueue, case scoring and case evaluation.
+first: Current transaction amount divided by CP 1 week average Cc Unauth transaction amount
+similarity: 0.8313
+second: Current transaction amount divided by IP range 1 week average CC Unauth transaction amount
+similarity: 0.8302
+
+origin: Collect offline bank data to be used in live attributes
+first: The number of times this cidr is used by this account
+similarity: 0.9212
+second: account total lifetime balance (balance * days)
+similarity: 0.8332
+
+origin: mapping between MCC codes and True Industry categories with their fraud risk scores
+first: Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 1 days
+similarity: 0.7534
+second: Min Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past (31-90) days
+similarity: 0.7482
+
+origin: LM Dynamic Solution with auto variable selection RADD
+first: Average ASP in new leaf categories / Total Average ASP in past 3 days
+similarity: 0.8228
+second: Average ASP in new leaf categories / Total Average ASP in past 30 days
+similarity: 0.8103
+
+origin: This is a part of a migration process of GRS DM, that its target is to move all running processes (RADDs) from SDOT environment to DT. All SDOT RADDs can be found in https://confluence.paypal.com/display/GRSDM/SDOT+Batch+Mapping
+first: account minimum lifetime balance (balance * days)
+similarity: 0.8109
+second: Is this TXN is in align with the common behavior of the CC or not
+similarity: 0.8065
+
+origin: idi_misc_10_radd is a misc RADD that ran on SDOT env.
+first: Age of oldest credit card on the file of linked account with the sndr_id
+similarity: 0.9520
+second: Is this TXN is in align with the common behavior of the CC or not
+similarity: 0.9388
+
+origin: IDI_MISC_09
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: Owner of this RADD is Luna Lu. This RADD was migrated from SDOT env
+first: If max_ebay_dof NE 0, then compute  (pp_dof /max_ebay_dof).If max_ebay_dof = 0, then return 99999
+similarity: 0.9815
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9770
+
+origin: RADD will contain information about all EMEA sellers maximum 30 days TPV.This information will be used in Pluto for the iEG solution.
+first: whether the invoice has logo url within 90 days
+similarity: 0.9758
+second: whether the invoice has logo url within 30 days
+similarity: 0.9754
+
+origin: Seller-level variables for the Marketplaces component
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: marketplace level variables
+first: risk rating by seller country and seller industry and buyer country and counterparty, transaction level bad rate
+similarity: 0.9678
+second: risk rating by email domain and buyer country, transaction level natural log (bad rate)
+similarity: 0.9664
+
+origin: This is to find those NA SMB/LM accounts which are being queued by MRO in the last 7 days
+first: Total number of withdrawals in the last 30 days divided by the maximum of Total number of withdrawal in 30 days made by seller in the last 180 days
+similarity: 0.9775
+second: Total number of withdrawals in the last 10 days divided by the maximum of Total number of withdrawal in 10 days made by seller in the last 180 days
+similarity: 0.9695
+
+origin: to set importent flags such as am_flag and ts_flag and so on
+first: Describe the last 90 days' received txn cnt diversity on sender. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account hasn’t received money yet.
+similarity: 0.9697
+second: Describe the last 14 days' received txn cnt diversity on sender. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account hasn’t received money yet.
+similarity: 0.9697
+
+origin: Use network V3 bad network seed_id as an indicator to detect potential bad transactions made by buyers belonging to the bad network.
+first: risk rating by seller country and seller industry and buyer country and counterparty, account level bad rate
+similarity: 0.9824
+second: risk rating by seller country and seller industry and buyer country and counterparty, transaction level bad rate
+similarity: 0.9750
+
+origin: This process is used to create a RADD which identifies ASP limits for a merchant category code.
+first: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9684
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the mean day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9680
+
+origin: This is to calculate the off_ebay tpv for SMB/LM accounts in NA for the last 1 year
+first: Dof since last 7day gloss eg ended
+similarity: 0.8897
+second: Dof since last 30day gloss eg ended
+similarity: 0.8890
+
+origin: ONUS DATA PROCESSING
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: This is to calculate the on_ebay tpv for SMB/LM accounts in NA for the last 1 year
+first: Dof since last 7day gloss eg ended
+similarity: 0.8897
+second: Dof since last 30day gloss eg ended
+similarity: 0.8890
+
+origin: Create daily RADD variables for PayPal Credit Payment Hold Model.
+first: describes the ratio of eBay usage for the seller and the ASP
+similarity: 0.8804
+second: Ratio of 7 day over 15 day average auction payment days per listing
+similarity: 0.8742
+
+origin: Seller-level variables for the Platforms component
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: List of all DE existing accounts to evaluate eligibility for PP+ at onboarding through Falcon flow.
+first: Std of Monthly average ASP in 12 calendar months
+similarity: 0.8901
+second: ration of average daily balance past 1 month to 12 months
+similarity: 0.8636
+
+origin: list of PP+ LATAM merchants that cannot handle AFRs
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: this RADD contains  variables that are based on PP data, and were found valuable in the onboarding model and young account model.
+first: Age of oldest credit card on the file of linked account with the sndr_id
+similarity: 0.9414
+second: Subsegment name of the sender account for SMB-LM portfolio, such as: “inxp”, “xp_flat”, “special”, “etsy”;
+similarity: 0.9321
+
+origin: A daily updated RADD for big merchants, and contains their profiles like money received/ withdrawal/claim and so on.
+first: Describe the last 90 days' received txn cnt diversity on sender. The low value means such as 0 only receive money from 1 sender. The high value means receive money from 10 or more senders. The <Null> means this account hasn’t received money yet.
+similarity: 0.9495
+second: Describe the last 7 days' received txn cnt diversity on sender. The low value means such as 0 only receive money from 1 senders. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+similarity: 0.9494
+
+origin: This process creates a RADD file to include first transaction date for each PayPal account. This file will be used at RPDS to manage fraud risk of PPC reuse transactions.
+first: The bad rate for txn's counter party. Bad_dollar_amount/total_dollar_amount
+similarity: 0.9644
+second: The bad rate for txn's cidr. Bad_dollar_amount/total_dollar_amount
+similarity: 0.9644
+
+origin: The PayPal Working Capital (PPWC) Risk Model 2 (PRM2.0) model is built to - Predict the probability of a PayPal Seller going 180D+ delinquent at the end of 12 months. - Improve the credit risk assessment on PPWC loans or advances1. - The model score will be used in strategy for loan/advance underwriting and loan/advance assignment. - The model development started in May 2016, and is scheduled for implementation in early October 2016.
+first: Has bad vid in charge back transactions.
+similarity: 0.8268
+second: Has bad vid in other reasons.
+similarity: 0.8246
+
+origin: This script will check what is the longest unpaid transaction per pui user and will also tag "true subsequent" users (for when the EDGE container is emptied)
+first: Determines if the VID of the current transaction is bad. Note this v2 one the default value is 0.
+similarity: 0.9326
+second: Counterparty 4 week average of dollar-level ATO bad rate
+similarity: 0.9023
+
+origin: a centralized radd to hold everything pui related
+first: Number of nutrition supply related TXN in the last 12 months excluding the last 3 months (﻿ '﻿ARS.nutritional-supp' )
+similarity: 0.9629
+second: Number of ﻿pet-supplies related TXN in the last 12 months excluding the last 3 months (﻿ '﻿ARS.﻿pet-supplies' )
+similarity: 0.9627
+
+origin: FATCA Information Reporting
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: Calculate the daily CBE value of sellers
+first: Subsegment name of the sender account for SMB-LM portfolio, such as: “inxp”, “xp_flat”, “special”, “etsy”;
+similarity: 0.8922
+second: If txn's fso has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+similarity: 0.8235
+
+origin: evaluate how risky a cust is from previous enQ behavior
+first: If max_ebay_dof NE 0, then compute  (pp_dof /max_ebay_dof).If max_ebay_dof = 0, then return 99999
+similarity: 0.9633
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9548
+
+origin: evaluate how risky a src_type_id is from PIT perspective
+first: If max_ebay_dof NE 0, then compute  (pp_dof /max_ebay_dof).If max_ebay_dof = 0, then return 99999
+similarity: 0.9815
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9770
+
+origin: WH solution that leverege DB card history to enable ACH tranasctions
+first: Sum of tpv count in 180day history
+similarity: 0.9723
+second: Sum of gross loss count in 180day history
+similarity: 0.9681
+
+origin: This RADD contains amount denial information for LM and SME accounts of NA
+first: amount of indeterminate transactions
+similarity: 0.9766
+second: amount of good transactions
+similarity: 0.9765
+
+origin: This process creates a PP sender account RADD file based on PPC transactions/account history and fraud performance.  this file will be used at RPDS to manage fraud risk of PPC reuse transactions.
+first: snum net loss from bank account
+similarity: 0.8688
+second: Flag of whether the account is on 30day tpv eg
+similarity: 0.8500
+
+origin: Chargeback Representment Strategy RADD file
+first: Number of ebay accounts linked to the sender-id
+similarity: 0.9337
+second: Total number of credit cards on file for the POS customer
+similarity: 0.8855
+
+origin: Run through release amount scorecard to calculate new release amount limit and make appeal decision
+first: amount of indeterminate transactions
+similarity: 0.9922
+second: amount of good transactions
+similarity: 0.9920
+
+origin: create table to prevent repeat fraudster who use known bad assets like vid
+first: Has bad vid in other reasons.
+similarity: 0.9941
+second: Has bad vid in big merchant transactions.
+similarity: 0.9941
+
+origin: Used for ACH EMEA Strategy. Identify merchants  that has high NSF and sells gambling products
+first: Percentage of failed authorized TXN for the credit card linked
+similarity: 0.9686
+second: Is this TXN is in align with the common behavior of the CC or not
+similarity: 0.8822
+
+origin: a radd containing a pattern of risky memo words.
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: RADD to bring additional information to optimize chargebacks
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: RADD file to store risky bank routing numbers for accounts with ACH return codes
+first: Number of months that the seller has tpv
+similarity: 0.8640
+second: Total Txn in past 24 months (Before current month)
+similarity: 0.8569
+
+origin: This process is dedicated to establish and refresh cust - bank pairs that have caused no buyer-related gross loss in past 1 year.
+first: Avg Monthly TPV  in past 2 years for current calendar Month
+similarity: 0.9404
+second: Max sold asp for the past 1 day?
+similarity: 0.9309
+
+origin: Add PPWC eligible population to the driver, provide reason code for all eligible population, update ntpv_3mth
+first: Basically all customers in the RADD should have mobile transactions before.
+similarity: 0.9880
+second: $ percentage of good transactions
+similarity: 0.9666
+
+origin: A daily updated model to give big sellers a risk assessment about whether they will turn bad, generate loss or create Bad Buyer Experience.
+first: spear risk rating variable for POS16_ATO
+similarity: 0.9232
+second: risk rating by seller country and seller industry and buyer country and counterparty, account level bad rate
+similarity: 0.8439
+
+origin: upload DNB credit bureau data on live so can be used in live solution
+first: Rely on http://rdp-s01.corp.ebay.com/mediawiki/index.php/IDI_RADD_Files#IDI_CAM_EDOMAIN_NONDCC
+similarity: 0.9617
+second: asp when cc indetermined (is_bad > 0 and is_bad not in (3,4)) on all transactions
+similarity: 0.8782
+
+origin: create a RADD for identifying bad consumers based on super cookie info.
+first: The bad rate for txn's cidr. Bad_dollar_amount/total_dollar_amount
+similarity: 0.7662
+second: The bad rate for txn's ip. Bad_dollar_amount/total_dollar_amount
+similarity: 0.7662
+
+origin: creation of a new RADD file to store credit card BINs issued by sanctioned banks.These BINs will be called by Risk rules (Pluto) in order to disallow their use for transactions and withdrawals, as well as block them from being added to accounts.
+first: risk rating by seller country and seller industry and buyer country and counterparty, account level natural log (bad rate)
+similarity: 0.9171
+second: risk rating by seller country and seller industry and buyer country and counterparty, account level bad rate
+similarity: 0.9101
+
+origin: contains all the information that NA SRM team uses for eBay loss analysis
+first: num net loss due to Oth from bank account
+similarity: 0.8083
+second: num net loss due to Fraud from bank account
+similarity: 0.8083
+
+origin: Large Merchant Variable Selection Dynamic Solution for segment SF RADD
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: This is the final logic of the RADD which relies on a new production table. It replaces the dummy RADD. It was done under Sapna's authorization.   RADD keys are 'leaf_id' and 'seg'.
+first: standard deviation of account lifetime balance (balance * days)
+similarity: 0.9402
+second: Is this CC has been used mostly at nights or days?
+similarity: 0.8959
+
+origin: Seller TPV seasonality detection RADD variable
+first: 30day gloss eg's gross loss amount in the history
+similarity: 0.9026
+second: 30day tpvcnt eg's gross loss amount in the history
+similarity: 0.9024
+
+origin: Buyer_Confirm is a hold release method . DI and DE and DA checkpoints need this variable to counter collusion
+first: If max_ebay_dof NE 0, then compute  (pp_dof /max_ebay_dof).If max_ebay_dof = 0, then return 99999
+similarity: 0.9810
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9737
+
+origin: Calculate the daily EG variables for the SME/LM segment
+first: Ratio of 3 day vs 7 day daily average of listed Gross Merchandise Value $
+similarity: 0.7679
+second: Ratio of 3 day vs 15 day daily average of listed Gross Merchandise Value $
+similarity: 0.7676
+
+origin: Merge smm17 score from all  seller segments
+first: Sum of seasonality index of seller
+similarity: 0.9061
+second: Presence of any approved transaction from the sender in this ip2 or not from 180 days ago to last month
+similarity: 0.8377
+
+origin: SMM17 SME production codes
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: SFM13 variables used in SMM17 model
+first: account total lifetime balance (balance * days)
+similarity: 0.9592
+second: account maximum lifetime balance (balance * days)
+similarity: 0.9181
+
+origin: This RADD will be used to whitelist transactions between a specific external test account sending to a specific merchant account. Normally this is during integration phase when large merchants need to test their website using PP. Currently using PP_OAP_CRME2E_T.CRM_OWNED_GENERIC_RADD  WHERE K01 = 'WH_Sndr_Rcvr' to test this functionality for the last 6 months.
+first: The number of times this cidr is used by this account
+similarity: 0.8590
+second: Is this TXN is in align with the common behavior of the CC or not
+similarity: 0.7914
+
+origin: This RADD will include historical information on the variety of products EMEA SMB and LM merchants have sold in the previous 6 months
+first: Months since on record in ALID (Max 24)
+similarity: 0.9850
+second: Sum $ Initial Ach return from bank account
+similarity: 0.9726
+
+origin: RADD to store TA model variables
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: A list of Top Consumers who have a high ratio of purchasing from credit-risky verticals.
+first: Ratio of decay 320 of max asp with positive fdbk over non-positive fdbk
+similarity: 0.8925
+second: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.8889
+
+origin: Finds accounts with unrecovered bank net loss in the entity
+first: Flag of whether the account is on 30day tpv eg
+similarity: 0.8909
+second: Flag of whether the account is on 30day tpvcnt eg
+similarity: 0.8751
+
+origin: Based on txn level classification to Tangible and Intangible, this process provides seller level aggregations and classification.
+first: The section 1 of dot format of last transaction
+similarity: 0.8235
+second: number of pmts received by this shipping address
+similarity: 0.8142
+
+origin: This is a per txn classification to Tangible (TG), Intangible (IG) or unknown. Also supplied is detection of ticket txns and the type of the ticket (Travel or Other).
+first: If txn's fso has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+similarity: 0.8230
+second: If txn's sa has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+similarity: 0.8230
+
+origin: phone enrichment process for NB collection
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: this will create the RADD for best matching agent for a tls fingerprint
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: this will create the RADD for matching agents for a tls fingerprint
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: this will create the RADD for tls fingerprints for best matching osfamily for a tls fingerprint
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: this will create the RADD for matching the probability of an agent to the tls fingerprints
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: this will create the RADD for tls fingerprints, having the best match for a tls fingerprint
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: this will create the RADD for tls fingerprints matching OSs
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: This RADD includes very valuable information for the models in POS checkpoint such as the frequency of shopping, and the speed
+first: Higher-level grouping of subsegments, such as: “active_xp” or “no_merch_tpv”
+similarity: 0.9982
+second: Describe the last 90 days' received txn amt diversity on sender. The low value means such as 0 only receive money from 1 senders. The high value means receive money from 10 or more senders. The <Null> means this account haven't receive money yet.
+similarity: 0.9927
+
+origin: These are the RADD attributes with the key of sndr_id to be used in TOK17_SF model
+first: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.8587
+second: Percentage of if the credit card transactions for the linked accounts
+similarity: 0.8544
+
+origin: All of these attributes has been used in TOK17-NSF model. These attributes contain very reach information on ALID, Lynx, Verticals, and ...
+first: asp when cc indetermined (is_bad > 0 and is_bad not in (3,4)) on all transactions
+similarity: 0.9311
+second: asp when restricted (is_bad = 4) on cc transactions
+similarity: 0.9214
+
+origin: Identifying customers with at least 1 high amount trvael TX
+first: Sum of amount of returned ACH TXN
+similarity: 0.9150
+second: amount of indeterminate transactions
+similarity: 0.8670
+
+origin: Trusted Phone RADD for Tokenization.
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: Create the paypal data for uk customer
+first: If max_ebay_dof NE 0, then compute  (pp_dof /max_ebay_dof).If max_ebay_dof = 0, then return 99999
+similarity: 0.9790
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9659
+
+origin: This process creates a PP sender account RADD file based PPC acquisition flow. This RADD file will be used in RPDS to manage UK PPC fraud risk.
+first: If txn's ip has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+similarity: 0.9576
+second: If txn's cp has been used in an ATO-good txn by this account before (within 1 year window), the value is 1. Otherwise, the value is 0.
+similarity: 0.9561
+
+origin: This RADD file has information about when the customer used a particular APP_GUID for the first time. this also can be used to find APP_GUID TOF. Has only last 30 APP_GUId's due to space constarint
+first: Total number of TXN  for the CC used in the TXN in the last 180 days
+similarity: 0.9228
+second: Total number of credit cards on file for the POS customer
+similarity: 0.9027
+
+origin: The RADD file will contain the aggregated VT payment information for new or suspicous Pro/VT merchants
+first: request money email payment received count in 7 days
+similarity: 0.8621
+second: send money email payment received count in 7 days
+similarity: 0.8621
+
+origin: Receivers list with an average take rate of more than 3.5% in WAX transactions of the last month
+first: The section 1 of dot format of last transaction
+similarity: 0.8835
+second: The section 3 of dot format of last transaction
+similarity: 0.8802
+
+origin: Accounts used for sf collusion trend
+first: If max_ebay_dof NE 0, then compute  (pp_dof /max_ebay_dof).If max_ebay_dof = 0, then return 99999
+similarity: 0.9591
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9551
+
+origin: The corresponding default settings of daily/monthly/lifetime withdraw limit of each exit channel and country.
+first: If max_ebay_dof NE 0, then compute  (pp_dof /max_ebay_dof).If max_ebay_dof = 0, then return 99999
+similarity: 0.9891
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9754
+
+origin: This RADD will hold account level aggregation of hitorical maximum withdrawal amount in a given sliding window for withdrawal hold solution optimization.
+first: The section 4 of dot format of last transaction
+similarity: 0.9001
+second: the event date when APP_GUID was first used by this customer, in PST timeZone
+similarity: 0.8862
+
+origin: This table should expose PayPal agregated data based on email address
+first: Hot swap to PRIME V2.6 with a new version that includes performance improvements and an analytical fix on April 3rd
+similarity: 0.9364
+second: Age of oldest credit card on the file of linked account with the sndr_id
+similarity: 0.8830
+
+origin: Email pattern RADD
+first: ratio of 30 days' refund with a case amount percentage to 90 days'
+similarity: 0.8560
+second: all email payment received amount in 7 days
+similarity: 0.8494
+
+origin: Logic of calculation Monthly Quotas of a sender. STEP1: calculate stats of the last three months and then get the average. STEP2: calculate the stats of current month. STEP3: calculate the stats left.
+first: Number of successful sent TXN in the last 12 months excluding the last 1 month
+similarity: 0.9696
+second: Number of DC sent successful in the last 1  month
+similarity: 0.9683
+
+origin: R - Recency F - Frequency M - Monetary C - Consistency
+first: Number of Unique Snd cntry - Buyer Cntry txns in past (2-90) day
+similarity: 0.9108
+second: Number of Unique Snd cntry - Buyer Cntry txns in past (4-90) day
+similarity: 0.9108
+
+origin: Young Consumer Routing RADD
+first: risk rating by seller country and seller industry and buyer country and counterparty, account level natural log (bad rate)
+similarity: 0.9180
+second: risk rating by seller country and seller industry and buyer country and counterparty, transaction level natural log (bad rate)
+similarity: 0.9083
+
+origin: YC routing radd based on historical data
+first: Rely on http://rdp-s01.corp.ebay.com/mediawiki/index.php/IDI_RADD_Files#IDI_CAM_EDOMAIN_NONDCC
+similarity: 0.9785
+second: asp when cc indetermined (is_bad > 0 and is_bad not in (3,4)) on all transactions
+similarity: 0.8475
+
+origin: RADD file to store bank account number hmac and bank routing number of confirmed banks the Yodlee returns a strong name mismatch
+first: number of accts that have used this counter party before
+similarity: 0.9806
+second: number of accts that have used this shipping address before
+similarity: 0.9789
+
+origin: This RADD identifies new high risk accounts entering the SMB segment.
+first: Has bad vid in other reasons.
+similarity: 0.8319
+second: Has bad vid in big merchant transactions.
+similarity: 0.8318
+
+origin: This is a daily RADD for YS PreTxn, asset and account rating.
+first: Calculates the maximum ato unit-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total unit-wgt= 0 then default value is -1.
+similarity: 0.9544
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.9542
+
+origin: a radd with "young seller" sub segmentation
+first: Average ASP in new leaf categories / Total Average ASP in past 3 days
+similarity: 0.8228
+second: Average ASP in new leaf categories / Total Average ASP in past 30 days
+similarity: 0.8103
+
+origin: GRCM case and acct level aggregate information
+first: risk rating by email domain and buyer country, ratio of the current transaction amount and the average good transaction amount
+similarity: 0.7736
+second: risk rating by email domain and buyer country, transaction level natural log (bad amount rate)
+similarity: 0.7696
+
+origin: this process is to calculated exposure for LM/SMB account, which would be used in later queue framework
+first: account minimum lifetime balance (balance * days)
+similarity: 0.9207
+second: Minimum of time difference between two withdrawals calculated in hour in 20 days in the last 180 days. If two withdrawals are happened in the same day this value is 0.
+similarity: 0.8697
+
+origin: for dynamical QP radd 1
+first: Subsegment name of the sender account for SMB-LM portfolio, such as: “inxp”, “xp_flat”, “special”, “etsy”;
+similarity: 0.8655
+second: Age of oldest credit card on the file of linked account with the sndr_id
+similarity: 0.8520
+
+origin: for dynamical_qp radd 2, the score would be calculated by the combination of radd 1 and radd 2
+first: Weighted square distance between the TXN IP and the immediate last transaction has been seen for this CC divided by the difference of the TS
+similarity: 0.9331
+second: Hour difference between current TXN and average hour
+similarity: 0.8412
+
+origin: SRO main RADD
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: This RADD contains information about RDA Machine ID. through this we can get the pairing of customer and the device he used.
+first: If max_ebay_dof NE 0, then compute  (pp_dof /max_ebay_dof).If max_ebay_dof = 0, then return 99999
+similarity: 0.9814
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9675
+
+origin: This process creates a PP sender account RADD file based PPC acquisition flow. This RADD file will be used in RPDS to manage UK PPC fraud risk. New version use a different data source for more accurate repayment info, PPC days on file also added to this RADD.
+first: days since Initial Ach return from bank account
+similarity: 0.9364
+second: Number of fdbks given within 1 days of txn for the seller as buyer for the past 90 days
+similarity: 0.9089
+
+origin: Generate RADD to profile risky buyer/seller and pass that recommendation to teammates
+first: counterparty profile from previous 20 weeks ending 4 weeks ago of ATO bad transaction rate
+similarity: 0.9824
+second: counterparty profile from previous 20 weeks ending 4 weeks ago of CC bad account rate
+similarity: 0.9824
+
+origin: Process to generate precomputed data for Data Share with Synchrony
+first: Average ASP in new leaf categories / Total Average ASP in past 3 days
+similarity: 0.8228
+second: Average ASP in new leaf categories / Total Average ASP in past 30 days
+similarity: 0.8103
+
+origin: venmo email domain fraudscore
+first: ratio of 30 days' refund with a case amount percentage to 90 days'
+similarity: 0.8736
+second: ratio of 30 days' refund amount to 90 days'
+similarity: 0.8721
+
+origin: This is a component of CRM All Purpose Radd to detect safe senders.
+first: Is this TXN is in align with the common behavior of the CC or not
+similarity: 0.8473
+second: Age of oldest credit card on the file of linked account with the sndr_id
+similarity: 0.8315
+
+origin: This RADD is to white list existing/old billing agreement based subsequent txns from all ATO checks.  table 1: get all active billing agreements (excluding ebay accounts) table 2 & 3: get BA created date  table 4: Get Auth Flow pass info at binding   table 5: get BA's active in last 12 months and #txns made by them  table 6: club them all table 5: to reduce size of RADD, make relevant exclusion like ba_created should be atleast 2 months old and should have done more than 2 txns OR AF pass at binding. This is to provide relief to habitual users (from ATO).
+first: Number of linked and locked accounts in the last 24 months
+similarity: 0.8696
+second: Number of months since the seller’s first sale
+similarity: 0.8606
+
+origin: Need a RADD file to maintain 6 month history of bad and good devices leveraging STC data shared by Google
+first: Sum of gross loss amount in 180day history
+similarity: 0.8492
+second: Sum of tpv amount in 180day history
+similarity: 0.8442
+
+origin: Static RADD for Venmo RR for Email Domain
+first: ratio of 30 days' refund amount to 90 days'
+similarity: 0.8240
+second: ratio of 30 days' refund with a case amount percentage to 90 days'
+similarity: 0.8178
+
+origin: IP3 Risk rating RADD
+first: spear risk rating variable for POS16_ATO
+similarity: 1.0000
+second: Min Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past (8-90) days
+similarity: 0.9063
+
+origin: Month of Year risk rating RADD
+first: spear risk rating variable for POS16_ATO
+similarity: 0.9955
+second: Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 1 days
+similarity: 0.9130
+
+origin: Venmo phone area code risk rating
+first: spear risk rating variable for POS16_ATO
+similarity: 1.0000
+second: Min Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past (8-90) days
+similarity: 0.9065
+
+origin: Bank RTN Risk Rating RADD
+first: spear risk rating variable for POS16_ATO
+similarity: 0.9990
+second: Min Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past (8-90) days
+similarity: 0.8989
+
+origin: Venmo Week of the month static RADD
+first: $ ato rate in cross-boarder transactions
+similarity: 0.9260
+second: $ ato rate in domestic transactions
+similarity: 0.9260
+
+origin: RADD based on PRIMEs trust platform which collects all trusted emails and phones for each customer from 4 different levels - trusted activity,signup,confirmed,aged
+first: asp when restricted (is_bad = 4) on cc transactions
+similarity: 0.9717
+second: asp when cc indetermined (is_bad > 0 and is_bad not in (3,4)) on all transactions
+similarity: 0.9579
+
+origin: RADD based on PRIMEs trust abilities, enriched with a customer that added the email as part of trusted activity and is the most indicative customer for additional risk assesments
+first: Subsegment name of the sender account for SMB-LM portfolio, such as: “inxp”, “xp_flat”, “special”, “etsy”;
+similarity: 0.7147
+second: Max Bad Act Risk Rating for Sndr cntry- Byr Cntry txns in past 1 days
+similarity: 0.6822
+
+origin: venmo cc bin
+first: $ ato rate in cross-boarder transactions
+similarity: 0.9623
+second: $ ato rate in domestic transactions
+similarity: 0.9623
+
+origin: venmo email pattern
+first: ratio of 30 days' refund with a case amount percentage to 90 days'
+similarity: 0.8560
+second: all email payment received amount in 7 days
+similarity: 0.8494
+
+origin: This is a RADD developed with the graph theory
+first: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9852
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the mean day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9794
+
+origin: venmo rtn numbers
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: Upload BINDB to live for BUFS component
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: Casual seller data mart
+first: Sum of seasonality index of seller
+similarity: 0.8934
+second: Maximum of Total amount of withdrawal in 60 days made by seller in the last 180 days
+similarity: 0.8693
+
+origin: This process will create number of ebay accounts linked to PP-id and also variables related to age for ebay accounts linked to PP-id.
+first: Number of ebay accounts linked to the sender-id
+similarity: 0.9834
+second: account total lifetime balance (balance * days)
+similarity: 0.9133
+
+origin: We observed that PP accounts are linked to several ebay accounts and want to compute ato and cc bad-rates (unit and dollar-wise) for ebay accounts linked to paypal account in the past 1 month.
+first: Calculates the maximum cc unit-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total unit-wgt= 0 then default value is -1.
+similarity: 0.9417
+second: Calculates the average cc dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1. For computing average, we replace -1 with 0.
+similarity: 0.9417
+
+origin: We observed that PP accounts are linked to several ebay accounts and want to compute ato and cc bad-rates (unit and dollar-wise) for ebay accounts linked to paypal account in the past 2 months.
+first: Calculates the maximum cc unit-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total unit-wgt= 0 then default value is -1.
+similarity: 0.9356
+second: Calculates the average cc dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1. For computing average, we replace -1 with 0.
+similarity: 0.9345
+
+origin: No reliable online ebay auction type tagging. Use offline listing auction type tagging.
+first: Average scheduled auction intervals (in days) per listing for the past 7 day
+similarity: 0.8686
+second: Average scheduled auction intervals (in days) per listing for the past 3 day
+similarity: 0.8680
+
+origin: Rollup on email pmt amt/cnt/asp/pct, and ratio describing behavior changing
+first: ratio of 7 days' refund with a case count percentage to 30 days'
+similarity: 0.9331
+second: ratio of 30 days' refund with a case count percentage to 90 days'
+similarity: 0.9308
+
+origin: RADD for keystroke based ARS attribute
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
+
+origin: Counts the number of accounts that have used this bank account; bank sharing.
+first: number of accts that have used this counter party before
+similarity: 0.9831
+second: number of accts that have used this shipping address before
+similarity: 0.9824
+
+origin: Variables describing seller voluntary refund behavior, rollup and ratios of the last 7/30/90 days
+first: Maximum of Total number of withdrawal in 30 days made by seller in the last 180 days
+similarity: 0.9813
+second: Percent usage of  second most commonly used IP_timezone on the acct in last 30-180 days
+similarity: 0.9756
+
+origin: As part of the Send & Request (email payments) loss mitigation effort, this table will contain several components or variables indicating risky flow history and changes.
+first: 30day tpv eg's tpv count in the history
+similarity: 0.9305
+second: 7day tpv eg's tpv count in the history
+similarity: 0.9301
+
+origin: The purpose of this RADD is to generate PayPal variables for users in UK, so that they can be used in the PayPal Credit Aquisition model (UKCA)
+first: If max_ebay_dof NE 0, then compute  (pp_dof /max_ebay_dof).If max_ebay_dof = 0, then return 99999
+similarity: 0.9969
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9895
+
+origin: The purpose of this RADD is to generate PayPal variables for users in UK, so that they can be used in the PayPal Credit Aquisition model
+first: If max_ebay_dof NE 0, then compute  (pp_dof /max_ebay_dof).If max_ebay_dof = 0, then return 99999
+similarity: 0.9969
+second: If there are multiple ebay accounts linked to a paypal-id (sender-id), compute the maximum day-on-file of the ebay accounts. If there is one account, return the day-on-file for that ebay account.
+similarity: 0.9895
+
+origin: By using the tracking numbers the sellers provide us, and enriching them with carriers’ data, we can accurately calculate the time between the purchase and the shipping/delivery of the product, and many other aspects of the shipment. We can use the framework to calculate statistics variables per transaction, per seller or per segment.
+first: Minimum of time difference between two withdrawals calculated in hour in 20 days in the last 180 days. If two withdrawals are happened in the same day this value is 0.
+similarity: 0.7746
+second: Minimum of time difference between two withdrawals calculated in hour in 2 days in the last 180 days. If two withdrawals are happened in the same day this value is 0.
+similarity: 0.7680
+
+origin: RADD generates variables that are describing merchant’s activity – selling activity and information about complaints that were submitted against the seller.
+first: Minimum of time difference between two withdrawals calculated in hour in 2 days in the last 180 days. If two withdrawals are happened in the same day this value is 0.
+similarity: 0.9534
+second: Minimum of time difference between two withdrawals calculated in hour in 20 days in the last 180 days. If two withdrawals are happened in the same day this value is 0.
+similarity: 0.9530
+
+origin: Sellers’ solution teams needs immediate variable available in Live environment. This RADD is to cover some of needed functionality. A daily updating RADD exposed to HADES and Pluto
+first: Calculates the average cc dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1. For computing average, we replace -1 with 0.
+similarity: 0.9359
+second: Calculates the average ato unit-wgt bad-rates among the various ebay accounts linked to paypal account in the past 1 month. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total unit-wgt= 0 then default value is -1. For computing average, we replace -1 with 0.
+similarity: 0.9327
+
+origin: The radd summarize the information from invoice of S&R (email payment) flow, including the transaction, listing, memo and shipping information
+first: Axciom demographic length of residence code
+similarity: 0.9688
+second: ratio of invoice average invoice count within 30days to 90 days
+similarity: 0.8916
+
+origin: test test test
+first: describes the ratio of eBay usage and compares to S&R usage
+similarity: 0.0000
+second: Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.
+similarity: 0.0000
