@@ -199,16 +199,16 @@ raw_corpus = [
     "This RADD identifies new high risk accounts entering the SMB segment.",
     "This is a daily RADD for YS PreTxn, asset and account rating.",
     "a radd with \"young seller\" sub segmentation",
-    "GRCM case and acct level aggregate information",
-    "this process is to calculated exposure for LM/SMB account, which would be used in later queue framework",
-    "for dynamical QP radd 1",
-    "for dynamical_qp radd 2, the score would be calculated by the combination of radd 1 and radd 2",
-    "SRO main RADD",
-    "This RADD contains information about RDA Machine ID. through this we can get the pairing of customer and the device he used.",
-    "This process creates a PP sender account RADD file based PPC acquisition flow. This RADD file will be used in RPDS to manage UK PPC fraud risk. New version use a different data source for more accurate repayment info, PPC days on file also added to this RADD.",
-    "Generate RADD to profile risky buyer/seller and pass that recommendation to teammates",
-    "Process to generate precomputed data for Data Share with Synchrony",
-    "venmo email domain fraudscore",
+    # "GRCM case and acct level aggregate information",
+    # "this process is to calculated exposure for LM/SMB account, which would be used in later queue framework",
+    # "for dynamical QP radd 1",
+    # "for dynamical_qp radd 2, the score would be calculated by the combination of radd 1 and radd 2",
+    # "SRO main RADD",
+    # "This RADD contains information about RDA Machine ID. through this we can get the pairing of customer and the device he used.",
+    # "This process creates a PP sender account RADD file based PPC acquisition flow. This RADD file will be used in RPDS to manage UK PPC fraud risk. New version use a different data source for more accurate repayment info, PPC days on file also added to this RADD.",
+    # "Generate RADD to profile risky buyer/seller and pass that recommendation to teammates",
+    # "Process to generate precomputed data for Data Share with Synchrony",
+    # "venmo email domain fraudscore",
     "This is a component of CRM All Purpose Radd to detect safe senders.",
     "This RADD is to white list existing/old billing agreement based subsequent txns from all ATO checks.  table 1: get all active billing agreements (excluding ebay accounts) table 2 & 3: get BA created date  table 4: Get Auth Flow pass info at binding   table 5: get BA's active in last 12 months and #txns made by them  table 6: club them all table 5: to reduce size of RADD, make relevant exclusion like ba_created should be atleast 2 months old and should have done more than 2 txns OR AF pass at binding. This is to provide relief to habitual users (from ATO).",
     "Need a RADD file to maintain 6 month history of bad and good devices leveraging STC data shared by Google",
@@ -239,7 +239,7 @@ raw_corpus = [
 ]
 
 # Create a set of frequent words and add stopwords
-stoplist = set('for a an of the and to in test'.split(' '))
+stoplist = set('for a an of the and to in'.split(' '))
 # Lowercase each document, split it by white space and filter out stopwords
 texts = [[word for word in document.lower().split() if word not in stoplist]
          for document in raw_corpus]
@@ -274,5 +274,37 @@ from gensim import models
 # train the model
 tfidf = models.TfidfModel(bow_corpus)
 # transform the "system minors" string
-t = tfidf[dictionary.doc2bow("idi_cfas_seller radd".lower().split())]
-print(t)
+testset = [
+    "idi_cfas_seller_radd",
+    "idi_cfas_seller_ti_radd",
+    "IDI_MISC_09",
+    "ONUS DATA PROCESSING",
+    "test test test",
+    "how to score this test set for each tpv amount",
+    "looking forward to see you",
+    "GRCM case and acct level aggregate information",
+    "this process is to calculated exposure for LM/SMB account, which would be used in later queue framework",
+    "for dynamical QP radd 1",
+    "for dynamical_qp radd 2, the score would be calculated by the combination of radd 1 and radd 2",
+    "SRO main RADD",
+    "This RADD contains information about RDA Machine ID. through this we can get the pairing of customer and the device he used.",
+    "This process creates a PP sender account RADD file based PPC acquisition flow. This RADD file will be used in RPDS to manage UK PPC fraud risk. New version use a different data source for more accurate repayment info, PPC days on file also added to this RADD.",
+    "Generate RADD to profile risky buyer/seller and pass that recommendation to teammates",
+    "Process to generate precomputed data for Data Share with Synchrony",
+    "venmo email domain fraudscore",
+    "cfas seller ti"
+]
+for str in testset:
+    t = tfidf[dictionary.doc2bow(str.lower().split())]
+    if (t == []):
+        print("Input : %s" %str)
+        print("Score : %d" %0)
+    else:
+        print("Input : %s" % str)
+        count = 0
+        sum = 0
+        for item in t:
+            count += 1
+            sum += item[1]
+        res = sum/count
+        print("Score : %f" % res)
