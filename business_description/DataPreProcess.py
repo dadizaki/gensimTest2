@@ -1,5 +1,5 @@
-file = open("new_biz_meaningful")
-fo = open("processed_meaningful.txt", "w")
+file = open("new_biz_meaningless")
+fo = open("processed_meaningless.txt", "w")
 
 while True:
     line = file.readline()

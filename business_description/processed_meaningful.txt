@@ -1,3 +1,4 @@
+raw_corpus_meaningful = [
 "describes the ratio of eBay usage and compares to S&R usage",
 "Calculates the maximum ato dollar-wgt bad-rates among the various ebay accounts linked to paypal account in the past 2 months. Since ebay_pp_txn table has 3 day delay, we subtract 4 days. If total dollar-wgt= 0 then default value is -1.",
 "Std of 30day glosscnt eg's interval in the history",
@@ -1189,3 +1190,4 @@
 "ratio of request money email payment received amount in 30 days to 90 days",
 "invoice item daily average within 7 days",
 "describes general gross loss frequency and specifically for S&R"
+]

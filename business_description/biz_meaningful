@@ -236,5 +236,6 @@
     "By using the tracking numbers the sellers provide us, and enriching them with carriers’ data, we can accurately calculate the time between the purchase and the shipping/delivery of the product, and many other aspects of the shipment. We can use the framework to calculate statistics variables per transaction, per seller or per segment.",
     "RADD generates variables that are describing merchant’s activity – selling activity and information about complaints that were submitted against the seller.",
     "Sellers’ solution teams needs immediate variable available in Live environment. This RADD is to cover some of needed functionality. A daily updating RADD exposed to HADES and Pluto",
-    "The radd summarize the information from invoice of S&R (email payment) flow, including the transaction, listing, memo and shipping information"
+    "The radd summarize the information from invoice of S&R (email payment) flow, including the transaction, listing, memo and shipping information",
+    "ONUS DATA PROCESSING"
 ]

@@ -2,6 +2,7 @@
 import logging
 logging.basicConfig(format='%(asctime)s: %(levelname)s : %(message)s', level = logging.INFO)
 # corpus
+
 raw_corpus = [
     "withdrawal limit value for each account",
     "Variable for iACH Top Casual EMEA Strategy",

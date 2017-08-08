@@ -1,0 +1,19 @@
+Explosive Growth rollup variables: different kinds of statistics of (duration/interval/coverage) over seller's EG period
+Days in Seg variable for Credit / Fraud strategies
+Collects leads for sellers that are not responsive to customers and present a risk
+Consistency score of shipping address
+Risk score of primary address
+Risk score of shipping address
+EMEA SRM lifetime TPV and segment
+Including CC info whose first used time was more than 90 days ago with no gloss
+latest RFMBC scores for UK consumer apps to use in the decision process. RFMBC score may need to be a few days old in live as todays score may not be populated
+This component aims at reducing send&request loss. It does this by using scoring each active PayPal buyer using two GBT models.
+Daily running RADD the will aggregate previously sold leaves for each eBay ID in our segment
+This daily RADD will be used in EMEA SRM exit strategy 2017 rules
+PPWC attributes for Pluto to consume in order to output Pend decision rather than Approve or Decline only
+This RADD will be used as part of the P2P component pack, for the risky receiver device lead
+expose offline calculated risk indicator as risky ip/shipping address to be used in Backend related checkpoints, including Funding, GT, CaseScoring, CaseEvaluation.
+To create a table which contains Information about number of days since the account with a given email was created
+To create the table with summarized amount of Transactions reaching specific delinquency stages
+RADD table that calculates the risk score of a seller, based on his eBay history and activity, as well as comparison with Send Request transactions.
+This RADD maintains a dynamic list of all valid syntax for tracking number from any carriers based on historical patterns
