@@ -77,10 +77,10 @@ Current transaction amount divided by VID 20 weeks average Cc Unauth transaction
 Current transaction amount divided by VID 4 weeks average Cc Unauth transaction amount
 number of ATO transactions
 VID 4 weeks: the absolute value of the difference between the transaction amount and the average approved dollar amount divided by the standard deviation
-Teradata table location on Leopard
+"Teradata table location on Leopard
 pp_risk_ops_views.amt_RADD_table
 Biz Owner Contact
-Reza KhosravaniIt is a weekly job C_PP_IDI_POS_RSK_RATING.
+Reza KhosravaniIt is a weekly job C_PP_IDI_POS_RSK_RATING."
 summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: AmtUsd, target function: max, profile key: FsoId
 summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 7, target field: AmtUsd, target function: max, profile key: FsoId
 summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: AmtUsd, target function: max, profile key: FsoId
@@ -223,8 +223,8 @@ Current transaction amount divided by CP 4 weeks average CC Unauth transaction a
 CP 4 weeks: the absolute value of the difference between the transaction amount and the average approved dollar amount divided by the standard deviation
 Current transaction amount divided by edomain 1 week average approved transaction amount
 Rely on http://rdp-s01.corp.ebay.com/mediawiki/index.php/IDI_RADD_Files#IDI_CAM_EDOMAIN_NONDCC
-Deprecated all ebay related variables.
-This variable's name is duplicate with another variable: http://variable-catalogue-3193.ccg21.dev.paypalcorp.com:3000/variables/arm_email_MP_10d_txn_dk
+"Deprecated all ebay related variables.
+This variable's name is duplicate with another variable: http://variable-catalogue-3193.ccg21.dev.paypalcorp.com:3000/variables/arm_email_MP_10d_txn_dk"
 hahaha. Deprecated all ebay related variables
 Deprecated all ebay related variables. Deprecated all ebay related variables
 Deprecated all ebay related variables  .This variable's name is duplicate with another variable: http://variable-catalogue-3193.ccg21.dev.paypalcorp.com:3000/variables/arm_email_MP_days_snc_sus_acct
@@ -275,8 +275,8 @@ Current transaction amount divided by IP range 1 week average CC Unauth transact
 Current transaction amount divided by IP range 20 weeks average approved transaction amount
 Current transaction amount divided by IP range 4 weeks average ATO transaction amount
 Current transaction amount divided by IP range 4 weeks average Cc Unauth transaction amount
-IPR 20 weeks: the absolute value of the difference between the transaction amount and the average approved dollar amount divided by the standard deviation
-IPR 4 weeks: the absolute value of the difference between the transaction amount and the average approved dollar amount divided by the standard deviation
+ IPR 20 weeks: the absolute value of the difference between the transaction amount and the average approved dollar amount divided by the standard deviation
+ IPR 4 weeks: the absolute value of the difference between the transaction amount and the average approved dollar amount divided by the standard deviation
 max(CP1wRtAtoBadTxn, CP1wRtCcBadTxn)
 max(CP1wRtDolAtoBadTxn, CP1wRtDolCcBadTxn)
 max(CP20wRtAtoBadAcc, CP20wRtCcBadAcc)
@@ -779,7 +779,8 @@ Collusion risk rating by withdrawal target bank routing number on transaction co
 Collusion risk rating by withdrawal target bank routing number on  transaction amount within 120 days
 Collusion risk rating by withdrawal target bank routing number on account count within 120 days
 ATO risk rating by withdrawal target bank routing number on transaction count within 120 days
-CAM risk rating by withdrawal target bank routing number on decline transaction count within 120 days
+"CAM risk rating by withdrawal target bank routing number on decline transaction count within 120 days
+"
 ATO risk rating by withdrawal target bank routing number on transaction amount within 120 days
 Collusion risk rating by withdrawal target bank routing number on account amount within 120 days
 CAM risk rating by withdrawal target bank routing number on transaction amount within 120 days

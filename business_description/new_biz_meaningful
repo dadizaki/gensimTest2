@@ -161,7 +161,6 @@ Current transaction amount divided by CP 4 weeks average ATO transaction amount
 Current transaction amount divided by CP 4 weeks average CC Unauth transaction amount
 CP 4 weeks: the absolute value of the difference between the transaction amount and the average approved dollar amount divided by the standard deviation
 Current transaction amount divided by edomain 1 week average approved transaction amount
-Rely on http://rdp-s01.corp.ebay.com/mediawiki/index.php/IDI_RADD_Files#IDI_CAM_EDOMAIN_NONDCC
 ratio of 30 days' refund with a case amount percentage to 90 days'
 ratio of 7 days' refund with a case amount to 30 days'
 Flag of whether the transaction is the first non-P2P transaction of the receiver.
