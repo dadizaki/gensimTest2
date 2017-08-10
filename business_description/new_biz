@@ -114,7 +114,7 @@ summarization: sum, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 7, target
 summarization: sum, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: AmtUsd, target function: stdev, profile key: SnrPCnty,SnrIpCnty
 summarization: none, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: AmtUsd, target function: max, profile key: SnrPCnty,SnrIpTz
 summarization: count, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 90, target field: TxnId, target function: max, profile key: SnrPCnty,SnrIpTz
-summarization: sum, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: AmtUsd, target function: max, profile key: SnrPCnty,SnrIpTz
+v: sum, filters: IsWAX=0&&IsDCC=0&&IsVT=0, traceback days: 30, target field: AmtUsd, target function: max, profile key: SnrPCnty,SnrIpTz
 risk rating by email domain and buyer country, transaction level bad amount rate
 risk rating by email domain and buyer country, transaction level natural log (bad amount rate)
 risk rating by email domain and buyer country, transaction level bad rate

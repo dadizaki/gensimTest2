@@ -60,18 +60,23 @@ for line in lines:
 f.close()
 
 file = open("S2000_T200_topic200.txt", "w")
+flag = "meaning"
 for dd in doc:
     vec_bow = dictionary.doc2bow(dd.lower().split())
     vec_lsi = lsi[vec_bow]  # convert the query to LSI space
     # print(vec_lsi)
     # Performing queries
+
     sims = index[vec_lsi]  # perform a similarity query against the corpus
     sims = sorted(enumerate(sims), key=lambda item: -item[1])
     if raw_corpus[sims[0][0]] in raw_corpus_meaningless:
+        flag = "meaningless"
         print("meaningless")
     elif sims[0][1] == 0.0:
+        flag = "meaningless"
         print("meaningless")
     else:
+        flag = "meaningful"
         print("meaningful")
     # print(sims[0], sims[1])
     # print("origin: %s" % dd)
@@ -81,6 +86,7 @@ for dd in doc:
     # print("similarity: %f" % sims[1][1])
     file.write("\r\n")
     file.write("origin: %s\r\n" % dd)
+    file.write(flag)
     file.write("first: %s\r\n" % raw_corpus[sims[0][0]])
     file.write("similarity: %.4f\r\n" % sims[0][1])  # print sorted (document number, similarity score) 2-tuples
     file.write("second: %s\r\n" % raw_corpus[sims[1][0]])
