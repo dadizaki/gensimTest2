@@ -5,18 +5,17 @@ from collections import Counter
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 sentences = []
-f = open("new_biz", "r")
+f = open("corpus_filter.txt", "r")
 lines = f.readlines()
 for line in lines:
     sentences.append(line.strip('\n'))
 f.close()
 
 # word2vec = gensim.models.word2vec.Word2Vec(sentences, size=256, window=10, min_count=64, sg=1, hs=1, iter=10)
-word2vec = gensim.models.word2vec.Word2Vec(sentences, size=100, window=3, min_count=1, sg=1, hs=1, negative = 0)
+word2vec = gensim.models.word2vec.Word2Vec(sentences, size=100, min_count=1, hs=1, negative = 0)
 word2vec.save('word2vec_wx')
 model = gensim.models.Word2Vec.load('word2vec_wx')
 
-print("flag:", pd.Series(model.most_similar('a')))
 
 def predict_proba(oword, iword):
     iword_vec = model[iword]
@@ -31,8 +30,18 @@ def keywords(s):
     ws = {w:sum([predict_proba(u, w) for u in s]) for w in s}
     return Counter(ws).most_common()
 
-s = 'amount to sum'
-print(model.score(["a b j ".split()]))
-print(model.score([" b a j ".split()]))
-print(model.score(["v b j ".split()]))
-print(pd.Series(keywords(s.split())))
+
+
+file = open("all-w2v.txt", "w")
+f = open("biz_all", "r")
+lines = f.readlines()
+for line in lines:
+    sentences.append(line.strip('\n'))
+    file.write(line)
+    file.write("similarity: \r\n")
+    print(line)
+    print("\r\n")
+    print(pd.Series(keywords(line.split())))
+    # file.write(str(keywords(line.strip('\n').split())))
+f.close()
+file.close()

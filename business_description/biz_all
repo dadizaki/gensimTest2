@@ -1,4 +1,3 @@
-[
     "withdrawal limit value for each account",
     "Variable for iACH Top Casual EMEA Strategy",
     "ACH EMEA Top Casual RADD for our new strategy",
@@ -241,4 +240,3 @@
     "RADD generates variables that are describing merchant’s activity – selling activity and information about complaints that were submitted against the seller.",
     "Sellers’ solution teams needs immediate variable available in Live environment. This RADD is to cover some of needed functionality. A daily updating RADD exposed to HADES and Pluto",
     "The radd summarize the information from invoice of S&R (email payment) flow, including the transaction, listing, memo and shipping information"
-]
