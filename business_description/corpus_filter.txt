@@ -1,0 +1,319 @@
+This is just an initial list, you will be able to change later
+Start with a blank workflow
+Confirming one RADD could be retired
+This RADD is not called by services in last 1 month  No RADD-Variable lineage exists; or there is lineage, but no usage in last 1 month  No RADD-Rule lineage exists; or there is lineage, but no usage in last 1 month  Get confirmation from RADD owner  This RADD is not referenced by other RADDs/ROE tables
+[EDS]  Mark this RADD as “IN_RETIREMENT_QUEUE” in FAST-R; Send out notification that this RADD is to be retired, do not use it in new variables/rules
+[EDS]  Disable this RADD in Swift, and stop data loading
+[GRDS/DNA]  Give it 2 weeks for monitoring, sign-off
+[DNA/GRDS](Optional)  Disable linked rules/variables if any. Then give it 1 week for monitoring
+[PD]  Disable read path configuration
+[GRDS/DNA]  Give it 2 weeks for monitoring, sign-off
+[PD]  Disable write path configuration(Aerospike)
+[CPI]  Clean up data &amp; metadata in related Aerospike cluster
+[GRDS/DNA]  Give it 1 week for monitoring, sign-off
+[EDS]  Mark this RADD as “RETIRED”in FASTR.  Send out notification that this RADD is already retired  At the same time, disable all related UC4 jobs.
+[EDS/PD]  Disable this RADD in HBase(Simulation)
+RADD List To Be Retired
+RADD_NAME  OWNER  DEPT  CONFIRMED_DATE  Record Count（on confirmed date）  COMMENT
+1  IDI_EBAY_NA_BADHISTORY  kanli  SRM  2017-05-10  169,800
+Re Empty files for IDI_EBAY_NA_BADHISTORY_RADD.msg
+CRM  2017-07-14  18,360  have lineage with rule id 178509? able to deprecate this rule?
+8,709  have lineage with rule id 186663? able to deprecate this rule?
+RADD_NAME  OWNER  DEPT  PROGRESS  Record Count  COMMENT
+1  IDI_AUTO_ACTION_CANDIDATES  gprunty  SRM  Data stays same since 2017-02, owner confirmed no usage in rules, but  owner
+unwilling to retire. Data loading already disabled
+GRDS  Data/schema is not correct and not used since 2016-09, the first time its enabled. But owner unwilling to retire  82,805,217
+RE Reg - Increased RADD errors since IRAS since 424 release.msg
+SRM  Source data is empty since 2017-02, contacted owner, but got no response. Stop data loading on 2017-07-10  19,631
+GRDS  This RADD was having same data for past year. Recently, its source scratch table was dropped and the RADD owner was not in paypal anymore  21,755,472
+This is just an initial list, you will be able to change later
+Start with a blank workflow
+To add, delete, or update an existing monitor you need to start with the github repo.  Clone the github bbclient repo,  https://github.paypal.com/ToolsEngineering-R/pptools-bbclient  to your laptop/desktop.  If you already cloned the repo in the past make sure to start with a git pull to get the most current repo content.  Determine what changes need to be made to the repo files; add, delete, update and make those changes in your copy of the repo.  Be sure to  Tag the file(s) appropriately  if adding new files.  When making changes to any of the bb *tab files; bb-proctab, bb-msgtab, etc you'll need to check the bb git repo for any matching data centers and host groups.  Examples;  If you are adding or removing a script that runs on the ppdb host group you will need to update all of the ppdb host groups bb-bbexttab files in the repo  ~/git/pptools-bbclient/bm  $ find . -name ppdb -exec ls -al {}/etc/bb-bbexttab \;  -rw-r--r-- 1 moboyle Domain Users 543 Mar  4 17:40 ./dcg02/ppdb/etc/bb-bbexttab  -rw-r--r-- 1 moboyle Domain Users 543 Mar  4 17:40 ./dcg11/ppdb/etc/bb-bbexttab  -rw-r--r-- 1 moboyle Domain Users 543 Mar  4 17:40 ./dcg12/ppdb/etc/bb-bbexttab  -rw-r--r-- 1 moboyle Domain Users 512 Mar  4 17:40 ./phx/ppdb/etc/bb-bbexttab  -rw-r--r-- 1 moboyle Domain Users 574 Mar  4 17:40 ./slca/ppdb/etc/bb-bbexttab  -rw-r--r-- 1 moboyle Domain Users 481 Mar  4 17:40 ./slcb/ppdb/etc/bb-bbexttab
+Test/validate your changes by copying the updated file(s) to a single target where you are attempting to resolve the issues(s)  Because of the tags the scripts will automatically be added to the bb-bbexttab file for inclusion in the monitoring if the tags match active service(s) on the targets  The matching testname will appear in Xymon if this is a new test or the existing one will reflect your updates  Once the changes have been tested/validated to the expected outcome update github by running git status, git add, git rm, git commit, etc. based on your needs and once done perform a git push to update the master copy.
+Build a new pptools-bbclient RPM  and install it on the targets needing the updates  If the change is for global file(s) you will need to deploy to all bb clients and that should be done over 2 non consecutive days following the procedures  outlined here
+This is just an initial list, you will be able to change later
+Start with a blank workflow
+Overview  PPWC NextGen credit balance repayment will largely leverage the existing GCE repayment system that has built in capability with managing AR system integration in terms of posting and trailing activities, managing PayPal integration in terms of money movement and reconciliation,  and providing the business reporting and analytics capability.
+The high level design decision is based on following principles
+Leverage the GCE repayment capability when it can.  not reinvent the wheel.
+Leverage the GCE repayment component to perform fulfillment, and AR integration.
+The decisioning of the payment request is a separate process from the fulfillment of the payment.
+Reduce realtime API dependency on AR system due to the nature of PPWC's near realtime payment.  Leverage asynchronous process when functionality allows.
+High Level Design  Near Realtime Repayment  The repayment system consists of following sub functional areas:
+Determine repayment eligibility for transactions belonging to a PPWC merchant.
+Calculating payment amount and determine the payment request.
+Generating a payment request and send it over to GCE repayment system which is the input the to the fulfillment sub process.  Persist PPWC specific data that are used to identify the PPWC repayment information along with the payment request (such as the original txn id,  payment percentage)  GCE repayment credit component stages the payment request on a daily basis to post to AR system before the cutoff in a batch mode.
+This eliminates the real time posting call to AR system.
+Credit component triggers the PayPal/Finprod repay API to move the fund at realtime.
+PayPal Money creates the U type txn for each payment request (existing)  PayPal Finsys creates the settlement via the existing GCE repayment channel by subscribing the U type txn similar to the b type txn.
+Credit system reconcile with Finsys/FinOps of the all PPWC payment transactions similarly with GCE payment txns.
+Repayment eligibility decision  Listener Daemon could perform pre eligibility check with linkedin code to filter out non qualify PPWC transactions in order to reduce the number of times to call the PPWC payment decision service.  This could filter out a large volume of events that does not belong to PPWC scope.
+Txn country code not in the supported country  Receiver not in a PPWC merchant.  Types of txn not PPWC qualified.
+FinProd Daemon Design  We estimate that we will receive 8 million transactions per day (passing criteria #1).  We will keep the design in mind where the daemon/downstream logic will scale to increase PayPal transaction volumes without thrashing downstream systems.
+Looks at PaymentCreditPostprocess, PaymentCompletionPostprocess and CreditPostprocessPaymentCompletionRequest event:
+transaction_type == ‘U’) for U2U transaction  (and)  transaction_subtype == ‘G’ or transaction_subtype == ’S’) (and)  transaction_flag3 != EBAY_CAT (e.g, CAT_99)
+Criteria #2:  Excluded sender accounts
+Daemon will load “excluded sender accounts” from CBL.  Daemon will not allow recipients who are in this exclusion list.  Consider caching this data to optimize / prevent thrashing calls to CBL.
+Determine if “Receiver PayPal Account Number” has active business loan (using fpaccount as SOR)
+Call fpaccount to determine if recipient account has active business loan.
+Daemon loads "product configuration" from CBL.  Daemon uses the per-region cool-off period and fpaccount loan_creation date to determine if a repayment is needed.
+Criteria #5:  Loan version check
+Daemon determines if fpaccount loan version is eligible for real-time repayments  At this time, if loan version is &gt;= 3, then this event is eligible for real-time repayments.
+Criteria #6:  Calculate “total eligible transaction amount”
+Daemon will adjust total transaction amount to eliminate any merchant fees (Money will provide merchant fees in event).  Note that daemon will NOT convert currency to native loan currency.  Daemon calls CBL to " POST v1/credit/business-loans/{business_loan_id}/calculate-repayment"  passing:
+Input:  Business Loan ID (via path parameter)  Input:  PP merchant account number (via security context)  Input:  Credit Raw Pan (is this still needed?  CBL has this in its resource /DB persistence.)  Input:  Transaction id  Output:  “Total Eligible Transaction Amount”  (repayment % applied; in the merchant’s currency code [with conversion fees applied]; excluding merchant fees)
+This API must be idempotent.
+Daemon calls CreditRepaymentServ to "
+Input:  FP account id (in path param)
+Input:  PP merchant account number (in security context)
+Input:  “Total Original Amount” (total eligible transaction amount (excluding merchant fees)
+Input:  “Total Repayment Amount” (in merchant's currency code [conversion fees applied])
+This API must be idempotent.
+This operation will not send email to merchant.
+Payment amount decision  GetPaymentConstraints from CMPS can return the max allowed payment amount (the cashed account balance less all unposted payment request),  PPWC retrieves the max allowed payment amount.
+the final payment amount is the MIN(Max allowed payment amount,  merchant existing balance (allow foreign currency), amount of pre agreed percentage from txn amount)  No realtime AR call to determine the current balance from AR system.
+Near Real-time Repayment ( https://www.websequencediagrams.com/ )
+One time Payment  PPWC also supports the one time payment which allow a merchant to pay off entire or part of the balance by requesting an one off payment from merchant website.  The funding is always from merchant's available balance.
+Merchant selects payment amount and review the payment request prior to submit  Merchant submits the payment request via CreditRepaymentServ (Finprod Repayment)  CMPS schedules the payment and publishes the payment event.
+CMPS Fulfillment daemon asynchronously processes the payment request  Merchant waits for the response while Merchant webapp polling the payment result until the status change or timeout.  Response is presented to the merchant with success, failure or still pending.
+Discussion Notes on PPWC Txn Model  GCE Repayment system has provided similar functionality in terms of repayment that PPWC currently support or desire to support, however, one big difference is the txn model for PPWC repayment and GCE repayment that are used by the money core system.  Both txn model actually has the same goal to provide a uniformed integration with downstream system with Finsys, FinOps, Credit system so that we prevent modification of the system whenever we need to support new product. After working with money core team, finsys, finops, PPWC and business,  we summarized the discussion point and are able to reach an architecture agreement on which txn model to use for PPWC and potentially for GCE repayment.
+Summery of discussion on U type model vs b type model
+The U type model is the LTA for all new Money integration and that fits into the long term picture of Money domain.
+GCE repayment can be and should be migrated into this model in the future.
+The U type model has support for all different types of funding methods by default.  For b type txn model,  it has support for balance,  ACH, debit card only, and each time when a new type of funding source is required, there is change required on Money side.  In addition,  specifically for PPWC,  we allow the balance to be paid by different currency (after conversion), this is already supported by U type model.
+The effort of supporting either approach are equivalent from FinSys and FinOps perspective based on Madhu’s estimate.
+The U type model will need to simplify the risk and compliance check and blockage due to the nature of credit repayment. ( Kiran and Vinit to provide customization solution)  5.
+Which txn model to use can be encapsulated via Finprod and Finsys components thus has no impact on other components for overall PPWC and GCE repayment solution.
+Based on above findings,  we are leaning towards to keep the U type model for PPWC and Money team to design the customization of the U model for repayment user case which can be done in a phased out approach towards the final LTA.
+Messaging Framework Evaluation  Non functional requirement for the messaging framework
+Scalability and reliability with persisted message  The estimated message volume is 500K/per day initially, however, the system must be able to deal with the holiday volumes where we would expect large number of eligible transactions come into the system.
+Transactional Guarantee is not a primary concern at this point, the fulfillment system will have a recovery design to handle failed payment events during publishing.
+Setup and Deployment of the system within the timeline as well as easiness of support from managing team.
+Cost of system, any licensing fee, proprietary system cost.  The less the better  Monitoring and provisioning capability and easiness.
+PayPal AMQ  PayPal Yam  Kafka  MQ Series  ActiveMQ
+Transactional Guaranty  Reliable  Proven and matured alternative messaging solution
+Scale with persistency  Open source
+Reliable  Existing deployment in Credit System
+Existing deployment in Credit System  Open source
+PayPal specific infrastructure  PayPal specific application platform  Not a true messaging framework (DB oriented)
+PayPal customized cluster activeMQ  Not stable, not reliable, not scalable
+Setup &amp; Deployment challenge within Credit System as well as PayPal  Non existing business flow use case
+Setup &amp; Deployment challenge given the requirement of the new configuration
+with the most basic configuration, no persistency, active/passive configuration
+with the most basic configuration, no persistency, active/passive configuration
+This is just an initial list, you will be able to change later
+Start with a blank workflow
+BB client occasionally requires a 'reset'.  This could be to correct corruption, upgrade to the most recent codebase, or just reset DNR (do not remove) state.  Reset bbclient  The simplest and most consistent actino to reset bbclient is to reinstall the various RPMs from nitro.vip.  As root run;
+Reset DNR (do-not-remove) only  simply remove the existing manifest, as root run:  rm /opt/tivoli/automate/config/manifest.txt
+Automated vs BM (bigmother) host control  Not all hosts are under automation control, but most linux hosts are.  Some hostgroups (shortname stripped of common prefix and suffix) are manged via BM (bigmother) static configurations.  These are found in /x/home/bb/bm/{colo}/{hostgroup}/*.  Any files found under the matching bm subtree overwrite the same files in the bbclient /x/home/bb/bb/.  These tend to be static bb-proctab and bb-exttab scripts for non TR packages (like ppdb hostgroup database servers) but also some hostgroups not-yet-certified for automation.  Reseting BB or DNR will NOT help resolve issues on those servers - the configuration is likely to remain the same.  You'll need to escalate to tools oncall.
+Disabling a specific service  Whether a service is enabled or disabled is determined by enable flags.  A service is 'enabled' if a file matches the install directory basename under /x/web/{LIVE,SANDBOX}*/  or  /opt/tivoli/automate/enable/APPNAME/  These are driven by a
+package having a 'startable' state in the TR database
+or are created via some Altus automation respectively.  A service will only be disabled, however, if there are SOME files in the above directories.
+Missing ALL flags prevents a service from being marked disabled .
+Every 15 minutes, a list of 'startable' packages from TurboRoller are extracted and made accessible via a CGI on the nitro.vip reachable by every host on live site.  If the host is not known to TurboRoller then nothing is returned.  If the host is known but considered 'bad' or 'uncertified' then only a hostname is returned  ( this could help distinguish between managed and unmanaged hosts ).
+Summary: if you need to disable a specific service; disable 'startable' in turboroller.
+Enabling a specific service  TBD
+Notes on conflict between apachectl packages and httpd DNR  apachectl-* packages tend to create manifest entries for httpd to monitored.  Other httpd's on live site are not managed via TR, so there is ALSO a DNR proc pattern for httpd.  This leads to dual-discovery pattern, once of which is TR enable flag controlled, and the other is a DNR proc pattern.
+Once the TR package is disabled, the DNR remains.  The best fix for this at the moment is to 'Reset' bbclient.mbalog So do the new automate and discovery scripts not look to Turboroller’s autostart any more? We have seen sometimes that the only way to remove a service that has been decommed is to remove it from the /x/web/LIVE* directory. Or if a backup of a directory is made, it shows up in montiring as a service not running. Is this the normal course now? Or is something broken somewhere? Is there a way we can fix? (edited)
+right now, all piem hosts are alerting for httpd since apachectl-vdi was decommed. It is disabled in TR’s autostart. Not optimal to have ALL piem hosts alerting for procs. (edited)
+mbalog but I guess ideally, if a service is decommed, it should be removed.
+daniandrews But there are services that are supposed to be installed but not set to run unless turned on for failover purposes right?
+mbalog true. on the singletons for one.
+daniandrews and services that cause impact if started in phx also
+elaw automate merely drives discovery and updating of enable flags from turboroller.
+lack of ANY files in /opt/tivoli/automate/enable implies not managed by turboroller - 
+thus anything found installed under /x/web/* gets monitored.
+If you wish to decomm a service via TR, you must mark as 'unstartable' and wait for it to percolate to live site.
+We query TR every 15minutes from nitro vips, and endpoints randomly update their flags between 0 and 4hrs
+if you make a backup directory, there is no way we can tell it is a backup...
+discovery2.pl _will_ ignore files containing /[.](bak|back|old|bad|CHNGE)/i
+so you can call it .back and it will be ignored -- presumably .backup works too
+http is not installed in /x/web, thus does not fall under that model exactly....
+two ways http can appear in manifest and thus be monitored:
+1) apachectl service (like apachectl-vdc you mention)
+2) process httpd found running (regardless of who started it)
+looks like this issue was pondered during development of discovery2.pl but was not clearly addressed.
+I suspect the lingering httpd is now treated as DnR (do not remove) .... still checking
+sample host slcpiem10b has bbstat which includes manifest data -- see
+"manifest:" lines contain the actual manifest found by discovery2.pl
+it contains the following relevant entries:
+in the first line, it finds the way to monitor apachectl-vdcapi is vis bin/httpd pattern which gets disabled.
+in the second line, it finds httpd running (likely before vcdapi was disabled) and it became a DNR.
+it could not tell which httpd is mapped to which process (imagine if there were multiple per host? ouch)
+so.... PRESUMING one could say any/every httpd running on a host is tied to the only apachectl installed
+then we could maybe prevent DNR on httpd
+but that is not currently how it works
+but to the fix already, I know....
+clear the DNR by resetting monitoring on the host.
+the most consistent method is to reinstall the RPMs on the endpoint - that should be the knee-jerk reaction to move any monitoring problem.
+It has the side-effect of clearing DNR.
+you could just remove the manifest and let it regenerate; rm /opt/tivoli/automate/config/manifest.txt
+This is just an initial list, you will be able to change later
+Start with a blank workflow
+Creation of Credit account and disbursing funds into merchant's PP balance.
+Manages white listing of merchants
+Contract terms and conditions that merchant agreed to.
+Handles repayment functions like processing payments to repay loan, batch processing and settlement.
+Handles retrieval of account balances, repayments history, setting up repayment configuration, etc.
+Configures PPWC product with applicable policies
+Business metrics around credit approvals/declines, loan/advance payoff metrics, etc.
+Capability Decomposition and URI mapping
+Get fees for a business loan  /v1/credit/business-loans-fee?...  GET  Gets the applicable fee for a given amount based on APY/APR, business loan type etc.
+Check business eligibility eligibility for the merchant
+Manages application lifecycle for the product
+POST and Complete  Application for a business loan.
+Captures details about the loan details such as terms, API, fee, etc.
+This is not an L2 OR public API in Credit namespace, this API is only called from the service that handles PPWC onboarding.
+A business loan account that that tracks outstanding loans and repayments. A business loan account can contain multiple business loans which can be serviced independently. This account typically maps to AR system account.  This is not an L2 OR public API in Credit namespace, this API is only called from the service that handles PPWC onboarding.
+Deposit funds into Merchant's PP balance after successful business loan onboarding  Internal money interface
+Maintains pre-compiled white listing of merchants eligible to apply for the product  NA
+Get merchant loan account summary
+GET  Get's summary on primary business loan account and also returns HATEOS links to individual loan level activities ?
+GET  Get's activities associated with the particular business loan.
+Check transaction business loan repayment eligibility
+A controller resource that calculates if a money transaction is eligible for a repayment and also returns the payment amount to be collected.  Proposing the controller resource off of a merchant account id instead of hanging it at the root.
+GET  Gets constraints to setup a one time future payment to pay off a business loan. Also called for system initiated business loan billpay setup.
+Setup a one time payment
+POST, PUT &amp; GET  Merchant set's up a one time payment to pay off the business loan. Also used for daily recoveries from merchant's sale transactions where system creates billpay resources for processing business loan repayments. Specific constraints to be applied to make sure these system setup billpays are not authorized to be modified by the the consumer from wallet or credit activities hub experience.
+Process repayment transactions (batch)  NA
+Existing API. Calls Money APIs to move funds between the two accounts.
+Reconcile account for any excess or underpayments  TBD
+Manage merchant account/portal access to Gops  TBD
+Reporting and Analytics  TBD  TBD
+Resource Model  Very simplified model, to be expanded after the design discussions
+API Context Diagram  Clients: PPWC Acquisition Exp, 8Ball, Admin, Batch processes
+(2/2/15, Amit Sharma, Weiwei Song, Jeffrey Kemper, Hari Poolla)
+Onboarding Application orchestrates the PPWC
+CCS  fpbusinessloadserv (renamed from smblendingserv) (/business-loan-fee)
+PPWC Rest API &amp; Use Cases#AccountCreation&amp;CashAdvanceFunding  ) is broken between Credit Account Creation (AuthE/ARS and CCS) and FinProd Credit Account Creation (fpaccountserv and fpbusinessloanserv). There's a general concern noted around cyclic paths between fponboarding-r --&gt; fpaccount --&gt; fpbuisnessloan and fponboarding-r --&gt; fpbusinessloan. Historically fpaccount proxies the paypal account to credit account through a fp_account_id and this sequnece preserves this mapping. Per Jeff and Weiwei this is not a true cyclic dependency, and interaction from fpbusinessloan --&gt; fpaccount vs fponboarding-r --&gt; fpaccount --&gt; fpbusinessloan are separated by use cases (specifically for new user onboarding step)
+Capacity concerns were tabled for a further review, GFD in specific needs to be assessed for capacity in the course of the implementation
+(2/23/15, Amit Sharma, Weiwei Song, Jeffrey Kemper, Jeffrey Holter, Jacobs Cameron, Andy Egleston)
+PPWC Rest API &amp; Use Cases#PPWCNearRealtimeRepayment  ) determines eligibility and repayment decision per merchant transaction. The FinProd money post-processing daemon is the proposed for listening to money events and determining eligibility.
+fpbusinessloanpayment is a proposed component that depends on GFD (through fpaccount, for FP and Credit account load) and SoR (through CPS, for billpay constraints load).  Amit/Weiwei have an action item to determine if this is really a fpbusinesloan package or a new fpbusinessloanpayment package (considering the downstream dependencies already exist in fpbusinessloan)
+we will incur additional load on GDF for each money event regardless of the eligible volume, and we need to size GFD appropriately. We are generally okay with the capacity for now though  for each eligible transaction, a billpay entity is created through creditrepyamentserv --&gt; CPS on SoR. No GFD writes are incurred in this path, however, we need to consider capacity on Credit SoR and CPS to handle this volume.  Anticipated 2015 volume is &gt;325K/day on average not accounting for holidays and spikes if any. We need to generally assume ~1MM/day capacity for CPS.  Andy has taken an action item to followup on CPS and SoR side
+From a design perspective, we can call CPS for all eligible transactions and entirely delegate computing of repayment to CPS. This reduces some chattiness between CPS and fpbuisnessloanpayment. Weiwei cited concern around adding additional logic in CPS, but, this option should be explored to improve performance as the volume increases. CPS hosts /credit/billpay-constraints/ that in conjunction with the /credit/buisness-loan/ and transaction event provide sufficient context for determining repayment and persisting a billpay entity.
+see  Credit Balance Repayment  for component breakdown. Credit payment fulfilment process uses ActiveMQ brokers for scheduled billpays. This needs some investigation from performance and scalability perspective, with anticipated volume ~1MM/day and likely bursts in volume (considering this is a function of merchant payments) we need to access this infrastructure for scalability.  Amit to followup with John P on messaging infrastructure and add Gerum H for messaging.
+fpbuisnessloanpayment and/or FinProd money post-processing daemon must emit CAL event for all eligible transaction that it posts to CPS. This is essential for PPWC repayments KPI as a top level indicator of eligible repayments.  Jeff H to help with CAL instrumentation and review of CAL logging
+CPS as well as fpcreditrepaymentserv has CAL instrumentation that should be changed for PPWC to emit PPWC specific events that can be extracted and reported in spotlight. We need to add these tech stories and review as we go through implementation.  Jeff K to take this action item?
+PPWC Servicing - Activities (Pending)
+Architectural views from Weiwei and Jeffrey
+APIs, Use Cases and Server mapping
+Other technical design and product info - PPWC
+This is just an initial list, you will be able to change later
+Start with a blank workflow
+This page has been migrated from the KB,
+to see the original page.
+A vendor needs to get access to one of the paypal data centers to perform work.
+If a vendor initiates the request, you must first get the techs name, case number and company name.
+Call the main support number for the company and request verification that the tech is in fact an employee/contractor and there is an open valid case.
+Ensure that PayPal has an open RESTR for the issue and backline teams are aware of the maintenance
+File a VISIT ticket within trace:
+Launch Trace (eBay ticketing system)
+Service Request Tab -&gt; Data Center Access -&gt; Vendor Visit Request
+The following information is  REQUIRED
+Work and Mobile Phone number
+Drivers License Number  ( as of 8/1/10  - State Abbr and Last 4 numbers of drivers license number ex:  CO 1950 )
+No files shared here yet.
+Drag and drop to upload or  browse for files
+This is just an initial list, you will be able to change later
+Start with a blank workflow
+The following will be completed by Vinay - note the following data has been placed as an example only....
+Vendor Technical Contact Internal to PayPal
+Antonio Musumeci +353 86 0201828
+TAM Out of Hours Phone Number -
+BizOps - Doug Stanny 480-244-5057
+Monday to Friday (outside EU Business hours)
+1º Contact – TAM Out of Hours Phone Number - +1 408-967-2471  2º Contact – Antonio – +353 86 0201828  3º Contact – Ciaran – +353 87 760 2179  4º Contact – James – + 353 86 7948179
+1º Contact – Antonio – +353 86 0201828  2º Contact – Ciaran – +353 87 760 2179  3º Contact – James – + 353 86 7948179
+Primary:  +44 330 8080 174  Secondary : +212 6 62 77 00 30
+Escalation Level 1 Service Owner
+Office hours and escalation 1
+Abdellah Lotfi  Operations Support Desk Manager
++212 6 61 38 65 02
+Escalation Level 2 Relationship  Manager
+Office hours and escalation 2
+Escalation Level 3 Escalation Management
+Office hours and escalation 3
+Georgia McCann  Head of Operations
+Vodafone Global Service Desk  - DO NOT CALL UNLESS INSTRUCTED BY PAYPAL TECHNICAL CONTACTS
++49 2102 97-1444 Extension 2  Incident Manager on duty Incident Manager on duty (role) Mobile: +49 162 286 716 0
+Product Owner - Jaime Abril  email:  jaime.abril@vodafone.com
+Service Owner - Lars Stork email:  lars.stork@vodafone.com
+Solution Designer - Bas Hoekel  email:bas.hoeksel2@vodafone.com
+Vodafone Project Manager - Alan Wilson email:  alan.wilson4@vodafone.com
+1st - Antonio Musumeci  email:  amusumeci@paypal.com
+BizOps - Doug Stanny  email:  dstanny@paypal.com
+Service Manager 2  Ciaran MacEochaidh  email:  cmaceochaidh@paypal.com
+Phone: +44 20 8439 2307
+Drag and drop to upload or  browse for files
+This is just an initial list, you will be able to change later
+Start with a blank workflow
+Third Party Vendor  Vodafone Carta
+Vendor Technical Contact Internal to PayPal
+Antonio Musumeci +353 86 0201828
+TAM Out of Hours Phone Number -
+BizOps - Doug Stanny 480-244-5057
+Monday to Friday (outside EU Business hours)
+1º Contact – TAM Out of Hours Phone Number - +1 408-967-2471  2º Contact – Antonio – +353 86 0201828  3º Contact – Ciaran – +353 87 760 2179  4º Contact – James – + 353 86 7948179
+1º Contact – Antonio – +353 86 0201828  2º Contact – Ciaran – +353 87 760 2179  3º Contact – James – + 353 86 7948179
+Primary:  +44 330 8080 174  Secondary : +212 6 62 77 00 30
+Escalation Level 1 Service Owner
+Office hours and escalation 1
+Abdellah Lotfi  Operations Support Desk Manager
++212 6 61 38 65 02
+Escalation Level 2 Relationship  Manager
+Office hours and escalation 2
+Escalation Level 3 Escalation Management
+Office hours and escalation 3
+Georgia McCann  Head of Operations
+Vodafone Global Service Desk  - DO NOT CALL UNLESS INSTRUCTED BY PAYPAL TECHNICAL CONTACTS
++49 2102 97-1444 Extension 2  Incident Manager on duty Incident Manager on duty (role) Mobile: +49 162 286 716 0
+Product Owner - Jaime Abril  email:  jaime.abril@vodafone.com
+Service Owner - Lars Stork email:  lars.stork@vodafone.com
+Solution Designer - Bas Hoekel  email:bas.hoeksel2@vodafone.com
+Vodafone Project Manager - Alan Wilson email:  alan.wilson4@vodafone.com
+1st - Antonio Musumeci  email:  amusumeci@paypal.com
+BizOps - Doug Stanny  email:  dstanny@paypal.com
+Service Manager 2  Ciaran MacEochaidh  email:  cmaceochaidh@paypal.com
+Phone: +44 20 8439 2307
+Drag and drop to upload or  browse for files
+This is just an initial list, you will be able to change later
+Start with a blank workflow
+RADD Naming Convention from EDS  Basic validation
+All retained table name should be in lower case  Table name and column name should be seprated using undercore "_", other connectors are not allowed  For RADD final table, auditing columns (cre_ts, upd_ts) are  necessity.
+NO keyword "IDI" at the beginning of RADD name; NO keyword "_RADD" at the end of RADD name  If it's Hive generated RADD via FASTR, NO keyword "IDI_HDP" at the beginning of RADD name  If it's user created Hadoop RADD by themselves, start with "IDI_HDP" in RADD name  After removing "IDI_"/"IDI_HDP_" prefix, RADD name length should be less than 22 characters.  Frequent used abbreviations, please refer to  http://go/-/varcat/keywords  for now, we'll unify with GRDS continuously.
+Similar Column Name  From CRM Side
+Basic Text Validation on Query  TBD  Variable Naming Convention from GRDS  Please edit the page in  Variable Naming Convention
+Try to keep the length of variable name less than 32, unless with valid reason.  Variable name should be lower case and separate words with underline( "_" ).
+Example: vid_add_fund_acct_len63_lastk_1m  In history there are lots of variables (especially Radd variable) with camel case, Example: NumberOfSenderAddresses. Should be avoid in future.  Spear variables are seeking new solution to shorten variable name and switch to underline "_" style. Before the new solution ready, continue use camel case.
+Sender account related variables may have "s_" prefix (optional)
+Receiver account related variables need "r_" prefix (mandatory)
+Sender_Receiver pair related variables need "s_r_" prefix (mandatory)
+If keyword "sender" or "receiver" used in variable name but not as prefix,  use "sndr", "rcvr" instead, to follow keyword dictionary.
+Avoid Model Name in variable name except model score.
+Acronym or abbreviation follows keyword dictionary(displayed below).
+Variable Type  1. RADD variable
+Radd variable name derived from Radd table name and column name.
+Radd table name and column name please follow Radd Governance rule. refer to  Radd Governance Wiki Page  for more.  Radd name and Variable Name share same "_" style and same keyword dictionary.  Radd variable pattern: tablename abbreviation_columnname.
+tablenameabbreviation is the abbreviation of Radd table name. try to limit the abbreviation in 3~5 chars.
+columnname is the Radd table column name.
+2. EDGE variable  Edge Variable Types and Template
+Decay: Key_EventFilter_Function_dk_factor  E.g. appguid_argentum_amt_dk_10  Key: appguid  EventFilter: argentum  Function: amt  dk_factor: dk_10
+E.g. acct_login_s_num_ip_720h  Key: acct  EventFilter: login_s  Num: num  Target: ip  TimeWindow: 720h
+SlidingWindow: Key_EventFilter_Function_Slots_TimeWindow  E.g. acct_pymt_atmpt_sent_cnt_90_1h  Key: acct  EventFilter: pymt_atmpt_sent  Function: cnt  Slots: 90 (90 stand for 90 days(Optional), 72 stand for 72 hours(Mandatory).  TimeWindow: 1h
+Event Filter rules  Follow common rules
+Sections in Variable name and value list
+Key: The key for variable.
+acct  appguid  bcncookie  Bowserhash  bnum  bssid  cchash (credit card hash)  dy (deprecated, use dyson instead)  dyson  email  etag  flname  fso (deprecated)  ip  latlong2  naddress (numberic adress)  mid  r (receiver)  supCookie  s (some variable use s_ stand for source account for short)  s_r (sender_receiver)  vid
+EventFilter: a few word describe the filter of the event, follow common rule  Function: the function to calculate the variable  amt  cnt  count (deprecated, use cnt instead)  max  min  num (num is used in lastk variable while cnt is used in SlidingWindow variable)
+Target: the taget list of lastk variable, share same value list with key  Slots: number of slots/buckets in slidingwindow variable  72 (72 hours)  90 (90 days, default value for slots)
+Factor: the factor for decay. smaller factor means value decay faster  2  5  10  40  80  160  320  720
+TimeWindow: number of days/hours  (Note 24h is different than 1d.  Suppose it is 8:20am now, 24h means yesterday 9:00:00~ pit. 1day means today 0:00:00 ~ pit. )
+End with  "_ XX". XX stand of number or abbreciation of spear table
+Legency ARS variable: start with "ARS_vXX_" (XX is number, stand for variable batch number)  New ARS variables:
+start with "vXX_" (XX is number, stand for variable batch number)
+Acronyms &amp; Abbreviations  Use the keywords dictionary in your names.
+keyword  description  synonym, please try to avoid
+In variable catalog, if user search "transaction", all variable with substring "txn"/"tx"/"transaction"/"tran" will be displayed (to be implement)  If user need add more keyword into this dictionary, please reach out to  DL-PP-RND-GRDS-VariableGovernance
+This is just an initial list, you will be able to change later
+Start with a blank workflow
